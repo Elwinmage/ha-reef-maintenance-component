@@ -1,4 +1,8 @@
-# Reef maintenance
+# Reef maintenance 🐙
+> Part of the [**ReefTech Project Ecosystem**](https://elwinmage.github.io/reeftank/)
+<p align="center">
+  <img src="icon.png"  width="50%"/>
+</p>
 
 Home Assistant integration that tracks cleaning and wear tasks for aquarium
 equipment Home Assistant **cannot talk to** — flow pumps, return pumps,
