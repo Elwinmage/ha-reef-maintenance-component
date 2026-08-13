@@ -1,0 +1,316 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Reef maintenance",
+        "description": "Pick the brand of the equipment to track. One entry per brand; add as many equipments as you like afterwards.",
+        "data": {
+          "brand": "Brand"
+        }
+      }
+    },
+    "abort": {
+      "already_configured": "This brand is already configured."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Reef maintenance",
+        "menu_options": {
+          "add": "Add an equipment",
+          "edit": "Edit an equipment",
+          "remove": "Remove an equipment"
+        }
+      },
+      "add": {
+        "title": "New equipment",
+        "description": "Name it the way you call it at the tank, then pick the closest model.",
+        "data": {
+          "name": "Name",
+          "preset": "Model"
+        }
+      },
+      "tasks": {
+        "title": "Tasks for {equipment}",
+        "description": "Tasks from the model are preselected — uncheck what does not apply. Add your own below if something is missing.",
+        "data": {
+          "tasks": "Tasks",
+          "custom_tasks": "Custom tasks"
+        }
+      },
+      "edit": {
+        "title": "Edit an equipment",
+        "description": "Which equipment?",
+        "data": {
+          "id": "Equipment"
+        }
+      },
+      "edit_equipment": {
+        "title": "Edit {equipment}",
+        "description": "Intervals are not set here: each task has its own slider on the dashboard.",
+        "data": {
+          "name": "Name",
+          "tasks": "Tasks",
+          "custom_tasks": "Custom tasks"
+        }
+      },
+      "remove": {
+        "title": "Remove an equipment",
+        "description": "Its tasks and their history are deleted.",
+        "data": {
+          "id": "Equipment"
+        }
+      }
+    }
+  },
+  "entity": {
+    "button": {
+      "maint_pump_clean": {
+        "name": "Clean impeller and pump chamber"
+      },
+      "maint_magnet_holder_clean": {
+        "name": "Clean magnet holder and mount"
+      },
+      "maint_strainer_clean": {
+        "name": "Clean suction strainer"
+      },
+      "maint_pump_descale": {
+        "name": "Descale pump"
+      },
+      "maint_wear_parts_replace": {
+        "name": "Replace wear parts kit"
+      },
+      "maint_skimmer_cup_clean": {
+        "name": "Clean collection cup"
+      },
+      "maint_venturi_clean": {
+        "name": "Clean venturi and air line"
+      },
+      "maint_needle_wheel_clean": {
+        "name": "Clean needle wheel"
+      },
+      "maint_skimmer_body_descale": {
+        "name": "Descale skimmer body"
+      },
+      "maint_sock_replace": {
+        "name": "Replace filter sock"
+      },
+      "maint_carbon_replace": {
+        "name": "Replace activated carbon"
+      },
+      "maint_resin_replace": {
+        "name": "Replace resins"
+      },
+      "maint_probe_calibrate": {
+        "name": "Calibrate probe"
+      },
+      "maint_probe_clean": {
+        "name": "Clean probe"
+      },
+      "maint_uv_lamp_replace": {
+        "name": "Replace UV lamp"
+      },
+      "maint_water_change": {
+        "name": "Water change"
+      },
+      "maint_glass_clean": {
+        "name": "Clean the glass"
+      },
+      "maint_custom": {
+        "name": "{task}"
+      }
+    },
+    "number": {
+      "maint_pump_clean_interval_weeks": {
+        "name": "Clean impeller and pump chamber (weeks)"
+      },
+      "maint_magnet_holder_clean_interval_weeks": {
+        "name": "Clean magnet holder and mount (weeks)"
+      },
+      "maint_strainer_clean_interval_weeks": {
+        "name": "Clean suction strainer (weeks)"
+      },
+      "maint_pump_descale_interval_months": {
+        "name": "Descale pump (months)"
+      },
+      "maint_wear_parts_replace_interval_months": {
+        "name": "Replace wear parts kit (months)"
+      },
+      "maint_skimmer_cup_clean_interval_weeks": {
+        "name": "Clean collection cup (weeks)"
+      },
+      "maint_venturi_clean_interval_weeks": {
+        "name": "Clean venturi and air line (weeks)"
+      },
+      "maint_needle_wheel_clean_interval_months": {
+        "name": "Clean needle wheel (months)"
+      },
+      "maint_skimmer_body_descale_interval_months": {
+        "name": "Descale skimmer body (months)"
+      },
+      "maint_sock_replace_interval_days": {
+        "name": "Replace filter sock (days)"
+      },
+      "maint_carbon_replace_interval_weeks": {
+        "name": "Replace activated carbon (weeks)"
+      },
+      "maint_resin_replace_interval_months": {
+        "name": "Replace resins (months)"
+      },
+      "maint_probe_calibrate_interval_months": {
+        "name": "Calibrate probe (months)"
+      },
+      "maint_probe_clean_interval_months": {
+        "name": "Clean probe (months)"
+      },
+      "maint_uv_lamp_replace_interval_months": {
+        "name": "Replace UV lamp (months)"
+      },
+      "maint_water_change_interval_weeks": {
+        "name": "Water change (weeks)"
+      },
+      "maint_glass_clean_interval_days": {
+        "name": "Clean the glass (days)"
+      },
+      "maint_custom_interval_weeks": {
+        "name": "{task} (weeks)"
+      }
+    },
+    "switch": {
+      "maint_pump_clean_notify": {
+        "name": "Clean impeller and pump chamber (notifications)"
+      },
+      "maint_magnet_holder_clean_notify": {
+        "name": "Clean magnet holder and mount (notifications)"
+      },
+      "maint_strainer_clean_notify": {
+        "name": "Clean suction strainer (notifications)"
+      },
+      "maint_pump_descale_notify": {
+        "name": "Descale pump (notifications)"
+      },
+      "maint_wear_parts_replace_notify": {
+        "name": "Replace wear parts kit (notifications)"
+      },
+      "maint_skimmer_cup_clean_notify": {
+        "name": "Clean collection cup (notifications)"
+      },
+      "maint_venturi_clean_notify": {
+        "name": "Clean venturi and air line (notifications)"
+      },
+      "maint_needle_wheel_clean_notify": {
+        "name": "Clean needle wheel (notifications)"
+      },
+      "maint_skimmer_body_descale_notify": {
+        "name": "Descale skimmer body (notifications)"
+      },
+      "maint_sock_replace_notify": {
+        "name": "Replace filter sock (notifications)"
+      },
+      "maint_carbon_replace_notify": {
+        "name": "Replace activated carbon (notifications)"
+      },
+      "maint_resin_replace_notify": {
+        "name": "Replace resins (notifications)"
+      },
+      "maint_probe_calibrate_notify": {
+        "name": "Calibrate probe (notifications)"
+      },
+      "maint_probe_clean_notify": {
+        "name": "Clean probe (notifications)"
+      },
+      "maint_uv_lamp_replace_notify": {
+        "name": "Replace UV lamp (notifications)"
+      },
+      "maint_water_change_notify": {
+        "name": "Water change (notifications)"
+      },
+      "maint_glass_clean_notify": {
+        "name": "Clean the glass (notifications)"
+      },
+      "maint_custom_notify": {
+        "name": "{task} (notifications)"
+      }
+    },
+    "date": {
+      "maint_pump_clean_last_reset": {
+        "name": "Clean impeller and pump chamber (last done)"
+      },
+      "maint_magnet_holder_clean_last_reset": {
+        "name": "Clean magnet holder and mount (last done)"
+      },
+      "maint_strainer_clean_last_reset": {
+        "name": "Clean suction strainer (last done)"
+      },
+      "maint_pump_descale_last_reset": {
+        "name": "Descale pump (last done)"
+      },
+      "maint_wear_parts_replace_last_reset": {
+        "name": "Replace wear parts kit (last done)"
+      },
+      "maint_skimmer_cup_clean_last_reset": {
+        "name": "Clean collection cup (last done)"
+      },
+      "maint_venturi_clean_last_reset": {
+        "name": "Clean venturi and air line (last done)"
+      },
+      "maint_needle_wheel_clean_last_reset": {
+        "name": "Clean needle wheel (last done)"
+      },
+      "maint_skimmer_body_descale_last_reset": {
+        "name": "Descale skimmer body (last done)"
+      },
+      "maint_sock_replace_last_reset": {
+        "name": "Replace filter sock (last done)"
+      },
+      "maint_carbon_replace_last_reset": {
+        "name": "Replace activated carbon (last done)"
+      },
+      "maint_resin_replace_last_reset": {
+        "name": "Replace resins (last done)"
+      },
+      "maint_probe_calibrate_last_reset": {
+        "name": "Calibrate probe (last done)"
+      },
+      "maint_probe_clean_last_reset": {
+        "name": "Clean probe (last done)"
+      },
+      "maint_uv_lamp_replace_last_reset": {
+        "name": "Replace UV lamp (last done)"
+      },
+      "maint_water_change_last_reset": {
+        "name": "Water change (last done)"
+      },
+      "maint_glass_clean_last_reset": {
+        "name": "Clean the glass (last done)"
+      },
+      "maint_custom_last_reset": {
+        "name": "{task} (last done)"
+      }
+    }
+  },
+  "selector": {
+    "library_task": {
+      "options": {
+        "pump_clean": "Clean impeller and pump chamber",
+        "magnet_holder_clean": "Clean magnet holder and mount",
+        "strainer_clean": "Clean suction strainer",
+        "pump_descale": "Descale pump",
+        "wear_parts_replace": "Replace wear parts kit",
+        "skimmer_cup_clean": "Clean collection cup",
+        "venturi_clean": "Clean venturi and air line",
+        "needle_wheel_clean": "Clean needle wheel",
+        "skimmer_body_descale": "Descale skimmer body",
+        "sock_replace": "Replace filter sock",
+        "carbon_replace": "Replace activated carbon",
+        "resin_replace": "Replace resins",
+        "probe_calibrate": "Calibrate probe",
+        "probe_clean": "Clean probe",
+        "uv_lamp_replace": "Replace UV lamp",
+        "water_change": "Water change",
+        "glass_clean": "Clean the glass"
+      }
+    }
+  }
+}

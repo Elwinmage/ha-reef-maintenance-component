@@ -1,0 +1,316 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Rif-onderhoud",
+        "description": "Kies het merk van de apparatuur. Eén item per merk; daarna voeg je zoveel apparaten toe als je wilt.",
+        "data": {
+          "brand": "Merk"
+        }
+      }
+    },
+    "abort": {
+      "already_configured": "Dit merk is al geconfigureerd."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Rif-onderhoud",
+        "menu_options": {
+          "add": "Apparaat toevoegen",
+          "edit": "Apparaat bewerken",
+          "remove": "Apparaat verwijderen"
+        }
+      },
+      "add": {
+        "title": "Nieuw apparaat",
+        "description": "Noem het zoals je het bij de bak noemt en kies het dichtstbijzijnde model.",
+        "data": {
+          "name": "Naam",
+          "preset": "Model"
+        }
+      },
+      "tasks": {
+        "title": "Taken van {equipment}",
+        "description": "De taken van het model zijn voorgeselecteerd — vink uit wat niet van toepassing is. Voeg hieronder je eigen taken toe.",
+        "data": {
+          "tasks": "Taken",
+          "custom_tasks": "Eigen taken"
+        }
+      },
+      "edit": {
+        "title": "Apparaat bewerken",
+        "description": "Welk apparaat?",
+        "data": {
+          "id": "Apparaat"
+        }
+      },
+      "edit_equipment": {
+        "title": "{equipment} bewerken",
+        "description": "Intervallen stel je hier niet in: elke taak heeft een eigen schuifregelaar op het dashboard.",
+        "data": {
+          "name": "Naam",
+          "tasks": "Taken",
+          "custom_tasks": "Eigen taken"
+        }
+      },
+      "remove": {
+        "title": "Apparaat verwijderen",
+        "description": "De taken en hun geschiedenis worden verwijderd.",
+        "data": {
+          "id": "Apparaat"
+        }
+      }
+    }
+  },
+  "entity": {
+    "button": {
+      "maint_pump_clean": {
+        "name": "Rotor en pompkamer reinigen"
+      },
+      "maint_magnet_holder_clean": {
+        "name": "Magneethouder en bevestiging reinigen"
+      },
+      "maint_strainer_clean": {
+        "name": "Aanzuigkorf reinigen"
+      },
+      "maint_pump_descale": {
+        "name": "Pomp ontkalken"
+      },
+      "maint_wear_parts_replace": {
+        "name": "Slijtdelenset vervangen"
+      },
+      "maint_skimmer_cup_clean": {
+        "name": "Opvangbeker reinigen"
+      },
+      "maint_venturi_clean": {
+        "name": "Venturi en luchtslang reinigen"
+      },
+      "maint_needle_wheel_clean": {
+        "name": "Naaldrotor reinigen"
+      },
+      "maint_skimmer_body_descale": {
+        "name": "Skimmerbehuizing ontkalken"
+      },
+      "maint_sock_replace": {
+        "name": "Filterkous vervangen"
+      },
+      "maint_carbon_replace": {
+        "name": "Actieve kool vervangen"
+      },
+      "maint_resin_replace": {
+        "name": "Harsen vervangen"
+      },
+      "maint_probe_calibrate": {
+        "name": "Sonde kalibreren"
+      },
+      "maint_probe_clean": {
+        "name": "Sonde reinigen"
+      },
+      "maint_uv_lamp_replace": {
+        "name": "UV-lamp vervangen"
+      },
+      "maint_water_change": {
+        "name": "Waterwissel"
+      },
+      "maint_glass_clean": {
+        "name": "Ruiten reinigen"
+      },
+      "maint_custom": {
+        "name": "{task}"
+      }
+    },
+    "number": {
+      "maint_pump_clean_interval_weeks": {
+        "name": "Rotor en pompkamer reinigen (weken)"
+      },
+      "maint_magnet_holder_clean_interval_weeks": {
+        "name": "Magneethouder en bevestiging reinigen (weken)"
+      },
+      "maint_strainer_clean_interval_weeks": {
+        "name": "Aanzuigkorf reinigen (weken)"
+      },
+      "maint_pump_descale_interval_months": {
+        "name": "Pomp ontkalken (maanden)"
+      },
+      "maint_wear_parts_replace_interval_months": {
+        "name": "Slijtdelenset vervangen (maanden)"
+      },
+      "maint_skimmer_cup_clean_interval_weeks": {
+        "name": "Opvangbeker reinigen (weken)"
+      },
+      "maint_venturi_clean_interval_weeks": {
+        "name": "Venturi en luchtslang reinigen (weken)"
+      },
+      "maint_needle_wheel_clean_interval_months": {
+        "name": "Naaldrotor reinigen (maanden)"
+      },
+      "maint_skimmer_body_descale_interval_months": {
+        "name": "Skimmerbehuizing ontkalken (maanden)"
+      },
+      "maint_sock_replace_interval_days": {
+        "name": "Filterkous vervangen (dagen)"
+      },
+      "maint_carbon_replace_interval_weeks": {
+        "name": "Actieve kool vervangen (weken)"
+      },
+      "maint_resin_replace_interval_months": {
+        "name": "Harsen vervangen (maanden)"
+      },
+      "maint_probe_calibrate_interval_months": {
+        "name": "Sonde kalibreren (maanden)"
+      },
+      "maint_probe_clean_interval_months": {
+        "name": "Sonde reinigen (maanden)"
+      },
+      "maint_uv_lamp_replace_interval_months": {
+        "name": "UV-lamp vervangen (maanden)"
+      },
+      "maint_water_change_interval_weeks": {
+        "name": "Waterwissel (weken)"
+      },
+      "maint_glass_clean_interval_days": {
+        "name": "Ruiten reinigen (dagen)"
+      },
+      "maint_custom_interval_weeks": {
+        "name": "{task} (weken)"
+      }
+    },
+    "switch": {
+      "maint_pump_clean_notify": {
+        "name": "Rotor en pompkamer reinigen (meldingen)"
+      },
+      "maint_magnet_holder_clean_notify": {
+        "name": "Magneethouder en bevestiging reinigen (meldingen)"
+      },
+      "maint_strainer_clean_notify": {
+        "name": "Aanzuigkorf reinigen (meldingen)"
+      },
+      "maint_pump_descale_notify": {
+        "name": "Pomp ontkalken (meldingen)"
+      },
+      "maint_wear_parts_replace_notify": {
+        "name": "Slijtdelenset vervangen (meldingen)"
+      },
+      "maint_skimmer_cup_clean_notify": {
+        "name": "Opvangbeker reinigen (meldingen)"
+      },
+      "maint_venturi_clean_notify": {
+        "name": "Venturi en luchtslang reinigen (meldingen)"
+      },
+      "maint_needle_wheel_clean_notify": {
+        "name": "Naaldrotor reinigen (meldingen)"
+      },
+      "maint_skimmer_body_descale_notify": {
+        "name": "Skimmerbehuizing ontkalken (meldingen)"
+      },
+      "maint_sock_replace_notify": {
+        "name": "Filterkous vervangen (meldingen)"
+      },
+      "maint_carbon_replace_notify": {
+        "name": "Actieve kool vervangen (meldingen)"
+      },
+      "maint_resin_replace_notify": {
+        "name": "Harsen vervangen (meldingen)"
+      },
+      "maint_probe_calibrate_notify": {
+        "name": "Sonde kalibreren (meldingen)"
+      },
+      "maint_probe_clean_notify": {
+        "name": "Sonde reinigen (meldingen)"
+      },
+      "maint_uv_lamp_replace_notify": {
+        "name": "UV-lamp vervangen (meldingen)"
+      },
+      "maint_water_change_notify": {
+        "name": "Waterwissel (meldingen)"
+      },
+      "maint_glass_clean_notify": {
+        "name": "Ruiten reinigen (meldingen)"
+      },
+      "maint_custom_notify": {
+        "name": "{task} (meldingen)"
+      }
+    },
+    "date": {
+      "maint_pump_clean_last_reset": {
+        "name": "Rotor en pompkamer reinigen (laatst gedaan)"
+      },
+      "maint_magnet_holder_clean_last_reset": {
+        "name": "Magneethouder en bevestiging reinigen (laatst gedaan)"
+      },
+      "maint_strainer_clean_last_reset": {
+        "name": "Aanzuigkorf reinigen (laatst gedaan)"
+      },
+      "maint_pump_descale_last_reset": {
+        "name": "Pomp ontkalken (laatst gedaan)"
+      },
+      "maint_wear_parts_replace_last_reset": {
+        "name": "Slijtdelenset vervangen (laatst gedaan)"
+      },
+      "maint_skimmer_cup_clean_last_reset": {
+        "name": "Opvangbeker reinigen (laatst gedaan)"
+      },
+      "maint_venturi_clean_last_reset": {
+        "name": "Venturi en luchtslang reinigen (laatst gedaan)"
+      },
+      "maint_needle_wheel_clean_last_reset": {
+        "name": "Naaldrotor reinigen (laatst gedaan)"
+      },
+      "maint_skimmer_body_descale_last_reset": {
+        "name": "Skimmerbehuizing ontkalken (laatst gedaan)"
+      },
+      "maint_sock_replace_last_reset": {
+        "name": "Filterkous vervangen (laatst gedaan)"
+      },
+      "maint_carbon_replace_last_reset": {
+        "name": "Actieve kool vervangen (laatst gedaan)"
+      },
+      "maint_resin_replace_last_reset": {
+        "name": "Harsen vervangen (laatst gedaan)"
+      },
+      "maint_probe_calibrate_last_reset": {
+        "name": "Sonde kalibreren (laatst gedaan)"
+      },
+      "maint_probe_clean_last_reset": {
+        "name": "Sonde reinigen (laatst gedaan)"
+      },
+      "maint_uv_lamp_replace_last_reset": {
+        "name": "UV-lamp vervangen (laatst gedaan)"
+      },
+      "maint_water_change_last_reset": {
+        "name": "Waterwissel (laatst gedaan)"
+      },
+      "maint_glass_clean_last_reset": {
+        "name": "Ruiten reinigen (laatst gedaan)"
+      },
+      "maint_custom_last_reset": {
+        "name": "{task} (laatst gedaan)"
+      }
+    }
+  },
+  "selector": {
+    "library_task": {
+      "options": {
+        "pump_clean": "Rotor en pompkamer reinigen",
+        "magnet_holder_clean": "Magneethouder en bevestiging reinigen",
+        "strainer_clean": "Aanzuigkorf reinigen",
+        "pump_descale": "Pomp ontkalken",
+        "wear_parts_replace": "Slijtdelenset vervangen",
+        "skimmer_cup_clean": "Opvangbeker reinigen",
+        "venturi_clean": "Venturi en luchtslang reinigen",
+        "needle_wheel_clean": "Naaldrotor reinigen",
+        "skimmer_body_descale": "Skimmerbehuizing ontkalken",
+        "sock_replace": "Filterkous vervangen",
+        "carbon_replace": "Actieve kool vervangen",
+        "resin_replace": "Harsen vervangen",
+        "probe_calibrate": "Sonde kalibreren",
+        "probe_clean": "Sonde reinigen",
+        "uv_lamp_replace": "UV-lamp vervangen",
+        "water_change": "Waterwissel",
+        "glass_clean": "Ruiten reinigen"
+      }
+    }
+  }
+}

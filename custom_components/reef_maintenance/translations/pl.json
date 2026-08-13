@@ -1,0 +1,316 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Konserwacja rafy",
+        "description": "Wybierz markę sprzętu. Jeden wpis na markę; sprzęty dodasz później w dowolnej liczbie.",
+        "data": {
+          "brand": "Marka"
+        }
+      }
+    },
+    "abort": {
+      "already_configured": "Ta marka jest już skonfigurowana."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Konserwacja rafy",
+        "menu_options": {
+          "add": "Dodaj sprzęt",
+          "edit": "Edytuj sprzęt",
+          "remove": "Usuń sprzęt"
+        }
+      },
+      "add": {
+        "title": "Nowy sprzęt",
+        "description": "Nazwij go tak, jak mówisz o nim przy zbiorniku, i wybierz najbliższy model.",
+        "data": {
+          "name": "Nazwa",
+          "preset": "Model"
+        }
+      },
+      "tasks": {
+        "title": "Zadania dla {equipment}",
+        "description": "Zadania modelu są wstępnie zaznaczone — odznacz to, co nie dotyczy. Poniżej dodaj własne, jeśli czegoś brakuje.",
+        "data": {
+          "tasks": "Zadania",
+          "custom_tasks": "Zadania własne"
+        }
+      },
+      "edit": {
+        "title": "Edytuj sprzęt",
+        "description": "Który sprzęt?",
+        "data": {
+          "id": "Sprzęt"
+        }
+      },
+      "edit_equipment": {
+        "title": "Edytuj {equipment}",
+        "description": "Interwałów nie ustawia się tutaj: każde zadanie ma własny suwak na pulpicie.",
+        "data": {
+          "name": "Nazwa",
+          "tasks": "Zadania",
+          "custom_tasks": "Zadania własne"
+        }
+      },
+      "remove": {
+        "title": "Usuń sprzęt",
+        "description": "Jego zadania i ich historia zostaną usunięte.",
+        "data": {
+          "id": "Sprzęt"
+        }
+      }
+    }
+  },
+  "entity": {
+    "button": {
+      "maint_pump_clean": {
+        "name": "Wyczyść wirnik i komorę pompy"
+      },
+      "maint_magnet_holder_clean": {
+        "name": "Wyczyść uchwyt magnetyczny i mocowanie"
+      },
+      "maint_strainer_clean": {
+        "name": "Wyczyść kosz ssawny"
+      },
+      "maint_pump_descale": {
+        "name": "Odkamień pompę"
+      },
+      "maint_wear_parts_replace": {
+        "name": "Wymień zestaw części zużywalnych"
+      },
+      "maint_skimmer_cup_clean": {
+        "name": "Wyczyść kubek odpieniacza"
+      },
+      "maint_venturi_clean": {
+        "name": "Wyczyść venturi i wężyk powietrza"
+      },
+      "maint_needle_wheel_clean": {
+        "name": "Wyczyść wirnik igiełkowy"
+      },
+      "maint_skimmer_body_descale": {
+        "name": "Odkamień korpus odpieniacza"
+      },
+      "maint_sock_replace": {
+        "name": "Wymień skarpetę filtracyjną"
+      },
+      "maint_carbon_replace": {
+        "name": "Wymień węgiel aktywny"
+      },
+      "maint_resin_replace": {
+        "name": "Wymień żywice"
+      },
+      "maint_probe_calibrate": {
+        "name": "Skalibruj sondę"
+      },
+      "maint_probe_clean": {
+        "name": "Wyczyść sondę"
+      },
+      "maint_uv_lamp_replace": {
+        "name": "Wymień lampę UV"
+      },
+      "maint_water_change": {
+        "name": "Podmiana wody"
+      },
+      "maint_glass_clean": {
+        "name": "Wyczyść szyby"
+      },
+      "maint_custom": {
+        "name": "{task}"
+      }
+    },
+    "number": {
+      "maint_pump_clean_interval_weeks": {
+        "name": "Wyczyść wirnik i komorę pompy (tygodnie)"
+      },
+      "maint_magnet_holder_clean_interval_weeks": {
+        "name": "Wyczyść uchwyt magnetyczny i mocowanie (tygodnie)"
+      },
+      "maint_strainer_clean_interval_weeks": {
+        "name": "Wyczyść kosz ssawny (tygodnie)"
+      },
+      "maint_pump_descale_interval_months": {
+        "name": "Odkamień pompę (miesiące)"
+      },
+      "maint_wear_parts_replace_interval_months": {
+        "name": "Wymień zestaw części zużywalnych (miesiące)"
+      },
+      "maint_skimmer_cup_clean_interval_weeks": {
+        "name": "Wyczyść kubek odpieniacza (tygodnie)"
+      },
+      "maint_venturi_clean_interval_weeks": {
+        "name": "Wyczyść venturi i wężyk powietrza (tygodnie)"
+      },
+      "maint_needle_wheel_clean_interval_months": {
+        "name": "Wyczyść wirnik igiełkowy (miesiące)"
+      },
+      "maint_skimmer_body_descale_interval_months": {
+        "name": "Odkamień korpus odpieniacza (miesiące)"
+      },
+      "maint_sock_replace_interval_days": {
+        "name": "Wymień skarpetę filtracyjną (dni)"
+      },
+      "maint_carbon_replace_interval_weeks": {
+        "name": "Wymień węgiel aktywny (tygodnie)"
+      },
+      "maint_resin_replace_interval_months": {
+        "name": "Wymień żywice (miesiące)"
+      },
+      "maint_probe_calibrate_interval_months": {
+        "name": "Skalibruj sondę (miesiące)"
+      },
+      "maint_probe_clean_interval_months": {
+        "name": "Wyczyść sondę (miesiące)"
+      },
+      "maint_uv_lamp_replace_interval_months": {
+        "name": "Wymień lampę UV (miesiące)"
+      },
+      "maint_water_change_interval_weeks": {
+        "name": "Podmiana wody (tygodnie)"
+      },
+      "maint_glass_clean_interval_days": {
+        "name": "Wyczyść szyby (dni)"
+      },
+      "maint_custom_interval_weeks": {
+        "name": "{task} (tygodnie)"
+      }
+    },
+    "switch": {
+      "maint_pump_clean_notify": {
+        "name": "Wyczyść wirnik i komorę pompy (powiadomienia)"
+      },
+      "maint_magnet_holder_clean_notify": {
+        "name": "Wyczyść uchwyt magnetyczny i mocowanie (powiadomienia)"
+      },
+      "maint_strainer_clean_notify": {
+        "name": "Wyczyść kosz ssawny (powiadomienia)"
+      },
+      "maint_pump_descale_notify": {
+        "name": "Odkamień pompę (powiadomienia)"
+      },
+      "maint_wear_parts_replace_notify": {
+        "name": "Wymień zestaw części zużywalnych (powiadomienia)"
+      },
+      "maint_skimmer_cup_clean_notify": {
+        "name": "Wyczyść kubek odpieniacza (powiadomienia)"
+      },
+      "maint_venturi_clean_notify": {
+        "name": "Wyczyść venturi i wężyk powietrza (powiadomienia)"
+      },
+      "maint_needle_wheel_clean_notify": {
+        "name": "Wyczyść wirnik igiełkowy (powiadomienia)"
+      },
+      "maint_skimmer_body_descale_notify": {
+        "name": "Odkamień korpus odpieniacza (powiadomienia)"
+      },
+      "maint_sock_replace_notify": {
+        "name": "Wymień skarpetę filtracyjną (powiadomienia)"
+      },
+      "maint_carbon_replace_notify": {
+        "name": "Wymień węgiel aktywny (powiadomienia)"
+      },
+      "maint_resin_replace_notify": {
+        "name": "Wymień żywice (powiadomienia)"
+      },
+      "maint_probe_calibrate_notify": {
+        "name": "Skalibruj sondę (powiadomienia)"
+      },
+      "maint_probe_clean_notify": {
+        "name": "Wyczyść sondę (powiadomienia)"
+      },
+      "maint_uv_lamp_replace_notify": {
+        "name": "Wymień lampę UV (powiadomienia)"
+      },
+      "maint_water_change_notify": {
+        "name": "Podmiana wody (powiadomienia)"
+      },
+      "maint_glass_clean_notify": {
+        "name": "Wyczyść szyby (powiadomienia)"
+      },
+      "maint_custom_notify": {
+        "name": "{task} (powiadomienia)"
+      }
+    },
+    "date": {
+      "maint_pump_clean_last_reset": {
+        "name": "Wyczyść wirnik i komorę pompy (ostatnio)"
+      },
+      "maint_magnet_holder_clean_last_reset": {
+        "name": "Wyczyść uchwyt magnetyczny i mocowanie (ostatnio)"
+      },
+      "maint_strainer_clean_last_reset": {
+        "name": "Wyczyść kosz ssawny (ostatnio)"
+      },
+      "maint_pump_descale_last_reset": {
+        "name": "Odkamień pompę (ostatnio)"
+      },
+      "maint_wear_parts_replace_last_reset": {
+        "name": "Wymień zestaw części zużywalnych (ostatnio)"
+      },
+      "maint_skimmer_cup_clean_last_reset": {
+        "name": "Wyczyść kubek odpieniacza (ostatnio)"
+      },
+      "maint_venturi_clean_last_reset": {
+        "name": "Wyczyść venturi i wężyk powietrza (ostatnio)"
+      },
+      "maint_needle_wheel_clean_last_reset": {
+        "name": "Wyczyść wirnik igiełkowy (ostatnio)"
+      },
+      "maint_skimmer_body_descale_last_reset": {
+        "name": "Odkamień korpus odpieniacza (ostatnio)"
+      },
+      "maint_sock_replace_last_reset": {
+        "name": "Wymień skarpetę filtracyjną (ostatnio)"
+      },
+      "maint_carbon_replace_last_reset": {
+        "name": "Wymień węgiel aktywny (ostatnio)"
+      },
+      "maint_resin_replace_last_reset": {
+        "name": "Wymień żywice (ostatnio)"
+      },
+      "maint_probe_calibrate_last_reset": {
+        "name": "Skalibruj sondę (ostatnio)"
+      },
+      "maint_probe_clean_last_reset": {
+        "name": "Wyczyść sondę (ostatnio)"
+      },
+      "maint_uv_lamp_replace_last_reset": {
+        "name": "Wymień lampę UV (ostatnio)"
+      },
+      "maint_water_change_last_reset": {
+        "name": "Podmiana wody (ostatnio)"
+      },
+      "maint_glass_clean_last_reset": {
+        "name": "Wyczyść szyby (ostatnio)"
+      },
+      "maint_custom_last_reset": {
+        "name": "{task} (ostatnio)"
+      }
+    }
+  },
+  "selector": {
+    "library_task": {
+      "options": {
+        "pump_clean": "Wyczyść wirnik i komorę pompy",
+        "magnet_holder_clean": "Wyczyść uchwyt magnetyczny i mocowanie",
+        "strainer_clean": "Wyczyść kosz ssawny",
+        "pump_descale": "Odkamień pompę",
+        "wear_parts_replace": "Wymień zestaw części zużywalnych",
+        "skimmer_cup_clean": "Wyczyść kubek odpieniacza",
+        "venturi_clean": "Wyczyść venturi i wężyk powietrza",
+        "needle_wheel_clean": "Wyczyść wirnik igiełkowy",
+        "skimmer_body_descale": "Odkamień korpus odpieniacza",
+        "sock_replace": "Wymień skarpetę filtracyjną",
+        "carbon_replace": "Wymień węgiel aktywny",
+        "resin_replace": "Wymień żywice",
+        "probe_calibrate": "Skalibruj sondę",
+        "probe_clean": "Wyczyść sondę",
+        "uv_lamp_replace": "Wymień lampę UV",
+        "water_change": "Podmiana wody",
+        "glass_clean": "Wyczyść szyby"
+      }
+    }
+  }
+}

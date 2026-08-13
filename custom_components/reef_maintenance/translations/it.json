@@ -1,0 +1,316 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Manutenzione reef",
+        "description": "Scegli la marca dell'apparecchiatura da seguire. Una voce per marca; poi aggiungi quante apparecchiature vuoi.",
+        "data": {
+          "brand": "Marca"
+        }
+      }
+    },
+    "abort": {
+      "already_configured": "Questa marca è già configurata."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Manutenzione reef",
+        "menu_options": {
+          "add": "Aggiungi un'apparecchiatura",
+          "edit": "Modifica un'apparecchiatura",
+          "remove": "Rimuovi un'apparecchiatura"
+        }
+      },
+      "add": {
+        "title": "Nuova apparecchiatura",
+        "description": "Chiamala come la chiami davanti alla vasca, poi scegli il modello più vicino.",
+        "data": {
+          "name": "Nome",
+          "preset": "Modello"
+        }
+      },
+      "tasks": {
+        "title": "Attività di {equipment}",
+        "description": "Le attività del modello sono preselezionate: deseleziona ciò che non serve. Aggiungi le tue qui sotto se manca qualcosa.",
+        "data": {
+          "tasks": "Attività",
+          "custom_tasks": "Attività personalizzate"
+        }
+      },
+      "edit": {
+        "title": "Modifica un'apparecchiatura",
+        "description": "Quale apparecchiatura?",
+        "data": {
+          "id": "Apparecchiatura"
+        }
+      },
+      "edit_equipment": {
+        "title": "Modifica {equipment}",
+        "description": "Gli intervalli non si impostano qui: ogni attività ha il suo cursore nella dashboard.",
+        "data": {
+          "name": "Nome",
+          "tasks": "Attività",
+          "custom_tasks": "Attività personalizzate"
+        }
+      },
+      "remove": {
+        "title": "Rimuovi un'apparecchiatura",
+        "description": "Le sue attività e la loro cronologia vengono eliminate.",
+        "data": {
+          "id": "Apparecchiatura"
+        }
+      }
+    }
+  },
+  "entity": {
+    "button": {
+      "maint_pump_clean": {
+        "name": "Pulire il rotore e la camera della pompa"
+      },
+      "maint_magnet_holder_clean": {
+        "name": "Pulire il supporto magnetico e il fissaggio"
+      },
+      "maint_strainer_clean": {
+        "name": "Pulire il cestello di aspirazione"
+      },
+      "maint_pump_descale": {
+        "name": "Decalcificare la pompa"
+      },
+      "maint_wear_parts_replace": {
+        "name": "Sostituire il kit di parti soggette a usura"
+      },
+      "maint_skimmer_cup_clean": {
+        "name": "Pulire il bicchiere di raccolta"
+      },
+      "maint_venturi_clean": {
+        "name": "Pulire il venturi e il tubo dell'aria"
+      },
+      "maint_needle_wheel_clean": {
+        "name": "Pulire la girante ad aghi"
+      },
+      "maint_skimmer_body_descale": {
+        "name": "Decalcificare il corpo dello schiumatoio"
+      },
+      "maint_sock_replace": {
+        "name": "Cambiare il calzino filtrante"
+      },
+      "maint_carbon_replace": {
+        "name": "Sostituire il carbone attivo"
+      },
+      "maint_resin_replace": {
+        "name": "Sostituire le resine"
+      },
+      "maint_probe_calibrate": {
+        "name": "Calibrare la sonda"
+      },
+      "maint_probe_clean": {
+        "name": "Pulire la sonda"
+      },
+      "maint_uv_lamp_replace": {
+        "name": "Sostituire la lampada UV"
+      },
+      "maint_water_change": {
+        "name": "Cambio d'acqua"
+      },
+      "maint_glass_clean": {
+        "name": "Pulire i vetri"
+      },
+      "maint_custom": {
+        "name": "{task}"
+      }
+    },
+    "number": {
+      "maint_pump_clean_interval_weeks": {
+        "name": "Pulire il rotore e la camera della pompa (settimane)"
+      },
+      "maint_magnet_holder_clean_interval_weeks": {
+        "name": "Pulire il supporto magnetico e il fissaggio (settimane)"
+      },
+      "maint_strainer_clean_interval_weeks": {
+        "name": "Pulire il cestello di aspirazione (settimane)"
+      },
+      "maint_pump_descale_interval_months": {
+        "name": "Decalcificare la pompa (mesi)"
+      },
+      "maint_wear_parts_replace_interval_months": {
+        "name": "Sostituire il kit di parti soggette a usura (mesi)"
+      },
+      "maint_skimmer_cup_clean_interval_weeks": {
+        "name": "Pulire il bicchiere di raccolta (settimane)"
+      },
+      "maint_venturi_clean_interval_weeks": {
+        "name": "Pulire il venturi e il tubo dell'aria (settimane)"
+      },
+      "maint_needle_wheel_clean_interval_months": {
+        "name": "Pulire la girante ad aghi (mesi)"
+      },
+      "maint_skimmer_body_descale_interval_months": {
+        "name": "Decalcificare il corpo dello schiumatoio (mesi)"
+      },
+      "maint_sock_replace_interval_days": {
+        "name": "Cambiare il calzino filtrante (giorni)"
+      },
+      "maint_carbon_replace_interval_weeks": {
+        "name": "Sostituire il carbone attivo (settimane)"
+      },
+      "maint_resin_replace_interval_months": {
+        "name": "Sostituire le resine (mesi)"
+      },
+      "maint_probe_calibrate_interval_months": {
+        "name": "Calibrare la sonda (mesi)"
+      },
+      "maint_probe_clean_interval_months": {
+        "name": "Pulire la sonda (mesi)"
+      },
+      "maint_uv_lamp_replace_interval_months": {
+        "name": "Sostituire la lampada UV (mesi)"
+      },
+      "maint_water_change_interval_weeks": {
+        "name": "Cambio d'acqua (settimane)"
+      },
+      "maint_glass_clean_interval_days": {
+        "name": "Pulire i vetri (giorni)"
+      },
+      "maint_custom_interval_weeks": {
+        "name": "{task} (settimane)"
+      }
+    },
+    "switch": {
+      "maint_pump_clean_notify": {
+        "name": "Pulire il rotore e la camera della pompa (notifiche)"
+      },
+      "maint_magnet_holder_clean_notify": {
+        "name": "Pulire il supporto magnetico e il fissaggio (notifiche)"
+      },
+      "maint_strainer_clean_notify": {
+        "name": "Pulire il cestello di aspirazione (notifiche)"
+      },
+      "maint_pump_descale_notify": {
+        "name": "Decalcificare la pompa (notifiche)"
+      },
+      "maint_wear_parts_replace_notify": {
+        "name": "Sostituire il kit di parti soggette a usura (notifiche)"
+      },
+      "maint_skimmer_cup_clean_notify": {
+        "name": "Pulire il bicchiere di raccolta (notifiche)"
+      },
+      "maint_venturi_clean_notify": {
+        "name": "Pulire il venturi e il tubo dell'aria (notifiche)"
+      },
+      "maint_needle_wheel_clean_notify": {
+        "name": "Pulire la girante ad aghi (notifiche)"
+      },
+      "maint_skimmer_body_descale_notify": {
+        "name": "Decalcificare il corpo dello schiumatoio (notifiche)"
+      },
+      "maint_sock_replace_notify": {
+        "name": "Cambiare il calzino filtrante (notifiche)"
+      },
+      "maint_carbon_replace_notify": {
+        "name": "Sostituire il carbone attivo (notifiche)"
+      },
+      "maint_resin_replace_notify": {
+        "name": "Sostituire le resine (notifiche)"
+      },
+      "maint_probe_calibrate_notify": {
+        "name": "Calibrare la sonda (notifiche)"
+      },
+      "maint_probe_clean_notify": {
+        "name": "Pulire la sonda (notifiche)"
+      },
+      "maint_uv_lamp_replace_notify": {
+        "name": "Sostituire la lampada UV (notifiche)"
+      },
+      "maint_water_change_notify": {
+        "name": "Cambio d'acqua (notifiche)"
+      },
+      "maint_glass_clean_notify": {
+        "name": "Pulire i vetri (notifiche)"
+      },
+      "maint_custom_notify": {
+        "name": "{task} (notifiche)"
+      }
+    },
+    "date": {
+      "maint_pump_clean_last_reset": {
+        "name": "Pulire il rotore e la camera della pompa (ultima volta)"
+      },
+      "maint_magnet_holder_clean_last_reset": {
+        "name": "Pulire il supporto magnetico e il fissaggio (ultima volta)"
+      },
+      "maint_strainer_clean_last_reset": {
+        "name": "Pulire il cestello di aspirazione (ultima volta)"
+      },
+      "maint_pump_descale_last_reset": {
+        "name": "Decalcificare la pompa (ultima volta)"
+      },
+      "maint_wear_parts_replace_last_reset": {
+        "name": "Sostituire il kit di parti soggette a usura (ultima volta)"
+      },
+      "maint_skimmer_cup_clean_last_reset": {
+        "name": "Pulire il bicchiere di raccolta (ultima volta)"
+      },
+      "maint_venturi_clean_last_reset": {
+        "name": "Pulire il venturi e il tubo dell'aria (ultima volta)"
+      },
+      "maint_needle_wheel_clean_last_reset": {
+        "name": "Pulire la girante ad aghi (ultima volta)"
+      },
+      "maint_skimmer_body_descale_last_reset": {
+        "name": "Decalcificare il corpo dello schiumatoio (ultima volta)"
+      },
+      "maint_sock_replace_last_reset": {
+        "name": "Cambiare il calzino filtrante (ultima volta)"
+      },
+      "maint_carbon_replace_last_reset": {
+        "name": "Sostituire il carbone attivo (ultima volta)"
+      },
+      "maint_resin_replace_last_reset": {
+        "name": "Sostituire le resine (ultima volta)"
+      },
+      "maint_probe_calibrate_last_reset": {
+        "name": "Calibrare la sonda (ultima volta)"
+      },
+      "maint_probe_clean_last_reset": {
+        "name": "Pulire la sonda (ultima volta)"
+      },
+      "maint_uv_lamp_replace_last_reset": {
+        "name": "Sostituire la lampada UV (ultima volta)"
+      },
+      "maint_water_change_last_reset": {
+        "name": "Cambio d'acqua (ultima volta)"
+      },
+      "maint_glass_clean_last_reset": {
+        "name": "Pulire i vetri (ultima volta)"
+      },
+      "maint_custom_last_reset": {
+        "name": "{task} (ultima volta)"
+      }
+    }
+  },
+  "selector": {
+    "library_task": {
+      "options": {
+        "pump_clean": "Pulire il rotore e la camera della pompa",
+        "magnet_holder_clean": "Pulire il supporto magnetico e il fissaggio",
+        "strainer_clean": "Pulire il cestello di aspirazione",
+        "pump_descale": "Decalcificare la pompa",
+        "wear_parts_replace": "Sostituire il kit di parti soggette a usura",
+        "skimmer_cup_clean": "Pulire il bicchiere di raccolta",
+        "venturi_clean": "Pulire il venturi e il tubo dell'aria",
+        "needle_wheel_clean": "Pulire la girante ad aghi",
+        "skimmer_body_descale": "Decalcificare il corpo dello schiumatoio",
+        "sock_replace": "Cambiare il calzino filtrante",
+        "carbon_replace": "Sostituire il carbone attivo",
+        "resin_replace": "Sostituire le resine",
+        "probe_calibrate": "Calibrare la sonda",
+        "probe_clean": "Pulire la sonda",
+        "uv_lamp_replace": "Sostituire la lampada UV",
+        "water_change": "Cambio d'acqua",
+        "glass_clean": "Pulire i vetri"
+      }
+    }
+  }
+}

@@ -1,0 +1,316 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Riff-Wartung",
+        "description": "Wählen Sie die Marke des Geräts. Ein Eintrag pro Marke; Geräte fügen Sie danach beliebig hinzu.",
+        "data": {
+          "brand": "Marke"
+        }
+      }
+    },
+    "abort": {
+      "already_configured": "Diese Marke ist bereits konfiguriert."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Riff-Wartung",
+        "menu_options": {
+          "add": "Gerät hinzufügen",
+          "edit": "Gerät bearbeiten",
+          "remove": "Gerät entfernen"
+        }
+      },
+      "add": {
+        "title": "Neues Gerät",
+        "description": "Benennen Sie es so, wie Sie es am Becken nennen, und wählen Sie das passendste Modell.",
+        "data": {
+          "name": "Name",
+          "preset": "Modell"
+        }
+      },
+      "tasks": {
+        "title": "Aufgaben für {equipment}",
+        "description": "Die Aufgaben des Modells sind vorausgewählt — entfernen Sie, was nicht zutrifft. Eigene Aufgaben unten ergänzen.",
+        "data": {
+          "tasks": "Aufgaben",
+          "custom_tasks": "Eigene Aufgaben"
+        }
+      },
+      "edit": {
+        "title": "Gerät bearbeiten",
+        "description": "Welches Gerät?",
+        "data": {
+          "id": "Gerät"
+        }
+      },
+      "edit_equipment": {
+        "title": "{equipment} bearbeiten",
+        "description": "Intervalle werden hier nicht gesetzt: jede Aufgabe hat ihren eigenen Regler im Dashboard.",
+        "data": {
+          "name": "Name",
+          "tasks": "Aufgaben",
+          "custom_tasks": "Eigene Aufgaben"
+        }
+      },
+      "remove": {
+        "title": "Gerät entfernen",
+        "description": "Seine Aufgaben und deren Verlauf werden gelöscht.",
+        "data": {
+          "id": "Gerät"
+        }
+      }
+    }
+  },
+  "entity": {
+    "button": {
+      "maint_pump_clean": {
+        "name": "Rotor und Pumpenkammer reinigen"
+      },
+      "maint_magnet_holder_clean": {
+        "name": "Magnethalter und Befestigung reinigen"
+      },
+      "maint_strainer_clean": {
+        "name": "Ansaugkorb reinigen"
+      },
+      "maint_pump_descale": {
+        "name": "Pumpe entkalken"
+      },
+      "maint_wear_parts_replace": {
+        "name": "Verschleißteile-Set ersetzen"
+      },
+      "maint_skimmer_cup_clean": {
+        "name": "Schaumtopf reinigen"
+      },
+      "maint_venturi_clean": {
+        "name": "Venturi und Luftschlauch reinigen"
+      },
+      "maint_needle_wheel_clean": {
+        "name": "Nadelrad reinigen"
+      },
+      "maint_skimmer_body_descale": {
+        "name": "Abschäumerkörper entkalken"
+      },
+      "maint_sock_replace": {
+        "name": "Filtersocke wechseln"
+      },
+      "maint_carbon_replace": {
+        "name": "Aktivkohle ersetzen"
+      },
+      "maint_resin_replace": {
+        "name": "Harze ersetzen"
+      },
+      "maint_probe_calibrate": {
+        "name": "Sonde kalibrieren"
+      },
+      "maint_probe_clean": {
+        "name": "Sonde reinigen"
+      },
+      "maint_uv_lamp_replace": {
+        "name": "UV-Lampe ersetzen"
+      },
+      "maint_water_change": {
+        "name": "Wasserwechsel"
+      },
+      "maint_glass_clean": {
+        "name": "Scheiben reinigen"
+      },
+      "maint_custom": {
+        "name": "{task}"
+      }
+    },
+    "number": {
+      "maint_pump_clean_interval_weeks": {
+        "name": "Rotor und Pumpenkammer reinigen (Wochen)"
+      },
+      "maint_magnet_holder_clean_interval_weeks": {
+        "name": "Magnethalter und Befestigung reinigen (Wochen)"
+      },
+      "maint_strainer_clean_interval_weeks": {
+        "name": "Ansaugkorb reinigen (Wochen)"
+      },
+      "maint_pump_descale_interval_months": {
+        "name": "Pumpe entkalken (Monate)"
+      },
+      "maint_wear_parts_replace_interval_months": {
+        "name": "Verschleißteile-Set ersetzen (Monate)"
+      },
+      "maint_skimmer_cup_clean_interval_weeks": {
+        "name": "Schaumtopf reinigen (Wochen)"
+      },
+      "maint_venturi_clean_interval_weeks": {
+        "name": "Venturi und Luftschlauch reinigen (Wochen)"
+      },
+      "maint_needle_wheel_clean_interval_months": {
+        "name": "Nadelrad reinigen (Monate)"
+      },
+      "maint_skimmer_body_descale_interval_months": {
+        "name": "Abschäumerkörper entkalken (Monate)"
+      },
+      "maint_sock_replace_interval_days": {
+        "name": "Filtersocke wechseln (Tage)"
+      },
+      "maint_carbon_replace_interval_weeks": {
+        "name": "Aktivkohle ersetzen (Wochen)"
+      },
+      "maint_resin_replace_interval_months": {
+        "name": "Harze ersetzen (Monate)"
+      },
+      "maint_probe_calibrate_interval_months": {
+        "name": "Sonde kalibrieren (Monate)"
+      },
+      "maint_probe_clean_interval_months": {
+        "name": "Sonde reinigen (Monate)"
+      },
+      "maint_uv_lamp_replace_interval_months": {
+        "name": "UV-Lampe ersetzen (Monate)"
+      },
+      "maint_water_change_interval_weeks": {
+        "name": "Wasserwechsel (Wochen)"
+      },
+      "maint_glass_clean_interval_days": {
+        "name": "Scheiben reinigen (Tage)"
+      },
+      "maint_custom_interval_weeks": {
+        "name": "{task} (Wochen)"
+      }
+    },
+    "switch": {
+      "maint_pump_clean_notify": {
+        "name": "Rotor und Pumpenkammer reinigen (Benachrichtigungen)"
+      },
+      "maint_magnet_holder_clean_notify": {
+        "name": "Magnethalter und Befestigung reinigen (Benachrichtigungen)"
+      },
+      "maint_strainer_clean_notify": {
+        "name": "Ansaugkorb reinigen (Benachrichtigungen)"
+      },
+      "maint_pump_descale_notify": {
+        "name": "Pumpe entkalken (Benachrichtigungen)"
+      },
+      "maint_wear_parts_replace_notify": {
+        "name": "Verschleißteile-Set ersetzen (Benachrichtigungen)"
+      },
+      "maint_skimmer_cup_clean_notify": {
+        "name": "Schaumtopf reinigen (Benachrichtigungen)"
+      },
+      "maint_venturi_clean_notify": {
+        "name": "Venturi und Luftschlauch reinigen (Benachrichtigungen)"
+      },
+      "maint_needle_wheel_clean_notify": {
+        "name": "Nadelrad reinigen (Benachrichtigungen)"
+      },
+      "maint_skimmer_body_descale_notify": {
+        "name": "Abschäumerkörper entkalken (Benachrichtigungen)"
+      },
+      "maint_sock_replace_notify": {
+        "name": "Filtersocke wechseln (Benachrichtigungen)"
+      },
+      "maint_carbon_replace_notify": {
+        "name": "Aktivkohle ersetzen (Benachrichtigungen)"
+      },
+      "maint_resin_replace_notify": {
+        "name": "Harze ersetzen (Benachrichtigungen)"
+      },
+      "maint_probe_calibrate_notify": {
+        "name": "Sonde kalibrieren (Benachrichtigungen)"
+      },
+      "maint_probe_clean_notify": {
+        "name": "Sonde reinigen (Benachrichtigungen)"
+      },
+      "maint_uv_lamp_replace_notify": {
+        "name": "UV-Lampe ersetzen (Benachrichtigungen)"
+      },
+      "maint_water_change_notify": {
+        "name": "Wasserwechsel (Benachrichtigungen)"
+      },
+      "maint_glass_clean_notify": {
+        "name": "Scheiben reinigen (Benachrichtigungen)"
+      },
+      "maint_custom_notify": {
+        "name": "{task} (Benachrichtigungen)"
+      }
+    },
+    "date": {
+      "maint_pump_clean_last_reset": {
+        "name": "Rotor und Pumpenkammer reinigen (zuletzt erledigt)"
+      },
+      "maint_magnet_holder_clean_last_reset": {
+        "name": "Magnethalter und Befestigung reinigen (zuletzt erledigt)"
+      },
+      "maint_strainer_clean_last_reset": {
+        "name": "Ansaugkorb reinigen (zuletzt erledigt)"
+      },
+      "maint_pump_descale_last_reset": {
+        "name": "Pumpe entkalken (zuletzt erledigt)"
+      },
+      "maint_wear_parts_replace_last_reset": {
+        "name": "Verschleißteile-Set ersetzen (zuletzt erledigt)"
+      },
+      "maint_skimmer_cup_clean_last_reset": {
+        "name": "Schaumtopf reinigen (zuletzt erledigt)"
+      },
+      "maint_venturi_clean_last_reset": {
+        "name": "Venturi und Luftschlauch reinigen (zuletzt erledigt)"
+      },
+      "maint_needle_wheel_clean_last_reset": {
+        "name": "Nadelrad reinigen (zuletzt erledigt)"
+      },
+      "maint_skimmer_body_descale_last_reset": {
+        "name": "Abschäumerkörper entkalken (zuletzt erledigt)"
+      },
+      "maint_sock_replace_last_reset": {
+        "name": "Filtersocke wechseln (zuletzt erledigt)"
+      },
+      "maint_carbon_replace_last_reset": {
+        "name": "Aktivkohle ersetzen (zuletzt erledigt)"
+      },
+      "maint_resin_replace_last_reset": {
+        "name": "Harze ersetzen (zuletzt erledigt)"
+      },
+      "maint_probe_calibrate_last_reset": {
+        "name": "Sonde kalibrieren (zuletzt erledigt)"
+      },
+      "maint_probe_clean_last_reset": {
+        "name": "Sonde reinigen (zuletzt erledigt)"
+      },
+      "maint_uv_lamp_replace_last_reset": {
+        "name": "UV-Lampe ersetzen (zuletzt erledigt)"
+      },
+      "maint_water_change_last_reset": {
+        "name": "Wasserwechsel (zuletzt erledigt)"
+      },
+      "maint_glass_clean_last_reset": {
+        "name": "Scheiben reinigen (zuletzt erledigt)"
+      },
+      "maint_custom_last_reset": {
+        "name": "{task} (zuletzt erledigt)"
+      }
+    }
+  },
+  "selector": {
+    "library_task": {
+      "options": {
+        "pump_clean": "Rotor und Pumpenkammer reinigen",
+        "magnet_holder_clean": "Magnethalter und Befestigung reinigen",
+        "strainer_clean": "Ansaugkorb reinigen",
+        "pump_descale": "Pumpe entkalken",
+        "wear_parts_replace": "Verschleißteile-Set ersetzen",
+        "skimmer_cup_clean": "Schaumtopf reinigen",
+        "venturi_clean": "Venturi und Luftschlauch reinigen",
+        "needle_wheel_clean": "Nadelrad reinigen",
+        "skimmer_body_descale": "Abschäumerkörper entkalken",
+        "sock_replace": "Filtersocke wechseln",
+        "carbon_replace": "Aktivkohle ersetzen",
+        "resin_replace": "Harze ersetzen",
+        "probe_calibrate": "Sonde kalibrieren",
+        "probe_clean": "Sonde reinigen",
+        "uv_lamp_replace": "UV-Lampe ersetzen",
+        "water_change": "Wasserwechsel",
+        "glass_clean": "Scheiben reinigen"
+      }
+    }
+  }
+}

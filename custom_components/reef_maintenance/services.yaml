@@ -1,0 +1,23 @@
+reset:
+  name: Record maintenance
+  description: >-
+    Marks a maintenance task as done. Accepts any of the four entities of the
+    task (button, interval, notification switch, last-done date). Handy from
+    an NFC tag stuck next to the equipment.
+  fields:
+    entity_id:
+      name: Task
+      description: One or more maintenance entities.
+      required: true
+      selector:
+        entity:
+          integration: reef_maintenance
+          multiple: true
+    last_reset:
+      name: Date and time
+      description: >-
+        When the maintenance was actually done. Defaults to now.
+      required: false
+      example: "2026-08-10 18:30:00"
+      selector:
+        datetime:
