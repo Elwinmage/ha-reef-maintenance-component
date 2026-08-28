@@ -7,6 +7,10 @@
 [![HACS Badge](https://img.shields.io/badge/HACS-Custom-41BDF5.svg?style=flat-square)](https://github.com/hacs/hacs)
 [![IoT Class](https://img.shields.io/badge/IoT%20Class-Local%20Push-green?style=flat-square)](https://developers.home-assistant.io/docs/architecture_index/#branding)
 [![GH-release](https://img.shields.io/github/v/release/Elwinmage/ha-reef-maintenance-component.svg?style=flat-square)](https://github.com/Elwinmage/ha-reef-maintenance-component/releases)
+![Installations](https://img.shields.io/badge/dynamic/json?label=Active%20Installs&query=estimated&cacheSeconds=3600&url=https%3A%2F%2Fraw.githubusercontent.com%2FElwinmage%2Fha-reef-maintenance-component%2Fmain%2Fbadges%2Fstats.json&color=CE1126&logo=home-assistant)
+[![Ruff Status](https://github.com/Elwinmage/ha-reef-maintenance-component/actions/workflows/main.yml/badge.svg)](https://github.com/Elwinmage/ha-reef-maintenance-component/actions/workflows/main.yml)
+[![HA & HACS Validation](https://github.com/Elwinmage/ha-reef-maintenance-component/actions/workflows/hass_and_hacs.yml/badge.svg)](https://github.com/Elwinmage/ha-reef-maintenance-component/actions/workflows/hass_and_hacs.yml)
+[![Coverage](https://raw.githubusercontent.com/Elwinmage/ha-reef-maintenance-component/main/badges/coverage.svg)](https://app.codecov.io/gh/Elwinmage/ha-reef-maintenance-component)
 [![GH-last-commit](https://img.shields.io/github/last-commit/Elwinmage/ha-reef-maintenance-component.svg?style=flat-square)](https://github.com/Elwinmage/ha-reef-maintenance-component/commits/main)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 [![GH-code-size](https://img.shields.io/github/languages/code-size/Elwinmage/ha-reef-maintenance-component.svg?color=red&style=flat-square)](https://github.com/Elwinmage/ha-reef-maintenance-component)
@@ -28,37 +32,37 @@ The ReefTech projects fit together: the integrations bring your equipment into H
 
 <table>
   <tr>
-    <th width="200px"></th>
+    <th width="100px"></th>
     <th>Project</th>
     <th>What it does</th>
     <th>Works with</th>
   </tr>
   <tr>
-    <td><img src="https://raw.githubusercontent.com/Elwinmage/ha-reefbeat-component/main/icon.png" width="200" alt="ha-reefbeat-component" /></td>
+    <td><img src="https://raw.githubusercontent.com/Elwinmage/ha-reefbeat-component/main/icon.png" width="64" alt="ha-reefbeat-component" /></td>
     <td><a href="https://github.com/Elwinmage/ha-reefbeat-component"><b>ha-reefbeat-component</b></a></td>
     <td>Red Sea ReefBeat devices, controlled locally with no cloud: ReefATO+, ReefControl, ReefControl-Power, ReefDose, ReefLed, ReefMat, ReefRun and ReefWave.<br />Ships <b>ReefBeat watch</b>, an alert blueprint for overdue maintenance, abnormal modes, low battery and unreachable devices. <a href="https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https://raw.githubusercontent.com/Elwinmage/ha-reefbeat-component/refs/heads/main/blueprints/automation/redsea_alerts.en.yaml"><img src="https://my.home-assistant.io/badges/blueprint_import.svg" alt="Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled." /></a></td>
     <td>ha-reef-card</td>
   </tr>
   <tr>
-    <td><img src="https://raw.githubusercontent.com/Elwinmage/ha-aquamedic-component/main/icon.png" width="200" alt="ha-aquamedic-component" /></td>
+    <td><img src="https://raw.githubusercontent.com/Elwinmage/ha-aquamedic-component/main/icon.png" width="64" alt="ha-aquamedic-component" /></td>
     <td><a href="https://github.com/Elwinmage/ha-aquamedic-component"><b>ha-aquamedic-component</b></a></td>
     <td>Aqua Medic pumps through the Gizwits cloud API: EcoDrift and SmartDrift wavemakers, DC Runner return and skimmer pumps.</td>
     <td>ha-reef-card</td>
   </tr>
   <tr>
-    <td><img src="https://raw.githubusercontent.com/Elwinmage/ha-reef-maintenance-component/main/icon.png" width="200" alt="ha-reef-maintenance-component" /></td>
+    <td><img src="https://raw.githubusercontent.com/Elwinmage/ha-reef-maintenance-component/main/icon.png" width="64" alt="ha-reef-maintenance-component" /></td>
     <td><b>ha-reef-maintenance-component</b><br /><i>(this repository)</i></td>
     <td>Cleaning and wear tracking for the equipment Home Assistant cannot talk to: flow pumps, return pumps, skimmers, media reactors, anything you service by hand.</td>
     <td>ha-reef-card</td>
   </tr>
   <tr>
-    <td><img src="https://raw.githubusercontent.com/Elwinmage/ha-reef-card/main/icon.png" width="200" alt="ha-reef-card" /></td>
+    <td><img src="https://raw.githubusercontent.com/Elwinmage/ha-reef-card/main/icon.png" width="64" alt="ha-reef-card" /></td>
     <td><a href="https://github.com/Elwinmage/ha-reef-card"><b>ha-reef-card</b></a></td>
     <td>Interactive graphical view of each device on your dashboard, and the only way to edit advanced schedules. Reads the three integrations above through the shared <code>reef_role</code> contract, with no card-side configuration.</td>
     <td>all three integrations</td>
   </tr>
   <tr>
-    <td><img src="https://raw.githubusercontent.com/Elwinmage/reefbeatEnergyBackup/main/icon.png" width="200" alt="reefbeatEnergyBackup" /></td>
+    <td><img src="https://raw.githubusercontent.com/Elwinmage/reefbeatEnergyBackup/main/icon.png" width="64" alt="reefbeatEnergyBackup" /></td>
     <td><a href="https://github.com/Elwinmage/reefbeatEnergyBackup"><b>reefbeatEnergyBackup</b></a></td>
     <td>Battery backup for power outages. A 24V LiFePO₄ pack driven by a Raspberry Pi, with pump speed degraded progressively according to the state of charge.</td>
     <td>standalone, or alongside ha-reefbeat-component</td>
@@ -127,3 +131,26 @@ target:
 files from a single source table — 800+ strings composed from one wording per
 task per language. Run it after touching the task library, and commit the
 result.
+
+### Tests
+
+```bash
+pip install -r requirements.test.txt
+pytest -q --cov=custom_components.reef_maintenance --cov-config=.coveragerc \
+       --cov-report=term-missing
+```
+
+The suite covers the package fully and CI keeps it that way. It is worth
+knowing what it is guarding, because most of it is invisible at runtime:
+
+- **Task keys and units.** A key lands in the entity `unique_id` and in the
+  storage key, so renaming one loses the user's reset history. A wrong unit
+  silently changes what an interval slider means.
+- **`reef_role`.** The attribute ha-reef-card scans for. If its prefix
+  changes, the maintenance view goes empty with no error anywhere.
+- **Day arithmetic.** `compute_days_left` rounds away from zero in both
+  directions, and "never reset" is `None` rather than overdue. Every consumer
+  reads those values.
+- **Slug collisions.** Two custom tasks whose labels slugify identically would
+  share a `unique_id`, and Home Assistant would drop one of the two entity
+  sets without saying so.
