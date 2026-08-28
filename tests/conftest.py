@@ -20,7 +20,7 @@ project_root = Path(__file__).parent.parent
 if str(project_root) not in sys.path:
     sys.path.insert(0, str(project_root))
 
-from custom_components.reef_maintenance.const import (
+from custom_components.reef_maintenance.const import ( # noqa: E402
     CONF_BRAND,
     CONF_CUSTOM_TASKS,
     CONF_EQUIPMENTS,
