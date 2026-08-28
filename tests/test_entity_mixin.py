@@ -12,7 +12,15 @@ from custom_components.reef_maintenance.entity import ReefRoleMixin, brand_devic
 
 
 class _Bare(ReefRoleMixin):
-    """Minimal host, standing in for an entity."""
+    """Minimal host, standing in for an entity.
+
+    The mixin reads two attributes it does not define, because on a real
+    entity they come from Home Assistant's Entity base class. Declaring them
+    here is what lets the mixin be exercised without dragging in an entity.
+    """
+
+    _attr_extra_state_attributes: dict[str, object] | None = None
+    translation_key: str | None = None
 
 
 def test_role_is_added_next_to_the_existing_attributes() -> None:

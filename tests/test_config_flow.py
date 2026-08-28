@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from typing import Any
+
 from homeassistant.config_entries import SOURCE_USER
 from homeassistant.core import HomeAssistant
 from homeassistant.data_entry_flow import FlowResultType
@@ -16,6 +18,17 @@ from custom_components.reef_maintenance.const import (
     CONF_TASKS,
     DOMAIN,
 )
+
+
+def schema_default(result: Any, key: str) -> Any:
+    """Return the default a form proposes for one field.
+
+    `data_schema` is Optional on a flow result, so this asserts rather than
+    letting the test die on an unhelpful `NoneType has no attribute schema`.
+    """
+    schema = result["data_schema"]
+    assert schema is not None, f"step {result.get('step_id')} has no schema"
+    return next(marker.default() for marker in schema.schema if str(marker) == key)
 
 
 class TestConfigFlow:
@@ -97,9 +110,7 @@ class TestOptionsFlowAdd:
         assert result["step_id"] == "tasks"
 
         # Preselected, not imposed: the user may untick any of them.
-        schema = result["data_schema"].schema
-        default = next(key.default() for key in schema if str(key) == CONF_TASKS)
-        assert default == [
+        assert schema_default(result, CONF_TASKS) == [
             "pump_clean",
             "magnet_holder_clean",
             "pump_descale",
@@ -163,9 +174,7 @@ class TestOptionsFlowAdd:
         result = await hass.config_entries.options.async_configure(
             result["flow_id"], {CONF_NAME: "Reactor", CONF_PRESET: "custom"}
         )
-        schema = result["data_schema"].schema
-        default = next(key.default() for key in schema if str(key) == CONF_TASKS)
-        assert default == []
+        assert schema_default(result, CONF_TASKS) == []
 
 
 class TestOptionsFlowEdit:
@@ -204,11 +213,11 @@ class TestOptionsFlowEdit:
         result = await hass.config_entries.options.async_configure(
             result["flow_id"], {CONF_ID: "tunze_1"}
         )
-        schema = result["data_schema"].schema
-        name = next(key.default() for key in schema if str(key) == CONF_NAME)
-        tasks = next(key.default() for key in schema if str(key) == CONF_TASKS)
-        assert name == "Turbelle 6095"
-        assert tasks == ["pump_clean", "wear_parts_replace"]
+        assert schema_default(result, CONF_NAME) == "Turbelle 6095"
+        assert schema_default(result, CONF_TASKS) == [
+            "pump_clean",
+            "wear_parts_replace",
+        ]
 
 
 class TestOptionsFlowRemove:

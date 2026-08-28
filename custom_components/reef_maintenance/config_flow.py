@@ -98,13 +98,15 @@ class ReefMaintenanceConfigFlow(ConfigFlow, domain=DOMAIN):
         self, user_input: dict[str, Any] | None = None
     ) -> ConfigFlowResult:
         if user_input is not None:
-            brand = user_input[CONF_BRAND]
+            # Annotated: user_input is dict[str, Any], and an Any brand makes
+            # the title below Any too, which hides real type errors.
+            brand: str = user_input[CONF_BRAND]
             # One entry per brand keeps the device tree readable and makes
             # equipment ids (`tunze_1`, `tunze_2`) unique by construction.
             await self.async_set_unique_id(brand)
             self._abort_if_unique_id_configured()
             return self.async_create_entry(
-                title=BRANDS.get(brand, brand.capitalize()),
+                title=BRANDS.get(brand) or brand.capitalize(),
                 data={CONF_BRAND: brand},
                 options={CONF_EQUIPMENTS: []},
             )
@@ -116,7 +118,9 @@ class ReefMaintenanceConfigFlow(ConfigFlow, domain=DOMAIN):
 
     @staticmethod
     @callback
-    def async_get_options_flow(entry: ConfigEntry) -> OptionsFlow:
+    def async_get_options_flow(config_entry: ConfigEntry) -> OptionsFlow:
+        # Parameter name matches the base class: Home Assistant calls it
+        # positionally today, but a keyword call would break on a rename.
         return ReefMaintenanceOptionsFlow()
 
 

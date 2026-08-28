@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from datetime import date, datetime, timedelta, timezone
 
-from homeassistant.core import HomeAssistant
+from homeassistant.core import HomeAssistant, State
 from homeassistant.helpers import entity_registry as er
 from homeassistant.util import dt as dt_util
 
@@ -20,11 +20,23 @@ def entity_of(hass: HomeAssistant, entry, domain: str, task: str) -> str:
     )
 
 
+def state_of(hass: HomeAssistant, entity_id: str) -> State:
+    """Return a state, failing clearly when the entity was never created.
+
+    `hass.states.get` is Optional; asserting here turns a downstream
+    `AttributeError: 'NoneType' has no attribute 'attributes'` into a failure
+    naming the entity that is missing.
+    """
+    state = hass.states.get(entity_id)
+    assert state is not None, f"no state for {entity_id}"
+    return state
+
+
 class TestButton:
     async def test_attributes_before_any_reset(
         self, hass: HomeAssistant, loaded_entry
     ) -> None:
-        state = hass.states.get(entity_of(hass, loaded_entry, "button", "pump_clean"))
+        state = state_of(hass, entity_of(hass, loaded_entry, "button", "pump_clean"))
         assert state.attributes["reef_role"] == "maint_pump_clean"
         assert state.attributes["task_key"] == "pump_clean"
         assert state.attributes["interval_days"] == 45
@@ -43,7 +55,7 @@ class TestButton:
         )
         await hass.async_block_till_done()
 
-        state = hass.states.get(entity_id)
+        state = state_of(hass, entity_id)
         assert state.attributes["last_reset"] is not None
         # 44, not 45: the microseconds elapsed since the press already make
         # this a partially used day, and a partial day counts.
@@ -57,7 +69,7 @@ class TestButton:
         )
         await hass.async_block_till_done()
 
-        state = hass.states.get(entity_of(hass, loaded_entry, "button", "pump_clean"))
+        state = state_of(hass, entity_of(hass, loaded_entry, "button", "pump_clean"))
         assert state.attributes["days_left"] == -5
         assert state.attributes["overdue"] is True
 
@@ -80,12 +92,12 @@ class TestButton:
             ),
         )
         assert equipments_entry is entry
-        wear = hass.states.get(entity_of(hass, entry, "button", "wear_parts_replace"))
+        wear = state_of(hass, entity_of(hass, entry, "button", "wear_parts_replace"))
         assert wear.attributes["part_number"] == "1073.027 / 1073.047"
 
         # Only meaningful where a part is actually replaced: every other task
         # of the same equipment omits it.
-        strainer = hass.states.get(entity_of(hass, entry, "button", "strainer_clean"))
+        strainer = state_of(hass, entity_of(hass, entry, "button", "strainer_clean"))
         assert "part_number" not in strainer.attributes
 
     async def test_no_part_number_when_the_preset_documents_none(
@@ -104,13 +116,13 @@ class TestButton:
                 ],
             ),
         )
-        wear = hass.states.get(entity_of(hass, entry, "button", "wear_parts_replace"))
+        wear = state_of(hass, entity_of(hass, entry, "button", "wear_parts_replace"))
         assert "part_number" not in wear.attributes
 
     async def test_icon_comes_from_the_task(
         self, hass: HomeAssistant, loaded_entry
     ) -> None:
-        state = hass.states.get(entity_of(hass, loaded_entry, "button", "pump_clean"))
+        state = state_of(hass, entity_of(hass, loaded_entry, "button", "pump_clean"))
         assert state.attributes["icon"] == "mdi:fan"
 
 
@@ -119,7 +131,7 @@ class TestIntervalNumber:
         self, hass: HomeAssistant, loaded_entry
     ) -> None:
         # pump_clean defaults to 45 days and is declared in weeks: 45 // 7.
-        state = hass.states.get(entity_of(hass, loaded_entry, "number", "pump_clean"))
+        state = state_of(hass, entity_of(hass, loaded_entry, "number", "pump_clean"))
         assert float(state.state) == 6.0
         assert state.attributes["min"] == 4.0
         assert state.attributes["max"] == 12.0
@@ -129,7 +141,7 @@ class TestIntervalNumber:
     ) -> None:
         # This is how ha-reef-card knows what the number means without an
         # extra attribute.
-        state = hass.states.get(entity_of(hass, loaded_entry, "number", "pump_clean"))
+        state = state_of(hass, entity_of(hass, loaded_entry, "number", "pump_clean"))
         assert state.attributes["reef_role"] == "maint_pump_clean_interval_weeks"
 
     async def test_setting_the_value_converts_back_to_days(
@@ -159,7 +171,7 @@ class TestIntervalNumber:
                 ],
             ),
         )
-        state = hass.states.get(entity_of(hass, entry, "number", "sock_replace"))
+        state = state_of(hass, entity_of(hass, entry, "number", "sock_replace"))
         assert float(state.state) == 7.0
         assert state.attributes["reef_role"] == "maint_sock_replace_interval_days"
 
@@ -167,15 +179,15 @@ class TestIntervalNumber:
         self, hass: HomeAssistant, loaded_entry
     ) -> None:
         # wear_parts_replace: 730 days // 30.
-        state = hass.states.get(
-            entity_of(hass, loaded_entry, "number", "wear_parts_replace")
+        state = state_of(
+            hass, entity_of(hass, loaded_entry, "number", "wear_parts_replace")
         )
         assert float(state.state) == 24.0
 
 
 class TestNotifySwitch:
     async def test_defaults_to_enabled(self, hass: HomeAssistant, loaded_entry) -> None:
-        state = hass.states.get(entity_of(hass, loaded_entry, "switch", "pump_clean"))
+        state = state_of(hass, entity_of(hass, loaded_entry, "switch", "pump_clean"))
         assert state.state == "on"
         assert state.attributes["icon"] == "mdi:bell-ring"
 
@@ -188,7 +200,7 @@ class TestNotifySwitch:
         )
         await hass.async_block_till_done()
 
-        state = hass.states.get(entity_id)
+        state = state_of(hass, entity_id)
         assert state.state == "off"
         assert state.attributes["icon"] == "mdi:bell-off"
 
@@ -204,7 +216,7 @@ class TestNotifySwitch:
             "switch", "turn_on", {"entity_id": entity_id}, blocking=True
         )
         await hass.async_block_till_done()
-        assert hass.states.get(entity_id).state == "on"
+        assert state_of(hass, entity_id).state == "on"
 
     async def test_a_muted_task_reads_muted_on_reload(
         self, hass: HomeAssistant, loaded_entry
@@ -217,7 +229,7 @@ class TestNotifySwitch:
         await hass.config_entries.async_reload(loaded_entry.entry_id)
         await hass.async_block_till_done()
 
-        state = hass.states.get(entity_of(hass, loaded_entry, "switch", "pump_clean"))
+        state = state_of(hass, entity_of(hass, loaded_entry, "switch", "pump_clean"))
         assert state.state == "off"
 
     async def test_the_switch_is_mirrored_in_the_button_attributes(
@@ -231,7 +243,7 @@ class TestNotifySwitch:
             blocking=True,
         )
         await hass.async_block_till_done()
-        button = hass.states.get(entity_of(hass, loaded_entry, "button", "pump_clean"))
+        button = state_of(hass, entity_of(hass, loaded_entry, "button", "pump_clean"))
         assert button.attributes["notify"] is False
 
 
@@ -239,7 +251,7 @@ class TestLastResetDate:
     async def test_empty_until_the_first_reset(
         self, hass: HomeAssistant, loaded_entry
     ) -> None:
-        state = hass.states.get(entity_of(hass, loaded_entry, "date", "pump_clean"))
+        state = state_of(hass, entity_of(hass, loaded_entry, "date", "pump_clean"))
         assert state.state == "unknown"
 
     async def test_shows_the_stored_reset_in_local_time(
@@ -252,7 +264,7 @@ class TestLastResetDate:
         await store.async_reset("tunze_1", "pump_clean", stamp)
         await hass.async_block_till_done()
 
-        state = hass.states.get(entity_of(hass, loaded_entry, "date", "pump_clean"))
+        state = state_of(hass, entity_of(hass, loaded_entry, "date", "pump_clean"))
         assert state.state == dt_util.as_local(stamp).date().isoformat()
 
     async def test_setting_a_date_backdates_the_task(
@@ -324,7 +336,7 @@ class TestCustomTaskEntities:
             )
             if e.domain == "button"
         )
-        state = hass.states.get(button.entity_id)
+        state = state_of(hass, button.entity_id)
         assert state.attributes["reef_role"] == "maint_custom"
         assert state.attributes["task_key"] == "custom_rincer_le_media"
 

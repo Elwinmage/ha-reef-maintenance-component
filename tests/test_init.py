@@ -20,16 +20,25 @@ from custom_components.reef_maintenance.const import (
 from custom_components.reef_maintenance.entity import brand_device_id
 
 
+def device_of(hass: HomeAssistant, identifier: str) -> dr.DeviceEntry:
+    """Return a device, failing clearly when it was never registered.
+
+    `async_get_device` is Optional, and passing None on to
+    `async_remove_config_entry_device` would fail inside the integration
+    rather than naming the device the test expected to find.
+    """
+    device = dr.async_get(hass).async_get_device(identifiers={(DOMAIN, identifier)})
+    assert device is not None, f"no device registered for {identifier}"
+    return device
+
+
 class TestSetup:
     async def test_entry_loads_and_registers_the_brand_device(
         self, hass: HomeAssistant, loaded_entry
     ) -> None:
         assert loaded_entry.state is ConfigEntryState.LOADED
 
-        device = dr.async_get(hass).async_get_device(
-            identifiers={(DOMAIN, brand_device_id("tunze"))}
-        )
-        assert device is not None
+        device = device_of(hass, brand_device_id("tunze"))
         assert device.manufacturer == "Tunze"
         # A service device: it is the entry, not a piece of gear.
         assert device.entry_type is dr.DeviceEntryType.SERVICE
@@ -37,12 +46,8 @@ class TestSetup:
     async def test_equipment_is_a_device_under_the_brand(
         self, hass: HomeAssistant, loaded_entry
     ) -> None:
-        registry = dr.async_get(hass)
-        brand = registry.async_get_device(
-            identifiers={(DOMAIN, brand_device_id("tunze"))}
-        )
-        eq = registry.async_get_device(identifiers={(DOMAIN, "tunze_1")})
-        assert eq is not None
+        brand = device_of(hass, brand_device_id("tunze"))
+        eq = device_of(hass, "tunze_1")
         assert eq.name == "Turbelle 6095"
         # via_device is what groups the pumps under the brand instead of
         # listing them flat.
@@ -118,7 +123,7 @@ class TestRemoveDevice:
     async def test_removing_an_equipment_drops_it_from_the_options(
         self, hass: HomeAssistant, loaded_entry
     ) -> None:
-        device = dr.async_get(hass).async_get_device(identifiers={(DOMAIN, "tunze_1")})
+        device = device_of(hass, "tunze_1")
         assert await async_remove_config_entry_device(hass, loaded_entry, device)
         await hass.async_block_till_done()
         assert loaded_entry.options[CONF_EQUIPMENTS] == []
@@ -128,9 +133,7 @@ class TestRemoveDevice:
     ) -> None:
         # It represents the entry itself; deleting it from the device page
         # would leave an entry with no device.
-        device = dr.async_get(hass).async_get_device(
-            identifiers={(DOMAIN, brand_device_id("tunze"))}
-        )
+        device = device_of(hass, brand_device_id("tunze"))
         assert not await async_remove_config_entry_device(hass, loaded_entry, device)
 
     async def test_a_foreign_device_is_refused(
@@ -150,7 +153,7 @@ class TestRemoveDevice:
         await store.async_reset("tunze_1", "pump_clean")
         assert store.get_last_reset("tunze_1", "pump_clean") is not None
 
-        device = dr.async_get(hass).async_get_device(identifiers={(DOMAIN, "tunze_1")})
+        device = device_of(hass, "tunze_1")
         await async_remove_config_entry_device(hass, loaded_entry, device)
         assert store.get_last_reset("tunze_1", "pump_clean") is None
 

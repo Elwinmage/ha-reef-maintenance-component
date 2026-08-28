@@ -7,20 +7,13 @@ here only build config entries and load the integration.
 
 from __future__ import annotations
 
-import sys
-from pathlib import Path
 from typing import Any
 
 import pytest
 from homeassistant.core import HomeAssistant
 from pytest_homeassistant_custom_component.common import MockConfigEntry
 
-# Make `custom_components` importable when pytest is run from the repo root.
-project_root = Path(__file__).parent.parent
-if str(project_root) not in sys.path:
-    sys.path.insert(0, str(project_root))
-
-from custom_components.reef_maintenance.const import ( # noqa: E402
+from custom_components.reef_maintenance.const import (
     CONF_BRAND,
     CONF_CUSTOM_TASKS,
     CONF_EQUIPMENTS,
