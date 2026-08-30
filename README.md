@@ -16,13 +16,11 @@
 [![GH-code-size](https://img.shields.io/github/languages/code-size/Elwinmage/ha-reef-maintenance-component.svg?color=red&style=flat-square)](https://github.com/Elwinmage/ha-reef-maintenance-component)
 [![BuyMeCoffee](https://img.shields.io/badge/buy%20me%20a%20coffee-donate-yellow.svg?style=flat-square)](https://paypal.me/Elwinmage)
 
-Home Assistant integration that tracks cleaning and wear tasks for aquarium
-equipment Home Assistant **cannot talk to** — flow pumps, return pumps,
-skimmers, media reactors, anything you clean by hand.
+# Supported Languages: <img src="https://flagicons.lipis.dev/flags/4x3/gb.svg" width="5%"/> [<img src="https://flagicons.lipis.dev/flags/4x3/fr.svg" width="5%"/>](https://github.com/Elwinmage/ha-reef-maintenance-component/blob/main/doc/fr/README.fr.md) [<img src="https://flagicons.lipis.dev/flags/4x3/de.svg" width="5%"/>](https://github.com/Elwinmage/ha-reef-maintenance-component/blob/main/doc/de/README.de.md) [<img src="https://flagicons.lipis.dev/flags/4x3/es.svg" width="5%"/>](https://github.com/Elwinmage/ha-reef-maintenance-component/blob/main/doc/es/README.es.md) [<img src="https://flagicons.lipis.dev/flags/4x3/it.svg" width="5%"/>](https://github.com/Elwinmage/ha-reef-maintenance-component/blob/main/doc/it/README.it.md) [<img src="https://flagicons.lipis.dev/flags/4x3/nl.svg" width="5%"/>](https://github.com/Elwinmage/ha-reef-maintenance-component/blob/main/doc/nl/README.nl.md) [<img src="https://flagicons.lipis.dev/flags/4x3/pl.svg" width="5%"/>](https://github.com/Elwinmage/ha-reef-maintenance-component/blob/main/doc/pl/README.pl.md) [<img src="https://flagicons.lipis.dev/flags/4x3/pt.svg" width="5%"/>](https://github.com/Elwinmage/ha-reef-maintenance-component/blob/main/doc/pt/README.pt.md)
 
-It publishes the same `reef_role` entity contract as the two connected-device
-integrations, so its tasks show up in the maintenance view of the card next to
-the connected gear, with no card-side configuration.
+Home Assistant integration that tracks cleaning and wear tasks for aquarium equipment Home Assistant **cannot talk to** — flow pumps, return pumps, skimmers, media reactors, anything you clean by hand.
+
+It publishes the same `reef_role` entity contract as the two connected-device integrations, so its tasks show up in the maintenance view of the card next to the connected gear, with no card-side configuration.
 
 <!-- ecosystem:start -->
 
@@ -73,10 +71,21 @@ All of them are documented together on the [ReefTech project page](https://elwin
 
 <!-- ecosystem:end -->
 
+## With ha-reef-card
+
+<p align="center">
+  <img src="https://github.com/Elwinmage/ha-reef-card/raw/main/doc/img/maintenance/overview.png" width="90%"/>
+</p>
+
+The maintenance view of [ha-reef-card](https://github.com/Elwinmage/ha-reef-card) gathers every task from this integration alongside those of the connected devices. Sort by equipment or by due date, overdue first; press a row and the job is recorded.
+
+Nothing to set up on the card side: it finds the tasks through the `reef_role` attribute, so an equipment added here appears there on the next refresh.
+
+[![Watch the video](https://img.youtube.com/vi/__A_DEFINIR__/0.jpg)](https://www.youtube.com/watch?v=__A_DEFINIR__)
+
 ## How it works
 
-One config entry per **brand**, one device per **equipment**, four entities per
-**task**:
+One config entry per **brand**, one device per **equipment**, four entities per **task**:
 
 | Entity | Role |
 |---|---|
@@ -85,9 +94,7 @@ One config entry per **brand**, one device per **equipment**, four entities per
 | Switch | Mutes overdue alerts for that task |
 | Date | Backdates the last intervention |
 
-The date entity matters more than it looks: without it every task starts from
-"never done" the day you add the equipment, and they all fall due the same
-afternoon three months later.
+The date entity matters more than it looks: without it every task starts from "never done" the day you add the equipment, and they all fall due the same afternoon three months later.
 
 ## Presets
 
@@ -103,21 +110,13 @@ afternoon three months later.
 | Generic | Needle wheel skimmer | cup, venturi, needle wheel, descale, wear parts |
 | Generic | Custom equipment | none — pick from the library or type your own |
 
-Preset intervals follow the manufacturer whenever one publishes a figure
-(Tunze Turbelle: pump and magnet holder every 1–2 months; Tunze Silence: full
-clean at least yearly; Jebao DCP: monthly impeller cleaning; Jebao SLW:
-monthly to bi-monthly) and reef keeping practice otherwise. All of them are
-starting points you can change per equipment.
+Preset intervals follow the manufacturer whenever one publishes a figure (Tunze Turbelle: pump and magnet holder every 1–2 months; Tunze Silence: full clean at least yearly; Jebao DCP: monthly impeller cleaning; Jebao SLW: monthly to bi-monthly) and reef keeping practice otherwise. All of them are starting points you can change per equipment.
 
-Tasks come from a shared library of 17 entries, translated in 8 languages.
-A preset only references library keys and may override the interval bounds —
-which is why adding a brand usually costs no new translation string.
+Tasks come from a shared library of 17 entries, translated in 8 languages. A preset only references library keys and may override the interval bounds — which is why adding a brand usually costs no new translation string.
 
 ## Service
 
-`reef_maintenance.reset` marks a task done from an automation. Stick an NFC
-tag next to the pump, scan it when you are done, and the task is acknowledged
-without opening a dashboard.
+`reef_maintenance.reset` marks a task done from an automation. Stick an NFC tag next to the pump, scan it when you are done, and the task is acknowledged without opening a dashboard.
 
 ```yaml
 action: reef_maintenance.reset
@@ -127,10 +126,7 @@ target:
 
 ## Development
 
-`scripts/gen_translations.py` regenerates `strings.json` and the 8 locale
-files from a single source table — 800+ strings composed from one wording per
-task per language. Run it after touching the task library, and commit the
-result.
+`scripts/gen_readme.py` regenerates this page and its seven translations, and `scripts/gen_translations.py` regenerates `strings.json` and the 8 locale files from a single source table — 800+ strings composed from one wording per task per language. Run them after touching the task library, and commit the result.
 
 ### Tests
 
@@ -140,17 +136,9 @@ pytest -q --cov=custom_components.reef_maintenance --cov-config=.coveragerc \
        --cov-report=term-missing
 ```
 
-The suite covers the package fully and CI keeps it that way. It is worth
-knowing what it is guarding, because most of it is invisible at runtime:
+The suite covers the package fully and CI keeps it that way. It is worth knowing what it is guarding, because most of it is invisible at runtime:
 
-- **Task keys and units.** A key lands in the entity `unique_id` and in the
-  storage key, so renaming one loses the user's reset history. A wrong unit
-  silently changes what an interval slider means.
-- **`reef_role`.** The attribute ha-reef-card scans for. If its prefix
-  changes, the maintenance view goes empty with no error anywhere.
-- **Day arithmetic.** `compute_days_left` rounds away from zero in both
-  directions, and "never reset" is `None` rather than overdue. Every consumer
-  reads those values.
-- **Slug collisions.** Two custom tasks whose labels slugify identically would
-  share a `unique_id`, and Home Assistant would drop one of the two entity
-  sets without saying so.
+- **Task keys and units.** A key lands in the entity `unique_id` and in the storage key, so renaming one loses the user's reset history. A wrong unit silently changes what an interval slider means.
+- **`reef_role`.** The attribute ha-reef-card scans for. If its prefix changes, the maintenance view goes empty with no error anywhere.
+- **Day arithmetic.** `compute_days_left` rounds away from zero in both directions, and "never reset" is `None` rather than overdue. Every consumer reads those values.
+- **Slug collisions.** Two custom tasks whose labels slugify identically would share a `unique_id`, and Home Assistant would drop one of the two entity sets without saying so.
