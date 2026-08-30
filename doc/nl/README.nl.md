@@ -38,7 +38,7 @@ De ReefTech-projecten grijpen in elkaar: de integraties brengen uw apparatuur in
   <tr>
     <td><img src="https://raw.githubusercontent.com/Elwinmage/ha-reefbeat-component/main/icon.png" width="64" alt="ha-reefbeat-component" /></td>
     <td><a href="https://github.com/Elwinmage/ha-reefbeat-component"><b>ha-reefbeat-component</b></a></td>
-    <td>Red Sea ReefBeat-apparaten, lokaal aangestuurd zonder cloud: ReefATO+, ReefControl, ReefControl-Power, ReefDose, ReefLed, ReefMat, ReefRun en ReefWave.<br />Bevat <b>ReefBeat watch</b>, een blueprint met meldingen voor achterstallig onderhoud, afwijkende modi, lage accu en onbereikbare apparaten. <a href="https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https://raw.githubusercontent.com/Elwinmage/ha-reefbeat-component/refs/heads/main/blueprints/automation/redsea_alerts.en.yaml"><img src="https://my.home-assistant.io/badges/blueprint_import.svg" alt="Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled." /></a></td>
+    <td>Red Sea ReefBeat-apparaten, lokaal aangestuurd zonder cloud: ReefATO+, ReefControl, ReefControl-Power, ReefDose, ReefLed, ReefMat, ReefRun en ReefWave.<br />blueprint met meldingen voor afwijkende modi, kalibraties en lage accu. <a href="https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https://raw.githubusercontent.com/Elwinmage/ha-reefbeat-component/refs/heads/main/blueprints/automation/redsea_alerts.en.yaml"><img src="https://my.home-assistant.io/badges/blueprint_import.svg" alt="Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled." /></a></td>
     <td>ha-reef-card</td>
   </tr>
   <tr>
@@ -57,6 +57,12 @@ De ReefTech-projecten grijpen in elkaar: de integraties brengen uw apparatuur in
     <td><img src="https://raw.githubusercontent.com/Elwinmage/ha-reef-card/main/icon.png" width="64" alt="ha-reef-card" /></td>
     <td><a href="https://github.com/Elwinmage/ha-reef-card"><b>ha-reef-card</b></a></td>
     <td>Interactieve grafische weergave van elk apparaat op uw dashboard, en de enige manier om geavanceerde schema's te bewerken. Leest de drie integraties via het gedeelde <code>reef_role</code>-contract, zonder configuratie aan de kaartzijde.</td>
+    <td>alle drie de integraties</td>
+  </tr>
+  <tr>
+    <td><img src="https://raw.githubusercontent.com/Elwinmage/ha-reef-blueprints/main/icon.png" width="64" alt="ha-reef-blueprints" /></td>
+    <td><a href="https://github.com/Elwinmage/ha-reef-blueprints"><b>ha-reef-blueprints</b></a></td>
+    <td>Meldings-blueprints voor het hele ecosysteem: achterstallig onderhoud gevonden via het <code>reef_role</code>-contract, en apparaten die onbereikbaar zijn geworden. Acht talen.</td>
     <td>alle drie de integraties</td>
   </tr>
   <tr>
@@ -80,6 +86,8 @@ Alles staat samen gedocumenteerd op de [ReefTech-projectpagina](https://elwinmag
 Het onderhoudsoverzicht van [ha-reef-card](https://github.com/Elwinmage/ha-reef-card) verzamelt alle taken van deze integratie naast die van de verbonden apparaten. Sorteer op apparaat of op vervaldatum, achterstallige eerst; druk op een regel en het werk is vastgelegd.
 
 Aan de kaartzijde valt niets in te stellen: ze vindt de taken via het `reef_role`-attribuut, dus apparatuur die u hier toevoegt verschijnt daar bij de volgende verversing.
+
+Achterstallige taken kunnen ook op uw telefoon komen: de blueprint [Reef maintenance watch](https://github.com/Elwinmage/ha-reef-blueprints) vindt ze via hetzelfde `reef_role`-attribuut en respecteert de meldingsschakelaars per taak.
 
 [![Bekijk de video](https://img.youtube.com/vi/__A_DEFINIR__/0.jpg)](https://www.youtube.com/watch?v=__A_DEFINIR__)
 

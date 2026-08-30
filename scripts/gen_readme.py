@@ -21,6 +21,7 @@ from pathlib import Path
 
 REPO = "https://github.com/Elwinmage/ha-reef-maintenance-component"
 CARD = "https://github.com/Elwinmage/ha-reef-card"
+BLUEPRINTS = "https://github.com/Elwinmage/ha-reef-blueprints"
 SITE = "https://elwinmage.github.io/reeftank/"
 OVERVIEW = f"{CARD}/raw/main/doc/img/maintenance/overview.png"
 
@@ -93,6 +94,9 @@ T: dict[str, dict[str, str]] = {
             "`reef_role` attribute, so an equipment added here appears there on "
             "the next refresh."
         ),
+        "notify_link": (
+            f"Overdue tasks can also reach your phone: the [Reef maintenance watch]({BLUEPRINTS}) blueprint finds them through the same `reef_role` attribute and honours the per-task notification switches."
+        ),
         "how_title": "How it works",
         "how_body": (
             "One config entry per **brand**, one device per **equipment**, four "
@@ -113,7 +117,7 @@ T: dict[str, dict[str, str]] = {
         "r_date": "Backdates the last intervention",
         "how_note": (
             "The date entity matters more than it looks: without it every task "
-            "starts from \"never done\" the day you add the equipment, and they "
+            'starts from "never done" the day you add the equipment, and they '
             "all fall due the same afternoon three months later."
         ),
         "presets_title": "Presets",
@@ -180,7 +184,7 @@ T: dict[str, dict[str, str]] = {
         ),
         "tests_3": (
             "**Day arithmetic.** `compute_days_left` rounds away from zero in "
-            "both directions, and \"never reset\" is `None` rather than overdue. "
+            'both directions, and "never reset" is `None` rather than overdue. '
             "Every consumer reads those values."
         ),
         "tests_4": (
@@ -217,6 +221,9 @@ T: dict[str, dict[str, str]] = {
             "`reef_role`, donc un équipement ajouté ici apparaît là au "
             "rafraîchissement suivant."
         ),
+        "notify_link": (
+            f"Les tâches en retard peuvent aussi arriver sur votre téléphone : le blueprint [Reef maintenance watch]({BLUEPRINTS}) les trouve par ce même attribut `reef_role` et respecte les interrupteurs de notification par tâche."
+        ),
         "how_title": "Fonctionnement",
         "how_body": (
             "Une entrée de configuration par **marque**, un appareil par "
@@ -231,8 +238,7 @@ T: dict[str, dict[str, str]] = {
         ),
         "e_number": "Nombre",
         "r_number": (
-            "Intervalle, dans l'unité naturelle de la tâche (jours, semaines ou "
-            "mois)"
+            "Intervalle, dans l'unité naturelle de la tâche (jours, semaines ou mois)"
         ),
         "e_switch": "Interrupteur",
         "r_switch": "Coupe les alertes de dépassement pour cette tâche",
@@ -350,6 +356,9 @@ T: dict[str, dict[str, str]] = {
             "über das `reef_role`-Attribut, ein hier angelegtes Gerät erscheint "
             "dort also beim nächsten Aktualisieren."
         ),
+        "notify_link": (
+            f"Überfällige Aufgaben können auch auf Ihr Telefon: der Blueprint [Reef maintenance watch]({BLUEPRINTS}) findet sie über dasselbe `reef_role`-Attribut und beachtet die Benachrichtigungsschalter je Aufgabe."
+        ),
         "how_title": "Funktionsweise",
         "how_body": (
             "Ein Konfigurationseintrag je **Marke**, ein Gerät je "
@@ -373,7 +382,7 @@ T: dict[str, dict[str, str]] = {
         "r_date": "Trägt die letzte Wartung rückwirkend ein",
         "how_note": (
             "Die Datums-Entität ist wichtiger als sie aussieht: ohne sie startet "
-            "jede Aufgabe am Tag der Anlage bei „nie gemacht\", und alle werden "
+            'jede Aufgabe am Tag der Anlage bei „nie gemacht", und alle werden '
             "drei Monate später am selben Nachmittag fällig."
         ),
         "presets_title": "Voreinstellungen",
@@ -444,7 +453,7 @@ T: dict[str, dict[str, str]] = {
         ),
         "tests_3": (
             "**Tagesarithmetik.** `compute_days_left` rundet in beide "
-            "Richtungen von null weg, und „nie zurückgesetzt\" ist `None` und "
+            'Richtungen von null weg, und „nie zurückgesetzt" ist `None` und '
             "nicht überfällig. Alle Verbraucher lesen diese Werte."
         ),
         "tests_4": (
@@ -480,6 +489,9 @@ T: dict[str, dict[str, str]] = {
             "Nada que configurar en la tarjeta: encuentra las tareas por el "
             "atributo `reef_role`, así que un equipo añadido aquí aparece allí "
             "en la siguiente actualización."
+        ),
+        "notify_link": (
+            f"Las tareas vencidas también pueden llegar a su móvil: el blueprint [Reef maintenance watch]({BLUEPRINTS}) las encuentra por ese mismo atributo `reef_role` y respeta los interruptores de notificación por tarea."
         ),
         "how_title": "Cómo funciona",
         "how_body": (
@@ -611,6 +623,9 @@ T: dict[str, dict[str, str]] = {
             "l'attributo `reef_role`, quindi un'attrezzatura aggiunta qui "
             "compare lì al successivo aggiornamento."
         ),
+        "notify_link": (
+            f"Le attività scadute possono anche arrivare sul telefono: il blueprint [Reef maintenance watch]({BLUEPRINTS}) le trova tramite lo stesso attributo `reef_role` e rispetta gli interruttori di notifica per attività."
+        ),
         "how_title": "Come funziona",
         "how_body": (
             "Una voce di configurazione per **marca**, un dispositivo per "
@@ -625,8 +640,7 @@ T: dict[str, dict[str, str]] = {
         ),
         "e_number": "Numero",
         "r_number": (
-            "Intervallo, nell'unità naturale dell'attività (giorni, settimane o "
-            "mesi)"
+            "Intervallo, nell'unità naturale dell'attività (giorni, settimane o mesi)"
         ),
         "e_switch": "Interruttore",
         "r_switch": "Silenzia gli avvisi di scadenza per quell'attività",
@@ -745,6 +759,9 @@ T: dict[str, dict[str, str]] = {
             "het `reef_role`-attribuut, dus apparatuur die u hier toevoegt "
             "verschijnt daar bij de volgende verversing."
         ),
+        "notify_link": (
+            f"Achterstallige taken kunnen ook op uw telefoon komen: de blueprint [Reef maintenance watch]({BLUEPRINTS}) vindt ze via hetzelfde `reef_role`-attribuut en respecteert de meldingsschakelaars per taak."
+        ),
         "how_title": "Hoe het werkt",
         "how_body": (
             "Eén configuratie-item per **merk**, één apparaat per "
@@ -759,8 +776,7 @@ T: dict[str, dict[str, str]] = {
         ),
         "e_number": "Getal",
         "r_number": (
-            "Interval, in de natuurlijke eenheid van de taak (dagen, weken of "
-            "maanden)"
+            "Interval, in de natuurlijke eenheid van de taak (dagen, weken of maanden)"
         ),
         "e_switch": "Schakelaar",
         "r_switch": "Dempt achterstandsmeldingen voor die taak",
@@ -768,7 +784,7 @@ T: dict[str, dict[str, str]] = {
         "r_date": "Zet de laatste onderhoudsbeurt met terugwerkende kracht",
         "how_note": (
             "De datumentiteit telt zwaarder dan ze lijkt: zonder haar begint "
-            "elke taak op „nooit gedaan\" op de dag dat u de apparatuur "
+            'elke taak op „nooit gedaan" op de dag dat u de apparatuur '
             "toevoegt, en vervallen ze drie maanden later allemaal dezelfde "
             "middag."
         ),
@@ -838,7 +854,7 @@ T: dict[str, dict[str, str]] = {
         ),
         "tests_3": (
             "**Dagrekenkunde.** `compute_days_left` rondt in beide richtingen "
-            "van nul af, en „nooit gereset\" is `None` en niet achterstallig. "
+            'van nul af, en „nooit gereset" is `None` en niet achterstallig. '
             "Alle afnemers lezen die waarden."
         ),
         "tests_4": (
@@ -875,6 +891,9 @@ T: dict[str, dict[str, str]] = {
             "atrybut `reef_role`, więc sprzęt dodany tutaj pojawi się tam przy "
             "następnym odświeżeniu."
         ),
+        "notify_link": (
+            f"Zaległe zadania mogą też trafić na telefon: blueprint [Reef maintenance watch]({BLUEPRINTS}) znajduje je przez ten sam atrybut `reef_role` i respektuje przełączniki powiadomień poszczególnych zadań."
+        ),
         "how_title": "Jak to działa",
         "how_body": (
             "Jeden wpis konfiguracji na **markę**, jedno urządzenie na "
@@ -889,8 +908,7 @@ T: dict[str, dict[str, str]] = {
         ),
         "e_number": "Liczba",
         "r_number": (
-            "Interwał, w naturalnej jednostce zadania (dni, tygodnie lub "
-            "miesiące)"
+            "Interwał, w naturalnej jednostce zadania (dni, tygodnie lub miesiące)"
         ),
         "e_switch": "Przełącznik",
         "r_switch": "Wycisza powiadomienia o zaległości tego zadania",
@@ -898,7 +916,7 @@ T: dict[str, dict[str, str]] = {
         "r_date": "Wstecznie datuje ostatnią interwencję",
         "how_note": (
             "Encja daty znaczy więcej, niż się wydaje: bez niej każde zadanie "
-            "startuje od „nigdy nie wykonano\" w dniu dodania sprzętu, a "
+            'startuje od „nigdy nie wykonano" w dniu dodania sprzętu, a '
             "wszystkie stają się wymagalne tego samego popołudnia trzy miesiące "
             "później."
         ),
@@ -968,7 +986,7 @@ T: dict[str, dict[str, str]] = {
         ),
         "tests_3": (
             "**Arytmetyka dni.** `compute_days_left` zaokrągla w obie strony od "
-            "zera, a „nigdy nie zresetowano\" to `None`, a nie zaległość. "
+            'zera, a „nigdy nie zresetowano" to `None`, a nie zaległość. '
             "Wszyscy odbiorcy czytają te wartości."
         ),
         "tests_4": (
@@ -1004,6 +1022,9 @@ T: dict[str, dict[str, str]] = {
             "Nada a configurar do lado do cartão: encontra as tarefas pelo "
             "atributo `reef_role`, por isso um equipamento aqui adicionado "
             "aparece lá na atualização seguinte."
+        ),
+        "notify_link": (
+            f"As tarefas em atraso também podem chegar ao seu telemóvel: o blueprint [Reef maintenance watch]({BLUEPRINTS}) encontra-as pelo mesmo atributo `reef_role` e respeita os interruptores de notificação por tarefa."
         ),
         "how_title": "Como funciona",
         "how_body": (
@@ -1114,8 +1135,7 @@ def language_bar(current: str) -> str:
     parts = []
     for flag, code, path in LANGS:
         img = (
-            f'<img src="https://flagicons.lipis.dev/flags/4x3/{flag}.svg" '
-            'width="5%"/>'
+            f'<img src="https://flagicons.lipis.dev/flags/4x3/{flag}.svg" width="5%"/>'
         )
         if code == current:
             parts.append(img)
@@ -1148,6 +1168,35 @@ def presets_table(t: dict[str, str]) -> str:
     return "\n".join([head] + [f"| {a} | {b} | {c} |" for a, b, c in rows])
 
 
+ECOSYSTEM_START = "<!-- ecosystem:start -->"
+ECOSYSTEM_END = "<!-- ecosystem:end -->"
+
+
+def preserve_ecosystem(existing: str, generated: str) -> str:
+    """Carry an existing "Related projects" block into the new content.
+
+    That block is written by reeftank/scripts/gen_ecosystem.py, which lives in
+    another repository and is not available in CI. Without this, regenerating
+    would silently drop it, and the workflow that checks the generated files
+    are up to date would fail on every run.
+
+    The block goes back where gen_ecosystem puts it: just before the first
+    second-level heading.
+    """
+    start = existing.find(ECOSYSTEM_START)
+    if start == -1:
+        return generated
+    end = existing.find(ECOSYSTEM_END)
+    if end == -1:
+        return generated
+    block = existing[start : end + len(ECOSYSTEM_END)]
+
+    at = generated.find("\n## ")
+    if at == -1:
+        return generated
+    return generated[: at + 1] + block + "\n\n" + generated[at + 1 :]
+
+
 def render(code: str) -> str:
     t = T[code]
     icon = "icon.png" if code == "en" else f"{REPO}/raw/main/icon.png"
@@ -1174,6 +1223,8 @@ def render(code: str) -> str:
 {t["card_body"]}
 
 {t["card_note"]}
+
+{t["notify_link"]}
 
 {video(t)}
 
@@ -1234,7 +1285,8 @@ def main() -> None:
     for _, code, path in LANGS:
         target = Path(path)
         target.parent.mkdir(parents=True, exist_ok=True)
-        target.write_text(render(code), encoding="utf-8")
+        existing = target.read_text(encoding="utf-8") if target.exists() else ""
+        target.write_text(preserve_ecosystem(existing, render(code)), encoding="utf-8")
         print("written", path)
 
 

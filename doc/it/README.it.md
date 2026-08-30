@@ -38,7 +38,7 @@ I progetti ReefTech si incastrano tra loro: le integrazioni portano la tua attre
   <tr>
     <td><img src="https://raw.githubusercontent.com/Elwinmage/ha-reefbeat-component/main/icon.png" width="64" alt="ha-reefbeat-component" /></td>
     <td><a href="https://github.com/Elwinmage/ha-reefbeat-component"><b>ha-reefbeat-component</b></a></td>
-    <td>Dispositivi Red Sea ReefBeat, pilotati in locale senza cloud: ReefATO+, ReefControl, ReefControl-Power, ReefDose, ReefLed, ReefMat, ReefRun e ReefWave.<br />Include <b>ReefBeat watch</b>, un blueprint di allerta per manutenzioni scadute, modalità anomale, batteria scarica e dispositivi irraggiungibili. <a href="https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https://raw.githubusercontent.com/Elwinmage/ha-reefbeat-component/refs/heads/main/blueprints/automation/redsea_alerts.en.yaml"><img src="https://my.home-assistant.io/badges/blueprint_import.svg" alt="Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled." /></a></td>
+    <td>Dispositivi Red Sea ReefBeat, pilotati in locale senza cloud: ReefATO+, ReefControl, ReefControl-Power, ReefDose, ReefLed, ReefMat, ReefRun e ReefWave.<br />blueprint di allerta per modalità anomale, calibrazioni e batteria scarica. <a href="https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https://raw.githubusercontent.com/Elwinmage/ha-reefbeat-component/refs/heads/main/blueprints/automation/redsea_alerts.en.yaml"><img src="https://my.home-assistant.io/badges/blueprint_import.svg" alt="Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled." /></a></td>
     <td>ha-reef-card</td>
   </tr>
   <tr>
@@ -57,6 +57,12 @@ I progetti ReefTech si incastrano tra loro: le integrazioni portano la tua attre
     <td><img src="https://raw.githubusercontent.com/Elwinmage/ha-reef-card/main/icon.png" width="64" alt="ha-reef-card" /></td>
     <td><a href="https://github.com/Elwinmage/ha-reef-card"><b>ha-reef-card</b></a></td>
     <td>Vista grafica interattiva di ogni dispositivo sulla tua dashboard, e unico modo per modificare le programmazioni avanzate. Legge le tre integrazioni tramite il contratto <code>reef_role</code> comune, senza configurazione lato scheda.</td>
+    <td>tutte e tre le integrazioni</td>
+  </tr>
+  <tr>
+    <td><img src="https://raw.githubusercontent.com/Elwinmage/ha-reef-blueprints/main/icon.png" width="64" alt="ha-reef-blueprints" /></td>
+    <td><a href="https://github.com/Elwinmage/ha-reef-blueprints"><b>ha-reef-blueprints</b></a></td>
+    <td>Blueprint di notifica comuni a tutto l'ecosistema: manutenzioni scadute trovate tramite il contratto <code>reef_role</code>, e dispositivi diventati irraggiungibili. Otto lingue.</td>
     <td>tutte e tre le integrazioni</td>
   </tr>
   <tr>
@@ -80,6 +86,8 @@ Sono tutti documentati insieme sulla [pagina del progetto ReefTech](https://elwi
 La vista manutenzione di [ha-reef-card](https://github.com/Elwinmage/ha-reef-card) raccoglie tutte le attività di questa integrazione accanto a quelle dei dispositivi connessi. Ordina per attrezzatura o per scadenza, le scadute per prime; premi una riga e il lavoro viene registrato.
 
 Nulla da configurare lato scheda: trova le attività tramite l'attributo `reef_role`, quindi un'attrezzatura aggiunta qui compare lì al successivo aggiornamento.
+
+Le attività scadute possono anche arrivare sul telefono: il blueprint [Reef maintenance watch](https://github.com/Elwinmage/ha-reef-blueprints) le trova tramite lo stesso attributo `reef_role` e rispetta gli interruttori di notifica per attività.
 
 [![Guarda il video](https://img.youtube.com/vi/__A_DEFINIR__/0.jpg)](https://www.youtube.com/watch?v=__A_DEFINIR__)
 
