@@ -91,10 +91,20 @@ def build_equipment(payload: dict[str, Any]) -> Equipment:
             continue
         instances.append(TaskInstance(task))
 
-    for label in payload.get(CONF_CUSTOM_TASKS, []):
+    # Slugs must stay unique within an equipment: the slug lands in the task
+    # key, hence in the unique_id of the four entities. Two labels can collide
+    # -- "Rincer!" and "Rincer?" both give "rincer", and HA's slugify returns
+    # "unknown" for anything with nothing slugifiable at all -- and Home
+    # Assistant would silently drop the second entity set as a duplicate.
+    #
+    # Only a colliding label is suffixed, so an existing slug never changes
+    # and no reset history is lost.
+    seen: set[str] = set()
+    for index, label in enumerate(payload.get(CONF_CUSTOM_TASKS, []), start=1):
         slug = slugify(label)
-        if not slug:
-            continue
+        if slug in seen:
+            slug = f"{slug}_{index}"
+        seen.add(slug)
         instances.append(TaskInstance(custom_task(slug), label=label))
 
     return Equipment(
