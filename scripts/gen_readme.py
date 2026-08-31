@@ -42,6 +42,25 @@ LANGS = [
     ("pt", "pt", "doc/pt/README.pt.md"),
 ]
 
+# Clone counter, kept in a gist by the github-clone-count-badge workflow: the
+# GitHub API only serves the last 14 days, so the count has to live outside the
+# repository. One gist per repository — pointing this at another repo's gist
+# would show that repo's count. Left empty until the gist exists, and the badge
+# is then simply not emitted rather than rendering broken.
+CLONE_GIST_ID = "37c1a33b8c2661fb88b060367900cf1c"
+
+CLONE_BADGE = (
+    (
+        "[![GitHub Clones](https://img.shields.io/badge/dynamic/json"
+        "?color=success&label=Clone&query=count"
+        "&url=https://gist.githubusercontent.com/Elwinmage/"
+        f"{CLONE_GIST_ID}/raw/clone.json&logo=github)]"
+        "(https://github.com/MShawon/github-clone-count-badge)\n"
+    )
+    if CLONE_GIST_ID
+    else ""
+)
+
 BADGES = f"""[![HACS Badge](https://img.shields.io/badge/HACS-Custom-41BDF5.svg?style=flat-square)](https://github.com/hacs/hacs)
 [![IoT Class](https://img.shields.io/badge/IoT%20Class-Local%20Push-green?style=flat-square)](https://developers.home-assistant.io/docs/architecture_index/#branding)
 [![GH-release](https://img.shields.io/github/v/release/Elwinmage/ha-reef-maintenance-component.svg?style=flat-square)]({REPO}/releases)
@@ -50,7 +69,7 @@ BADGES = f"""[![HACS Badge](https://img.shields.io/badge/HACS-Custom-41BDF5.svg?
 [![HA & HACS Validation]({REPO}/actions/workflows/hass_and_hacs.yml/badge.svg)]({REPO}/actions/workflows/hass_and_hacs.yml)
 [![Coverage](https://raw.githubusercontent.com/Elwinmage/ha-reef-maintenance-component/main/badges/coverage.svg)](https://app.codecov.io/gh/Elwinmage/ha-reef-maintenance-component)
 [![GH-last-commit](https://img.shields.io/github/last-commit/Elwinmage/ha-reef-maintenance-component.svg?style=flat-square)]({REPO}/commits/main)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+{CLONE_BADGE}[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 [![GH-code-size](https://img.shields.io/github/languages/code-size/Elwinmage/ha-reef-maintenance-component.svg?color=red&style=flat-square)]({REPO})
 [![BuyMeCoffee](https://img.shields.io/badge/buy%20me%20a%20coffee-donate-yellow.svg?style=flat-square)](https://paypal.me/Elwinmage)"""
 
