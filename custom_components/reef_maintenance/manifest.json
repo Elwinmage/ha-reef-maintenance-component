@@ -1,12 +1,14 @@
 {
   "domain": "reef_maintenance",
   "name": "Reef maintenance",
-  "codeowners": ["@Elwinmage"],
+  "codeowners": [
+    "@Elwinmage"
+  ],
   "config_flow": true,
   "documentation": "https://github.com/Elwinmage/ha-reef-maintenance-component",
   "integration_type": "hub",
   "iot_class": "local_push",
   "issue_tracker": "https://github.com/Elwinmage/ha-reef-maintenance-component/issues",
   "requirements": [],
-  "version": "v0.1.0"
+  "version": "v1.0.0"
 }
