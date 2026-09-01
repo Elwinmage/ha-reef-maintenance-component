@@ -90,7 +90,7 @@ Rien à régler côté carte : elle trouve les tâches par l'attribut `reef_role
 
 Les tâches en retard peuvent aussi arriver sur votre téléphone : le blueprint [Reef maintenance watch](https://github.com/Elwinmage/ha-reef-blueprints) les trouve par ce même attribut `reef_role` et respecte les interrupteurs de notification par tâche.
 
-[![Regarder la vidéo](https://img.youtube.com/vi/__A_DEFINIR__/0.jpg)](https://www.youtube.com/watch?v=__A_DEFINIR__)
+[![Regarder la vidéo](https://img.youtube.com/vi/Ko46fHonOP4/0.jpg)](https://www.youtube.com/watch?v=Ko46fHonOP4)
 
 ## Installation
 

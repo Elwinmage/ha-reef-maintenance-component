@@ -90,7 +90,7 @@ Nothing to set up on the card side: it finds the tasks through the `reef_role` a
 
 Overdue tasks can also reach your phone: the [Reef maintenance watch](https://github.com/Elwinmage/ha-reef-blueprints) blueprint finds them through the same `reef_role` attribute and honours the per-task notification switches.
 
-[![Watch the video](https://img.youtube.com/vi/__A_DEFINIR__/0.jpg)](https://www.youtube.com/watch?v=__A_DEFINIR__)
+[![Watch the video](https://img.youtube.com/vi/Ko46fHonOP4/0.jpg)](https://www.youtube.com/watch?v=Ko46fHonOP4)
 
 ## Installation
 

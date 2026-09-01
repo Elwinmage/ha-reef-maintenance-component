@@ -90,7 +90,7 @@ Nulla da configurare lato scheda: trova le attività tramite l'attributo `reef_r
 
 Le attività scadute possono anche arrivare sul telefono: il blueprint [Reef maintenance watch](https://github.com/Elwinmage/ha-reef-blueprints) le trova tramite lo stesso attributo `reef_role` e rispetta gli interruttori di notifica per attività.
 
-[![Guarda il video](https://img.youtube.com/vi/__A_DEFINIR__/0.jpg)](https://www.youtube.com/watch?v=__A_DEFINIR__)
+[![Guarda il video](https://img.youtube.com/vi/Ko46fHonOP4/0.jpg)](https://www.youtube.com/watch?v=Ko46fHonOP4)
 
 ## Installazione
 

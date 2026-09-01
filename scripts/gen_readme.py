@@ -27,7 +27,7 @@ OVERVIEW = f"{CARD}/raw/main/doc/img/maintenance/overview.png"
 
 # Replace with the real id once the video is up. Left as a token on purpose:
 # a plausible-looking placeholder would ship unnoticed, this one cannot.
-VIDEO_ID = "__A_DEFINIR__"
+VIDEO_ID = "Ko46fHonOP4"
 
 # Flag, language code, and the path the flag links to. English is the root
 # README; the rest live under doc/<lang>/.

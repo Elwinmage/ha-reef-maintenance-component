@@ -90,7 +90,7 @@ Auf Kartenseite ist nichts einzurichten: sie findet die Aufgaben über das `reef
 
 Überfällige Aufgaben können auch auf Ihr Telefon: der Blueprint [Reef maintenance watch](https://github.com/Elwinmage/ha-reef-blueprints) findet sie über dasselbe `reef_role`-Attribut und beachtet die Benachrichtigungsschalter je Aufgabe.
 
-[![Video ansehen](https://img.youtube.com/vi/__A_DEFINIR__/0.jpg)](https://www.youtube.com/watch?v=__A_DEFINIR__)
+[![Video ansehen](https://img.youtube.com/vi/Ko46fHonOP4/0.jpg)](https://www.youtube.com/watch?v=Ko46fHonOP4)
 
 ## Installation
 

@@ -90,7 +90,7 @@ Nada que configurar en la tarjeta: encuentra las tareas por el atributo `reef_ro
 
 Las tareas vencidas también pueden llegar a su móvil: el blueprint [Reef maintenance watch](https://github.com/Elwinmage/ha-reef-blueprints) las encuentra por ese mismo atributo `reef_role` y respeta los interruptores de notificación por tarea.
 
-[![Ver el vídeo](https://img.youtube.com/vi/__A_DEFINIR__/0.jpg)](https://www.youtube.com/watch?v=__A_DEFINIR__)
+[![Ver el vídeo](https://img.youtube.com/vi/Ko46fHonOP4/0.jpg)](https://www.youtube.com/watch?v=Ko46fHonOP4)
 
 ## Instalación
 

@@ -90,7 +90,7 @@ Po stronie karty nie ma nic do ustawienia: znajduje zadania przez atrybut `reef_
 
 Zaległe zadania mogą też trafić na telefon: blueprint [Reef maintenance watch](https://github.com/Elwinmage/ha-reef-blueprints) znajduje je przez ten sam atrybut `reef_role` i respektuje przełączniki powiadomień poszczególnych zadań.
 
-[![Obejrzyj wideo](https://img.youtube.com/vi/__A_DEFINIR__/0.jpg)](https://www.youtube.com/watch?v=__A_DEFINIR__)
+[![Obejrzyj wideo](https://img.youtube.com/vi/Ko46fHonOP4/0.jpg)](https://www.youtube.com/watch?v=Ko46fHonOP4)
 
 ## Instalacja
 

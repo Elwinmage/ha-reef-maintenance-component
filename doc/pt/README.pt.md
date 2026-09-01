@@ -90,7 +90,7 @@ Nada a configurar do lado do cartão: encontra as tarefas pelo atributo `reef_ro
 
 As tarefas em atraso também podem chegar ao seu telemóvel: o blueprint [Reef maintenance watch](https://github.com/Elwinmage/ha-reef-blueprints) encontra-as pelo mesmo atributo `reef_role` e respeita os interruptores de notificação por tarefa.
 
-[![Ver o vídeo](https://img.youtube.com/vi/__A_DEFINIR__/0.jpg)](https://www.youtube.com/watch?v=__A_DEFINIR__)
+[![Ver o vídeo](https://img.youtube.com/vi/Ko46fHonOP4/0.jpg)](https://www.youtube.com/watch?v=Ko46fHonOP4)
 
 ## Instalação
 

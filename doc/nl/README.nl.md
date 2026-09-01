@@ -90,7 +90,7 @@ Aan de kaartzijde valt niets in te stellen: ze vindt de taken via het `reef_role
 
 Achterstallige taken kunnen ook op uw telefoon komen: de blueprint [Reef maintenance watch](https://github.com/Elwinmage/ha-reef-blueprints) vindt ze via hetzelfde `reef_role`-attribuut en respecteert de meldingsschakelaars per taak.
 
-[![Bekijk de video](https://img.youtube.com/vi/__A_DEFINIR__/0.jpg)](https://www.youtube.com/watch?v=__A_DEFINIR__)
+[![Bekijk de video](https://img.youtube.com/vi/Ko46fHonOP4/0.jpg)](https://www.youtube.com/watch?v=Ko46fHonOP4)
 
 ## Installatie
 
