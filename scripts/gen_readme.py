@@ -27,7 +27,7 @@ OVERVIEW = f"{CARD}/raw/main/doc/img/maintenance/overview.png"
 
 # Replace with the real id once the video is up. Left as a token on purpose:
 # a plausible-looking placeholder would ship unnoticed, this one cannot.
-VIDEO_ID = "__A_DEFINIR__"
+VIDEO_ID = "Ko46fHonOP4"
 
 # Flag, language code, and the path the flag links to. English is the root
 # README; the rest live under doc/<lang>/.
@@ -42,6 +42,25 @@ LANGS = [
     ("pt", "pt", "doc/pt/README.pt.md"),
 ]
 
+# Clone counter, kept in a gist by the github-clone-count-badge workflow: the
+# GitHub API only serves the last 14 days, so the count has to live outside the
+# repository. One gist per repository — pointing this at another repo's gist
+# would show that repo's count. Left empty until the gist exists, and the badge
+# is then simply not emitted rather than rendering broken.
+CLONE_GIST_ID = "37c1a33b8c2661fb88b060367900cf1c"
+
+CLONE_BADGE = (
+    (
+        "[![GitHub Clones](https://img.shields.io/badge/dynamic/json"
+        "?color=success&label=Clone&query=count"
+        "&url=https://gist.githubusercontent.com/Elwinmage/"
+        f"{CLONE_GIST_ID}/raw/clone.json&logo=github)]"
+        "(https://github.com/MShawon/github-clone-count-badge)\n"
+    )
+    if CLONE_GIST_ID
+    else ""
+)
+
 BADGES = f"""[![HACS Badge](https://img.shields.io/badge/HACS-Custom-41BDF5.svg?style=flat-square)](https://github.com/hacs/hacs)
 [![IoT Class](https://img.shields.io/badge/IoT%20Class-Local%20Push-green?style=flat-square)](https://developers.home-assistant.io/docs/architecture_index/#branding)
 [![GH-release](https://img.shields.io/github/v/release/Elwinmage/ha-reef-maintenance-component.svg?style=flat-square)]({REPO}/releases)
@@ -50,7 +69,7 @@ BADGES = f"""[![HACS Badge](https://img.shields.io/badge/HACS-Custom-41BDF5.svg?
 [![HA & HACS Validation]({REPO}/actions/workflows/hass_and_hacs.yml/badge.svg)]({REPO}/actions/workflows/hass_and_hacs.yml)
 [![Coverage](https://raw.githubusercontent.com/Elwinmage/ha-reef-maintenance-component/main/badges/coverage.svg)](https://app.codecov.io/gh/Elwinmage/ha-reef-maintenance-component)
 [![GH-last-commit](https://img.shields.io/github/last-commit/Elwinmage/ha-reef-maintenance-component.svg?style=flat-square)]({REPO}/commits/main)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+{CLONE_BADGE}[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 [![GH-code-size](https://img.shields.io/github/languages/code-size/Elwinmage/ha-reef-maintenance-component.svg?color=red&style=flat-square)]({REPO})
 [![BuyMeCoffee](https://img.shields.io/badge/buy%20me%20a%20coffee-donate-yellow.svg?style=flat-square)](https://paypal.me/Elwinmage)"""
 
@@ -65,6 +84,15 @@ pip install -r requirements.test.txt
 pytest -q --cov=custom_components.reef_maintenance --cov-config=.coveragerc \\
        --cov-report=term-missing
 ```"""
+
+HACS_BADGE = (
+    "[![Open your Home Assistant instance and open a repository inside the "
+    "Home Assistant Community Store.]"
+    "(https://my.home-assistant.io/badges/hacs_repository.svg)]"
+    "(https://my.home-assistant.io/redirect/hacs_repository/"
+    "?owner=Elwinmage&repository=ha-reef-maintenance-component"
+    "&category=integration)"
+)
 
 T: dict[str, dict[str, str]] = {
     "en": {
@@ -97,6 +125,11 @@ T: dict[str, dict[str, str]] = {
         "notify_link": (
             f"Overdue tasks can also reach your phone: the [Reef maintenance watch]({BLUEPRINTS}) blueprint finds them through the same `reef_role` attribute and honours the per-task notification switches."
         ),
+        "install_title": "Installation",
+        "install_direct_title": "Direct installation",
+        "install_direct_body": 'Click here to open the repository directly in HACS and click "Download":',
+        "install_search_title": "Search in HACS",
+        "install_search_body": 'Or search for "reef-maintenance" in HACS.',
         "how_title": "How it works",
         "how_body": (
             "One config entry per **brand**, one device per **equipment**, four "
@@ -224,6 +257,11 @@ T: dict[str, dict[str, str]] = {
         "notify_link": (
             f"Les tâches en retard peuvent aussi arriver sur votre téléphone : le blueprint [Reef maintenance watch]({BLUEPRINTS}) les trouve par ce même attribut `reef_role` et respecte les interrupteurs de notification par tâche."
         ),
+        "install_title": "Installation",
+        "install_direct_title": "Installation directe",
+        "install_direct_body": "Cliquez ici pour ouvrir directement le dépôt dans HACS et cliquez sur \u00ab Télécharger \u00bb :",
+        "install_search_title": "Recherche dans HACS",
+        "install_search_body": "Ou cherchez \u00ab reef-maintenance \u00bb dans HACS.",
         "how_title": "Fonctionnement",
         "how_body": (
             "Une entrée de configuration par **marque**, un appareil par "
@@ -359,6 +397,11 @@ T: dict[str, dict[str, str]] = {
         "notify_link": (
             f"Überfällige Aufgaben können auch auf Ihr Telefon: der Blueprint [Reef maintenance watch]({BLUEPRINTS}) findet sie über dasselbe `reef_role`-Attribut und beachtet die Benachrichtigungsschalter je Aufgabe."
         ),
+        "install_title": "Installation",
+        "install_direct_title": "Direkte Installation",
+        "install_direct_body": "Klicken Sie hier, um das Repository direkt in HACS zu öffnen, und klicken Sie auf \u00abHerunterladen\u00bb:",
+        "install_search_title": "Suche in HACS",
+        "install_search_body": "Oder suchen Sie nach \u00abreef-maintenance\u00bb in HACS.",
         "how_title": "Funktionsweise",
         "how_body": (
             "Ein Konfigurationseintrag je **Marke**, ein Gerät je "
@@ -493,6 +536,11 @@ T: dict[str, dict[str, str]] = {
         "notify_link": (
             f"Las tareas vencidas también pueden llegar a su móvil: el blueprint [Reef maintenance watch]({BLUEPRINTS}) las encuentra por ese mismo atributo `reef_role` y respeta los interruptores de notificación por tarea."
         ),
+        "install_title": "Instalación",
+        "install_direct_title": "Instalación directa",
+        "install_direct_body": "Haga clic aquí para abrir el repositorio directamente en HACS y pulse \u00abDescargar\u00bb:",
+        "install_search_title": "Buscar en HACS",
+        "install_search_body": "O busque \u00abreef-maintenance\u00bb en HACS.",
         "how_title": "Cómo funciona",
         "how_body": (
             "Una entrada de configuración por **marca**, un dispositivo por "
@@ -626,6 +674,11 @@ T: dict[str, dict[str, str]] = {
         "notify_link": (
             f"Le attività scadute possono anche arrivare sul telefono: il blueprint [Reef maintenance watch]({BLUEPRINTS}) le trova tramite lo stesso attributo `reef_role` e rispetta gli interruttori di notifica per attività."
         ),
+        "install_title": "Installazione",
+        "install_direct_title": "Installazione diretta",
+        "install_direct_body": "Cliccate qui per aprire il repository direttamente in HACS e premete \u00abDownload\u00bb:",
+        "install_search_title": "Cercare in HACS",
+        "install_search_body": "Oppure cercate \u00abreef-maintenance\u00bb in HACS.",
         "how_title": "Come funziona",
         "how_body": (
             "Una voce di configurazione per **marca**, un dispositivo per "
@@ -762,6 +815,11 @@ T: dict[str, dict[str, str]] = {
         "notify_link": (
             f"Achterstallige taken kunnen ook op uw telefoon komen: de blueprint [Reef maintenance watch]({BLUEPRINTS}) vindt ze via hetzelfde `reef_role`-attribuut en respecteert de meldingsschakelaars per taak."
         ),
+        "install_title": "Installatie",
+        "install_direct_title": "Directe installatie",
+        "install_direct_body": 'Klik hier om de repository rechtstreeks in HACS te openen en klik op "Downloaden":',
+        "install_search_title": "Zoeken in HACS",
+        "install_search_body": 'Of zoek naar "reef-maintenance" in HACS.',
         "how_title": "Hoe het werkt",
         "how_body": (
             "Eén configuratie-item per **merk**, één apparaat per "
@@ -894,6 +952,11 @@ T: dict[str, dict[str, str]] = {
         "notify_link": (
             f"Zaległe zadania mogą też trafić na telefon: blueprint [Reef maintenance watch]({BLUEPRINTS}) znajduje je przez ten sam atrybut `reef_role` i respektuje przełączniki powiadomień poszczególnych zadań."
         ),
+        "install_title": "Instalacja",
+        "install_direct_title": "Bezpośrednia instalacja",
+        "install_direct_body": "Kliknij tutaj, aby otworzyć repozytorium bezpośrednio w HACS i kliknij \u00abPobierz\u00bb:",
+        "install_search_title": "Szukaj w HACS",
+        "install_search_body": "Lub wyszukaj \u00abreef-maintenance\u00bb w HACS.",
         "how_title": "Jak to działa",
         "how_body": (
             "Jeden wpis konfiguracji na **markę**, jedno urządzenie na "
@@ -1026,6 +1089,11 @@ T: dict[str, dict[str, str]] = {
         "notify_link": (
             f"As tarefas em atraso também podem chegar ao seu telemóvel: o blueprint [Reef maintenance watch]({BLUEPRINTS}) encontra-as pelo mesmo atributo `reef_role` e respeita os interruptores de notificação por tarefa."
         ),
+        "install_title": "Instalação",
+        "install_direct_title": "Instalação direta",
+        "install_direct_body": "Clique aqui para abrir o repositório diretamente no HACS e clique em \u00abDownload\u00bb:",
+        "install_search_title": "Procurar no HACS",
+        "install_search_body": "Ou procure \u00abreef-maintenance\u00bb no HACS.",
         "how_title": "Como funciona",
         "how_body": (
             "Uma entrada de configuração por **marca**, um aparelho por "
@@ -1227,6 +1295,16 @@ def render(code: str) -> str:
 {t["notify_link"]}
 
 {video(t)}
+
+## {t["install_title"]}
+
+### {t["install_direct_title"]}
+
+{t["install_direct_body"]} {HACS_BADGE}
+
+### {t["install_search_title"]}
+
+{t["install_search_body"]}
 
 ## {t["how_title"]}
 

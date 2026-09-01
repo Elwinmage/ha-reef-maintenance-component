@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: "Set version number from trigger's tag"
         id: update_manifest
@@ -46,7 +46,7 @@ jobs:
       - name: Pack integration ZIP
         run: |
           # On se place à la racine pour inclure le dossier custom_components
-          zip -r integration.zip custom_components/reef_maintenance
+          zip -r reef_maintenance.zip custom_components/reef_maintenance
 
       # 🚀 2. Publication avec le bon Asset
       - name: Create Release with Zip Asset
@@ -54,6 +54,6 @@ jobs:
         with:
           prerelease: true
           tag: ${{ github.event.inputs.tag }}
-          artifacts: "integration.zip" # 👈 Nom officiel attendu
+          artifacts: "reef_maintenance.zip" # 👈 Nom officiel attendu
           allowUpdates: true
           token: ${{ secrets.GITHUB_TOKEN }}
