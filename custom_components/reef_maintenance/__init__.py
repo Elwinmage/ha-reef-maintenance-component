@@ -50,15 +50,11 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     await store.async_load()
 
     equipments = build_equipments(dict(entry.options))
-    hass.data.setdefault(DOMAIN, {})[entry.entry_id] = {
-        "store": store,
-        "equipments": equipments,
-    }
 
-    # The brand device is the `via_device` parent of every equipment, so the
+    # The brand device is the via_device parent of every equipment, so the
     # UI groups them instead of listing a flat pile of pumps.
     brand = entry.data[CONF_BRAND]
-    dr.async_get(hass).async_get_or_create(
+    brand_dev = dr.async_get(hass).async_get_or_create(
         config_entry_id=entry.entry_id,
         identifiers={(DOMAIN, brand_device_id(brand))},
         name=BRANDS.get(brand, brand.capitalize()),
@@ -66,6 +62,12 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         model="Maintenance",
         entry_type=dr.DeviceEntryType.SERVICE,
     )
+
+    hass.data.setdefault(DOMAIN, {})[entry.entry_id] = {
+        "store": store,
+        "equipments": equipments,
+        "brand_device_id": brand_dev.id,
+    }
 
     await hass.config_entries.async_forward_entry_setups(entry, PLATFORMS)
     entry.async_on_unload(entry.add_update_listener(_async_update_listener))

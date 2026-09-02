@@ -23,13 +23,14 @@ from custom_components.reef_maintenance.entity import brand_device_id
 def device_of(hass: HomeAssistant, identifier: str) -> dr.DeviceEntry:
     """Return a device, failing clearly when it was never registered.
 
-    `async_get_device` is Optional, and passing None on to
-    `async_remove_config_entry_device` would fail inside the integration
-    rather than naming the device the test expected to find.
+    Iterates the device registry directly — the mapping-style and
+    identifier-based lookups are deprecated or require a config_entry_id.
     """
-    device = dr.async_get(hass).async_get_device(identifiers={(DOMAIN, identifier)})
-    assert device is not None, f"no device registered for {identifier}"
-    return device
+    registry = dr.async_get(hass)
+    for dev in registry.devices:
+        if (DOMAIN, identifier) in dev.identifiers:
+            return dev
+    raise AssertionError(f"no device registered for {identifier}")
 
 
 class TestSetup:

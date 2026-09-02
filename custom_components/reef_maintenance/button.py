@@ -20,9 +20,12 @@ async def async_setup_entry(
     data = hass.data[DOMAIN][entry.entry_id]
     store: MaintenanceStore = data["store"]
     brand: str = entry.data[CONF_BRAND]
+    brand_dev_id: str = data["brand_device_id"]
 
     entities = [
-        ReefMaintenanceButton(store, brand, equipment, instance)
+        ReefMaintenanceButton(
+            store, brand, equipment, instance, via_device_id=brand_dev_id
+        )
         for equipment in data["equipments"]
         for instance in equipment.tasks
     ]
@@ -52,8 +55,12 @@ class ReefMaintenanceButton(ReefMaintenanceEntity, ButtonEntity):  # type: ignor
         brand: str,
         equipment: Equipment,
         instance: TaskInstance,
+        *,
+        via_device_id: str | None = None,
     ) -> None:
-        super().__init__(store, brand, equipment, instance, "action")
+        super().__init__(
+            store, brand, equipment, instance, "action", via_device_id=via_device_id
+        )
         self._attr_icon = instance.task.icon
 
     def _compute_attrs(self) -> dict[str, object]:

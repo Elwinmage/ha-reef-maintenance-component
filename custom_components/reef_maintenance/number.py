@@ -22,9 +22,12 @@ async def async_setup_entry(
     data = hass.data[DOMAIN][entry.entry_id]
     store: MaintenanceStore = data["store"]
     brand: str = entry.data[CONF_BRAND]
+    brand_dev_id: str = data["brand_device_id"]
 
     async_add_entities(
-        ReefMaintenanceIntervalNumber(store, brand, equipment, instance)
+        ReefMaintenanceIntervalNumber(
+            store, brand, equipment, instance, via_device_id=brand_dev_id
+        )
         for equipment in data["equipments"]
         for instance in equipment.tasks
     )
@@ -51,10 +54,18 @@ class ReefMaintenanceIntervalNumber(ReefMaintenanceEntity, NumberEntity):  # typ
         brand: str,
         equipment: Equipment,
         instance: TaskInstance,
+        *,
+        via_device_id: str | None = None,
     ) -> None:
         task = instance.task
         super().__init__(
-            store, brand, equipment, instance, "interval", f"_interval_{task.unit}"
+            store,
+            brand,
+            equipment,
+            instance,
+            "interval",
+            f"_interval_{task.unit}",
+            via_device_id=via_device_id,
         )
         # "days" must be listed explicitly in DAYS_PER_UNIT, otherwise a task
         # declared in days would silently be stored as weeks.

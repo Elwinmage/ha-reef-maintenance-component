@@ -59,6 +59,8 @@ class ReefMaintenanceEntity(ReefRoleMixin, Entity):  # type: ignore[misc]
         instance: TaskInstance,
         unique_suffix: str,
         translation_suffix: str = "",
+        *,
+        via_device_id: str | None = None,
     ) -> None:
         self._store = store
         self._equipment = equipment
@@ -74,13 +76,15 @@ class ReefMaintenanceEntity(ReefRoleMixin, Entity):  # type: ignore[misc]
         if is_custom(self._task) and instance.label:
             self._attr_translation_placeholders = {"task": instance.label}
 
-        self._attr_device_info = DeviceInfo(
+        di = DeviceInfo(
             identifiers={(DOMAIN, equipment.id)},
             name=equipment.name,
             manufacturer=brand.capitalize(),
             model=equipment.model,
-            via_device=(DOMAIN, brand_device_id(brand)),
         )
+        if via_device_id is not None:
+            di["via_device_id"] = via_device_id
+        self._attr_device_info = di
         self._unsub: Callable[[], None] | None = None
 
     # ---- lifecycle -------------------------------------------------------

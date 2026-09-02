@@ -23,9 +23,12 @@ async def async_setup_entry(
     data = hass.data[DOMAIN][entry.entry_id]
     store: MaintenanceStore = data["store"]
     brand: str = entry.data[CONF_BRAND]
+    brand_dev_id: str = data["brand_device_id"]
 
     async_add_entities(
-        ReefMaintenanceNotifySwitch(store, brand, equipment, instance)
+        ReefMaintenanceNotifySwitch(
+            store, brand, equipment, instance, via_device_id=brand_dev_id
+        )
         for equipment in data["equipments"]
         for instance in equipment.tasks
     )
@@ -46,8 +49,18 @@ class ReefMaintenanceNotifySwitch(ReefMaintenanceEntity, SwitchEntity):  # type:
         brand: str,
         equipment: Equipment,
         instance: TaskInstance,
+        *,
+        via_device_id: str | None = None,
     ) -> None:
-        super().__init__(store, brand, equipment, instance, "notify", "_notify")
+        super().__init__(
+            store,
+            brand,
+            equipment,
+            instance,
+            "notify",
+            "_notify",
+            via_device_id=via_device_id,
+        )
         # State is mirrored into `_attr_*` rather than exposed through
         # properties: SwitchEntity declares is_on and icon as cached_property.
         self._attr_is_on = True

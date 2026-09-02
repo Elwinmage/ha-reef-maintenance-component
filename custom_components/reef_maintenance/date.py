@@ -30,9 +30,12 @@ async def async_setup_entry(
     data = hass.data[DOMAIN][entry.entry_id]
     store: MaintenanceStore = data["store"]
     brand: str = entry.data[CONF_BRAND]
+    brand_dev_id: str = data["brand_device_id"]
 
     async_add_entities(
-        ReefMaintenanceLastResetDate(store, brand, equipment, instance)
+        ReefMaintenanceLastResetDate(
+            store, brand, equipment, instance, via_device_id=brand_dev_id
+        )
         for equipment in data["equipments"]
         for instance in equipment.tasks
     )
@@ -55,8 +58,18 @@ class ReefMaintenanceLastResetDate(ReefMaintenanceEntity, DateEntity):  # type: 
         brand: str,
         equipment: Equipment,
         instance: TaskInstance,
+        *,
+        via_device_id: str | None = None,
     ) -> None:
-        super().__init__(store, brand, equipment, instance, "last_reset", "_last_reset")
+        super().__init__(
+            store,
+            brand,
+            equipment,
+            instance,
+            "last_reset",
+            "_last_reset",
+            via_device_id=via_device_id,
+        )
 
     @property
     def native_value(self) -> date | None:  # pyright: ignore[reportIncompatibleVariableOverride]
