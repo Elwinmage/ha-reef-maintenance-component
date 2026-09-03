@@ -51,20 +51,19 @@ jobs:
           python-version: ${{ matrix.python-version }}
           cache: "pip"
 
+
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pytest-homeassistant-custom-component
-
-          # reef_maintenance declares no runtime requirement (it talks to
-          # nothing), so there is no manifest dependency step here.
-
-          # Installation de HA (Stable ou Beta)
-          if [[ "${{ matrix.ha-version }}" == "stable" ]]; then
-            pip install homeassistant
+          # Pour la beta, on installe la version pre-release du framework de test
+          if [[ "${{ matrix.ha-version }}" == "beta" ]]; then
+            pip install --pre "pytest-homeassistant-custom-component>=0.13.360"
           else
-            pip install --pre homeassistant
+            pip install "pytest-homeassistant-custom-component>=0.13.360"
           fi
+          # Installation des dépendances du manifest
+          python -c "import json; print('\n'.join(json.load(open('custom_components/redsea/manifest.json'))['requirements']))" > requirements_manifest.txt
+          pip install -r requirements_manifest.txt
 
       - name: Run Pytest
         run: |
