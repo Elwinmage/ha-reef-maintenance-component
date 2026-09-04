@@ -127,11 +127,12 @@ Encja daty znaczy więcej, niż się wydaje: bez niej każde zadanie startuje od
 | Generyczne | Pompa cyrkulacyjna DC | pompa, uchwyt magnetyczny, odkamienianie, części zużywalne |
 | Generyczne | Pompa obiegowa DC | sitko, pompa, odkamienianie, części zużywalne |
 | Generyczne | Odpieniacz z wirnikiem igiełkowym | kubek, venturi, wirnik igiełkowy, odkamienianie, części zużywalne |
+| Generyczne | Rutynowa konserwacja akwarium | podmiana wody, szyby, test ICP, filtry RO/DI, sump, piasek |
 | Generyczne | Sprzęt własny | brak — wybierz z biblioteki lub wpisz własne |
 
 Interwały idą za producentem tam, gdzie podaje liczbę (Tunze Turbelle: pompa i uchwyt magnetyczny co 1–2 miesiące; Tunze Silence: pełne czyszczenie co najmniej raz w roku; Jebao DCP: wirnik co miesiąc; Jebao SLW: co miesiąc do co dwa miesiące), a poza tym za praktyką rafową. Wszystkie są punktami wyjścia, zmiennymi dla każdego sprzętu.
 
-Zadania pochodzą ze wspólnej biblioteki 17 pozycji, przetłumaczonej na 8 języków. Ustawienie wstępne tylko odwołuje się do kluczy biblioteki i może nadpisać granice interwału — dlatego dodanie marki zwykle nie kosztuje żadnego nowego ciągu tłumaczenia.
+Zadania pochodzą ze wspólnej biblioteki 21 pozycji, przetłumaczonej na 8 języków. Ustawienie wstępne tylko odwołuje się do kluczy biblioteki i może nadpisać granice interwału — dlatego dodanie marki zwykle nie kosztuje żadnego nowego ciągu tłumaczenia.
 
 ## Usługa
 

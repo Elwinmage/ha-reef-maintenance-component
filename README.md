@@ -127,11 +127,12 @@ The date entity matters more than it looks: without it every task starts from "n
 | Generic | DC flow pump | pump, magnet holder, descale, wear parts |
 | Generic | DC return pump | strainer, pump, descale, wear parts |
 | Generic | Needle wheel skimmer | cup, venturi, needle wheel, descale, wear parts |
+| Generic | Routine aquarium maintenance | water change, glass, ICP test, RO/DI filters, sump, sand |
 | Generic | Custom equipment | none — pick from the library or type your own |
 
 Preset intervals follow the manufacturer whenever one publishes a figure (Tunze Turbelle: pump and magnet holder every 1–2 months; Tunze Silence: full clean at least yearly; Jebao DCP: monthly impeller cleaning; Jebao SLW: monthly to bi-monthly) and reef keeping practice otherwise. All of them are starting points you can change per equipment.
 
-Tasks come from a shared library of 17 entries, translated in 8 languages. A preset only references library keys and may override the interval bounds — which is why adding a brand usually costs no new translation string.
+Tasks come from a shared library of 21 entries, translated in 8 languages. A preset only references library keys and may override the interval bounds — which is why adding a brand usually costs no new translation string.
 
 ## Service
 

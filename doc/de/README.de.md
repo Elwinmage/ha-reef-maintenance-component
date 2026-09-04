@@ -127,11 +127,12 @@ Die Datums-Entität ist wichtiger als sie aussieht: ohne sie startet jede Aufgab
 | Generisch | DC-Strömungspumpe | Pumpe, Magnethalter, Entkalken, Verschleißteile |
 | Generisch | DC-Rückförderpumpe | Ansaugkorb, Pumpe, Entkalken, Verschleißteile |
 | Generisch | Nadelrad-Abschäumer | Topf, Venturi, Nadelrad, Entkalken, Verschleißteile |
+| Generisch | Routinemäßige Aquarienpflege | Wasserwechsel, Scheiben, ICP-Test, RO/DI-Filter, Technikbecken, Sand |
 | Generisch | Eigene Ausrüstung | keine — aus der Bibliothek wählen oder eigene eintragen |
 
 Die Intervalle folgen dem Hersteller, wo er eine Angabe veröffentlicht (Tunze Turbelle: Pumpe und Magnethalter alle 1–2 Monate; Tunze Silence: Komplettreinigung mindestens jährlich; Jebao DCP: Laufrad monatlich; Jebao SLW: monatlich bis zweimonatlich), sonst der Riffpraxis. Alle sind Ausgangswerte und je Ausrüstung änderbar.
 
-Die Aufgaben stammen aus einer gemeinsamen Bibliothek mit 17 Einträgen, übersetzt in 8 Sprachen. Eine Voreinstellung verweist nur auf Bibliotheksschlüssel und darf die Intervallgrenzen überschreiben — deshalb kostet eine neue Marke meist keine neue Übersetzung.
+Die Aufgaben stammen aus einer gemeinsamen Bibliothek mit 21 Einträgen, übersetzt in 8 Sprachen. Eine Voreinstellung verweist nur auf Bibliotheksschlüssel und darf die Intervallgrenzen überschreiben — deshalb kostet eine neue Marke meist keine neue Übersetzung.
 
 ## Dienst
 

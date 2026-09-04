@@ -160,6 +160,19 @@ PRESETS: Final[dict[str, Preset]] = {
                 TaskSpec("wear_parts_replace", 540, 365, 1095),
             ),
         ),
+        Preset(
+            id="generic_routine",
+            brand=GENERIC_BRAND,
+            model="Routine aquarium maintenance",
+            tasks=(
+                TaskSpec("water_change", 14, 7, 364),
+                TaskSpec("glass_clean"),
+                TaskSpec("icp_test"),
+                TaskSpec("rodi_filter_replace"),
+                TaskSpec("sump_clean"),
+                TaskSpec("sand_vacuum"),
+            ),
+        ),
         # Fully user-defined: no preselected task.
         Preset(id=CUSTOM_PRESET, brand=GENERIC_BRAND, model="Custom equipment"),
     )

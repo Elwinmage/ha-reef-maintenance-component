@@ -92,8 +92,12 @@ LIBRARY: Final[dict[str, MaintenanceTask]] = {
         _task("probe_clean", 60, 30, 120, "mdi:test-tube", "months"),
         _task("uv_lamp_replace", 365, 180, 540, "mdi:lightbulb-alert", "months"),
         # ── Routine ──────────────────────────────────────────────────────
-        _task("water_change", 14, 7, 30, "mdi:water-sync", "weeks"),
+        _task("water_change", 14, 7, 364, "mdi:water-sync", "weeks"),
         _task("glass_clean", 7, 3, 21, "mdi:square-opacity", "days"),
+        _task("icp_test", 90, 30, 180, "mdi:flask-outline", "months"),
+        _task("rodi_filter_replace", 180, 90, 365, "mdi:water-opacity", "months"),
+        _task("sump_clean", 90, 30, 180, "mdi:waves-arrow-right", "months"),
+        _task("sand_vacuum", 28, 14, 56, "mdi:vacuum", "weeks"),
     )
 }
 

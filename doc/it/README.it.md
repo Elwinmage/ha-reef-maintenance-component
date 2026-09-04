@@ -127,11 +127,12 @@ L'entità data conta più di quanto sembri: senza di essa ogni attività parte d
 | Generico | Pompa di movimento DC | pompa, supporto magnetico, decalcificazione, parti di usura |
 | Generico | Pompa di risalita DC | filtro, pompa, decalcificazione, parti di usura |
 | Generico | Schiumatoio a girante ad aghi | bicchiere, venturi, girante ad aghi, decalcificazione, parti di usura |
+| Generico | Manutenzione ordinaria dell'acquario | cambio acqua, vetri, test ICP, filtri RO/DI, sump, sabbia |
 | Generico | Attrezzatura personalizzata | nessuna — scegli dalla libreria o scrivi la tua |
 
 Gli intervalli seguono il produttore quando pubblica un dato (Tunze Turbelle: pompa e supporto magnetico ogni 1–2 mesi; Tunze Silence: pulizia completa almeno annuale; Jebao DCP: girante mensile; Jebao SLW: mensile o bimestrale) e la pratica di acquariofilia altrimenti. Sono tutti punti di partenza, modificabili per singola attrezzatura.
 
-Le attività provengono da una libreria comune di 17 voci, tradotta in 8 lingue. Un preset si limita a referenziare chiavi della libreria e può ridefinire i limiti dell'intervallo — per questo aggiungere una marca di solito non costa alcuna nuova stringa di traduzione.
+Le attività provengono da una libreria comune di 21 voci, tradotta in 8 lingue. Un preset si limita a referenziare chiavi della libreria e può ridefinire i limiti dell'intervallo — per questo aggiungere una marca di solito non costa alcuna nuova stringa di traduzione.
 
 ## Servizio
 

@@ -127,11 +127,12 @@ De datumentiteit telt zwaarder dan ze lijkt: zonder haar begint elke taak op „
 | Generiek | DC-stromingspomp | pomp, magneethouder, ontkalken, slijtdelen |
 | Generiek | DC-opvoerpomp | aanzuigkorf, pomp, ontkalken, slijtdelen |
 | Generiek | Naaldrad-eiwitafschuimer | beker, venturi, naaldrad, ontkalken, slijtdelen |
+| Generiek | Routineonderhoud aquarium | waterwissel, ruiten, ICP-test, RO/DI-filters, sump, zand |
 | Generiek | Eigen apparatuur | geen — kies uit de bibliotheek of typ uw eigen taak |
 
 De intervallen volgen de fabrikant waar die een getal publiceert (Tunze Turbelle: pomp en magneethouder elke 1–2 maanden; Tunze Silence: volledige reiniging minstens jaarlijks; Jebao DCP: maandelijks de rotor; Jebao SLW: maandelijks tot tweemaandelijks) en anders de rifpraktijk. Het zijn allemaal startpunten, per apparatuur aanpasbaar.
 
-De taken komen uit een gedeelde bibliotheek van 17 items, vertaald in 8 talen. Een voorinstelling verwijst alleen naar bibliotheeksleutels en mag de intervalgrenzen overschrijven — daarom kost een nieuw merk meestal geen enkele nieuwe vertaalregel.
+De taken komen uit een gedeelde bibliotheek van 21 items, vertaald in 8 talen. Een voorinstelling verwijst alleen naar bibliotheeksleutels en mag de intervalgrenzen overschrijven — daarom kost een nieuw merk meestal geen enkele nieuwe vertaalregel.
 
 ## Service
 

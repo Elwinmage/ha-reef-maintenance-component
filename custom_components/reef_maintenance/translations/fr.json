@@ -117,6 +117,18 @@
       "maint_glass_clean": {
         "name": "Nettoyer les vitres"
       },
+      "maint_icp_test": {
+        "name": "Analyse ICP / test eau labo"
+      },
+      "maint_rodi_filter_replace": {
+        "name": "Remplacer les filtres RO/DI"
+      },
+      "maint_sump_clean": {
+        "name": "Nettoyer le bac décanteur"
+      },
+      "maint_sand_vacuum": {
+        "name": "Siphonner le sable"
+      },
       "maint_custom": {
         "name": "{task}"
       }
@@ -172,6 +184,18 @@
       },
       "maint_glass_clean_interval_days": {
         "name": "Nettoyer les vitres (jours)"
+      },
+      "maint_icp_test_interval_months": {
+        "name": "Analyse ICP / test eau labo (mois)"
+      },
+      "maint_rodi_filter_replace_interval_months": {
+        "name": "Remplacer les filtres RO/DI (mois)"
+      },
+      "maint_sump_clean_interval_months": {
+        "name": "Nettoyer le bac décanteur (mois)"
+      },
+      "maint_sand_vacuum_interval_weeks": {
+        "name": "Siphonner le sable (semaines)"
       },
       "maint_custom_interval_weeks": {
         "name": "{task} (semaines)"
@@ -229,6 +253,18 @@
       "maint_glass_clean_notify": {
         "name": "Nettoyer les vitres (notifications)"
       },
+      "maint_icp_test_notify": {
+        "name": "Analyse ICP / test eau labo (notifications)"
+      },
+      "maint_rodi_filter_replace_notify": {
+        "name": "Remplacer les filtres RO/DI (notifications)"
+      },
+      "maint_sump_clean_notify": {
+        "name": "Nettoyer le bac décanteur (notifications)"
+      },
+      "maint_sand_vacuum_notify": {
+        "name": "Siphonner le sable (notifications)"
+      },
       "maint_custom_notify": {
         "name": "{task} (notifications)"
       }
@@ -285,6 +321,18 @@
       "maint_glass_clean_last_reset": {
         "name": "Nettoyer les vitres (dernière fois)"
       },
+      "maint_icp_test_last_reset": {
+        "name": "Analyse ICP / test eau labo (dernière fois)"
+      },
+      "maint_rodi_filter_replace_last_reset": {
+        "name": "Remplacer les filtres RO/DI (dernière fois)"
+      },
+      "maint_sump_clean_last_reset": {
+        "name": "Nettoyer le bac décanteur (dernière fois)"
+      },
+      "maint_sand_vacuum_last_reset": {
+        "name": "Siphonner le sable (dernière fois)"
+      },
       "maint_custom_last_reset": {
         "name": "{task} (dernière fois)"
       }
@@ -309,7 +357,11 @@
         "probe_clean": "Nettoyer la sonde",
         "uv_lamp_replace": "Remplacer la lampe UV",
         "water_change": "Changement d'eau",
-        "glass_clean": "Nettoyer les vitres"
+        "glass_clean": "Nettoyer les vitres",
+        "icp_test": "Analyse ICP / test eau labo",
+        "rodi_filter_replace": "Remplacer les filtres RO/DI",
+        "sump_clean": "Nettoyer le bac décanteur",
+        "sand_vacuum": "Siphonner le sable"
       }
     }
   }

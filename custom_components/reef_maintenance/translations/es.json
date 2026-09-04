@@ -117,6 +117,18 @@
       "maint_glass_clean": {
         "name": "Limpiar los cristales"
       },
+      "maint_icp_test": {
+        "name": "Análisis ICP / test de agua en laboratorio"
+      },
+      "maint_rodi_filter_replace": {
+        "name": "Sustituir los filtros RO/DI"
+      },
+      "maint_sump_clean": {
+        "name": "Limpiar el sump"
+      },
+      "maint_sand_vacuum": {
+        "name": "Sifonar el lecho de arena"
+      },
       "maint_custom": {
         "name": "{task}"
       }
@@ -172,6 +184,18 @@
       },
       "maint_glass_clean_interval_days": {
         "name": "Limpiar los cristales (días)"
+      },
+      "maint_icp_test_interval_months": {
+        "name": "Análisis ICP / test de agua en laboratorio (meses)"
+      },
+      "maint_rodi_filter_replace_interval_months": {
+        "name": "Sustituir los filtros RO/DI (meses)"
+      },
+      "maint_sump_clean_interval_months": {
+        "name": "Limpiar el sump (meses)"
+      },
+      "maint_sand_vacuum_interval_weeks": {
+        "name": "Sifonar el lecho de arena (semanas)"
       },
       "maint_custom_interval_weeks": {
         "name": "{task} (semanas)"
@@ -229,6 +253,18 @@
       "maint_glass_clean_notify": {
         "name": "Limpiar los cristales (notificaciones)"
       },
+      "maint_icp_test_notify": {
+        "name": "Análisis ICP / test de agua en laboratorio (notificaciones)"
+      },
+      "maint_rodi_filter_replace_notify": {
+        "name": "Sustituir los filtros RO/DI (notificaciones)"
+      },
+      "maint_sump_clean_notify": {
+        "name": "Limpiar el sump (notificaciones)"
+      },
+      "maint_sand_vacuum_notify": {
+        "name": "Sifonar el lecho de arena (notificaciones)"
+      },
       "maint_custom_notify": {
         "name": "{task} (notificaciones)"
       }
@@ -285,6 +321,18 @@
       "maint_glass_clean_last_reset": {
         "name": "Limpiar los cristales (última vez)"
       },
+      "maint_icp_test_last_reset": {
+        "name": "Análisis ICP / test de agua en laboratorio (última vez)"
+      },
+      "maint_rodi_filter_replace_last_reset": {
+        "name": "Sustituir los filtros RO/DI (última vez)"
+      },
+      "maint_sump_clean_last_reset": {
+        "name": "Limpiar el sump (última vez)"
+      },
+      "maint_sand_vacuum_last_reset": {
+        "name": "Sifonar el lecho de arena (última vez)"
+      },
       "maint_custom_last_reset": {
         "name": "{task} (última vez)"
       }
@@ -309,7 +357,11 @@
         "probe_clean": "Limpiar la sonda",
         "uv_lamp_replace": "Sustituir la lámpara UV",
         "water_change": "Cambio de agua",
-        "glass_clean": "Limpiar los cristales"
+        "glass_clean": "Limpiar los cristales",
+        "icp_test": "Análisis ICP / test de agua en laboratorio",
+        "rodi_filter_replace": "Sustituir los filtros RO/DI",
+        "sump_clean": "Limpiar el sump",
+        "sand_vacuum": "Sifonar el lecho de arena"
       }
     }
   }

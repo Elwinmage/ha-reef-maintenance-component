@@ -127,11 +127,12 @@ L'entité date compte plus qu'il n'y paraît : sans elle, chaque tâche démarre
 | Générique | Pompe de brassage DC | pompe, support magnétique, détartrage, pièces d'usure |
 | Générique | Pompe de remontée DC | crépine, pompe, détartrage, pièces d'usure |
 | Générique | Écumeur à rotor à aiguilles | godet, venturi, rotor à aiguilles, détartrage, pièces d'usure |
+| Générique | Entretien courant de l'aquarium | changement d'eau, vitres, test ICP, filtres RO/DI, décanteur, sable |
 | Générique | Équipement personnalisé | aucune — choisissez dans la bibliothèque ou saisissez la vôtre |
 
 Les intervalles des préréglages suivent le fabricant lorsqu'il publie un chiffre (Tunze Turbelle : pompe et support magnétique tous les 1 à 2 mois ; Tunze Silence : nettoyage complet au moins annuel ; Jebao DCP : rotor mensuel ; Jebao SLW : mensuel à bimestriel) et la pratique récifale sinon. Ce ne sont que des points de départ, modifiables équipement par équipement.
 
-Les tâches viennent d'une bibliothèque commune de 17 entrées, traduite en 8 langues. Un préréglage ne fait que référencer des clés de la bibliothèque et peut redéfinir les bornes d'intervalle — c'est pourquoi ajouter une marque ne coûte en général aucune nouvelle chaîne de traduction.
+Les tâches viennent d'une bibliothèque commune de 21 entrées, traduite en 8 langues. Un préréglage ne fait que référencer des clés de la bibliothèque et peut redéfinir les bornes d'intervalle — c'est pourquoi ajouter une marque ne coûte en général aucune nouvelle chaîne de traduction.
 
 ## Service
 

@@ -117,6 +117,18 @@
       "maint_glass_clean": {
         "name": "Scheiben reinigen"
       },
+      "maint_icp_test": {
+        "name": "ICP / Wasseranalyse im Labor"
+      },
+      "maint_rodi_filter_replace": {
+        "name": "RO/DI-Filter ersetzen"
+      },
+      "maint_sump_clean": {
+        "name": "Technikbecken reinigen"
+      },
+      "maint_sand_vacuum": {
+        "name": "Sandbett absaugen"
+      },
       "maint_custom": {
         "name": "{task}"
       }
@@ -172,6 +184,18 @@
       },
       "maint_glass_clean_interval_days": {
         "name": "Scheiben reinigen (Tage)"
+      },
+      "maint_icp_test_interval_months": {
+        "name": "ICP / Wasseranalyse im Labor (Monate)"
+      },
+      "maint_rodi_filter_replace_interval_months": {
+        "name": "RO/DI-Filter ersetzen (Monate)"
+      },
+      "maint_sump_clean_interval_months": {
+        "name": "Technikbecken reinigen (Monate)"
+      },
+      "maint_sand_vacuum_interval_weeks": {
+        "name": "Sandbett absaugen (Wochen)"
       },
       "maint_custom_interval_weeks": {
         "name": "{task} (Wochen)"
@@ -229,6 +253,18 @@
       "maint_glass_clean_notify": {
         "name": "Scheiben reinigen (Benachrichtigungen)"
       },
+      "maint_icp_test_notify": {
+        "name": "ICP / Wasseranalyse im Labor (Benachrichtigungen)"
+      },
+      "maint_rodi_filter_replace_notify": {
+        "name": "RO/DI-Filter ersetzen (Benachrichtigungen)"
+      },
+      "maint_sump_clean_notify": {
+        "name": "Technikbecken reinigen (Benachrichtigungen)"
+      },
+      "maint_sand_vacuum_notify": {
+        "name": "Sandbett absaugen (Benachrichtigungen)"
+      },
       "maint_custom_notify": {
         "name": "{task} (Benachrichtigungen)"
       }
@@ -285,6 +321,18 @@
       "maint_glass_clean_last_reset": {
         "name": "Scheiben reinigen (zuletzt erledigt)"
       },
+      "maint_icp_test_last_reset": {
+        "name": "ICP / Wasseranalyse im Labor (zuletzt erledigt)"
+      },
+      "maint_rodi_filter_replace_last_reset": {
+        "name": "RO/DI-Filter ersetzen (zuletzt erledigt)"
+      },
+      "maint_sump_clean_last_reset": {
+        "name": "Technikbecken reinigen (zuletzt erledigt)"
+      },
+      "maint_sand_vacuum_last_reset": {
+        "name": "Sandbett absaugen (zuletzt erledigt)"
+      },
       "maint_custom_last_reset": {
         "name": "{task} (zuletzt erledigt)"
       }
@@ -309,7 +357,11 @@
         "probe_clean": "Sonde reinigen",
         "uv_lamp_replace": "UV-Lampe ersetzen",
         "water_change": "Wasserwechsel",
-        "glass_clean": "Scheiben reinigen"
+        "glass_clean": "Scheiben reinigen",
+        "icp_test": "ICP / Wasseranalyse im Labor",
+        "rodi_filter_replace": "RO/DI-Filter ersetzen",
+        "sump_clean": "Technikbecken reinigen",
+        "sand_vacuum": "Sandbett absaugen"
       }
     }
   }

@@ -117,6 +117,18 @@
       "maint_glass_clean": {
         "name": "Ruiten reinigen"
       },
+      "maint_icp_test": {
+        "name": "ICP / wateranalyse in laboratorium"
+      },
+      "maint_rodi_filter_replace": {
+        "name": "RO/DI-filters vervangen"
+      },
+      "maint_sump_clean": {
+        "name": "Sump reinigen"
+      },
+      "maint_sand_vacuum": {
+        "name": "Zandbed afzuigen"
+      },
       "maint_custom": {
         "name": "{task}"
       }
@@ -172,6 +184,18 @@
       },
       "maint_glass_clean_interval_days": {
         "name": "Ruiten reinigen (dagen)"
+      },
+      "maint_icp_test_interval_months": {
+        "name": "ICP / wateranalyse in laboratorium (maanden)"
+      },
+      "maint_rodi_filter_replace_interval_months": {
+        "name": "RO/DI-filters vervangen (maanden)"
+      },
+      "maint_sump_clean_interval_months": {
+        "name": "Sump reinigen (maanden)"
+      },
+      "maint_sand_vacuum_interval_weeks": {
+        "name": "Zandbed afzuigen (weken)"
       },
       "maint_custom_interval_weeks": {
         "name": "{task} (weken)"
@@ -229,6 +253,18 @@
       "maint_glass_clean_notify": {
         "name": "Ruiten reinigen (meldingen)"
       },
+      "maint_icp_test_notify": {
+        "name": "ICP / wateranalyse in laboratorium (meldingen)"
+      },
+      "maint_rodi_filter_replace_notify": {
+        "name": "RO/DI-filters vervangen (meldingen)"
+      },
+      "maint_sump_clean_notify": {
+        "name": "Sump reinigen (meldingen)"
+      },
+      "maint_sand_vacuum_notify": {
+        "name": "Zandbed afzuigen (meldingen)"
+      },
       "maint_custom_notify": {
         "name": "{task} (meldingen)"
       }
@@ -285,6 +321,18 @@
       "maint_glass_clean_last_reset": {
         "name": "Ruiten reinigen (laatst gedaan)"
       },
+      "maint_icp_test_last_reset": {
+        "name": "ICP / wateranalyse in laboratorium (laatst gedaan)"
+      },
+      "maint_rodi_filter_replace_last_reset": {
+        "name": "RO/DI-filters vervangen (laatst gedaan)"
+      },
+      "maint_sump_clean_last_reset": {
+        "name": "Sump reinigen (laatst gedaan)"
+      },
+      "maint_sand_vacuum_last_reset": {
+        "name": "Zandbed afzuigen (laatst gedaan)"
+      },
       "maint_custom_last_reset": {
         "name": "{task} (laatst gedaan)"
       }
@@ -309,7 +357,11 @@
         "probe_clean": "Sonde reinigen",
         "uv_lamp_replace": "UV-lamp vervangen",
         "water_change": "Waterwissel",
-        "glass_clean": "Ruiten reinigen"
+        "glass_clean": "Ruiten reinigen",
+        "icp_test": "ICP / wateranalyse in laboratorium",
+        "rodi_filter_replace": "RO/DI-filters vervangen",
+        "sump_clean": "Sump reinigen",
+        "sand_vacuum": "Zandbed afzuigen"
       }
     }
   }

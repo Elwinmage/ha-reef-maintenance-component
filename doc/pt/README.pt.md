@@ -127,11 +127,12 @@ A entidade de data conta mais do que parece: sem ela cada tarefa começa em «nu
 | Genérico | Bomba de circulação DC | bomba, suporte magnético, descalcificar, peças de desgaste |
 | Genérico | Bomba de retorno DC | filtro, bomba, descalcificar, peças de desgaste |
 | Genérico | Escumador de rotor de agulhas | copo, venturi, rotor de agulhas, descalcificar, peças de desgaste |
+| Genérico | Manutenção de rotina do aquário | mudança de água, vidros, teste ICP, filtros RO/DI, sump, areia |
 | Genérico | Equipamento personalizado | nenhuma — escolha da biblioteca ou escreva a sua |
 
 Os intervalos seguem o fabricante sempre que publica um valor (Tunze Turbelle: bomba e suporte magnético a cada 1–2 meses; Tunze Silence: limpeza completa pelo menos anual; Jebao DCP: rotor mensal; Jebao SLW: mensal a bimestral) e a prática de recife nos restantes casos. São todos pontos de partida, alteráveis por equipamento.
 
-As tarefas vêm de uma biblioteca comum de 17 entradas, traduzida em 8 idiomas. Uma predefinição apenas referencia chaves da biblioteca e pode redefinir os limites do intervalo — daí que acrescentar uma marca não costume custar qualquer nova cadeia de tradução.
+As tarefas vêm de uma biblioteca comum de 21 entradas, traduzida em 8 idiomas. Uma predefinição apenas referencia chaves da biblioteca e pode redefinir os limites do intervalo — daí que acrescentar uma marca não costume custar qualquer nova cadeia de tradução.
 
 ## Serviço
 

@@ -117,6 +117,18 @@
       "maint_glass_clean": {
         "name": "Pulire i vetri"
       },
+      "maint_icp_test": {
+        "name": "Analisi ICP / test acqua in laboratorio"
+      },
+      "maint_rodi_filter_replace": {
+        "name": "Sostituire i filtri RO/DI"
+      },
+      "maint_sump_clean": {
+        "name": "Pulire la sump"
+      },
+      "maint_sand_vacuum": {
+        "name": "Sifonare il letto di sabbia"
+      },
       "maint_custom": {
         "name": "{task}"
       }
@@ -172,6 +184,18 @@
       },
       "maint_glass_clean_interval_days": {
         "name": "Pulire i vetri (giorni)"
+      },
+      "maint_icp_test_interval_months": {
+        "name": "Analisi ICP / test acqua in laboratorio (mesi)"
+      },
+      "maint_rodi_filter_replace_interval_months": {
+        "name": "Sostituire i filtri RO/DI (mesi)"
+      },
+      "maint_sump_clean_interval_months": {
+        "name": "Pulire la sump (mesi)"
+      },
+      "maint_sand_vacuum_interval_weeks": {
+        "name": "Sifonare il letto di sabbia (settimane)"
       },
       "maint_custom_interval_weeks": {
         "name": "{task} (settimane)"
@@ -229,6 +253,18 @@
       "maint_glass_clean_notify": {
         "name": "Pulire i vetri (notifiche)"
       },
+      "maint_icp_test_notify": {
+        "name": "Analisi ICP / test acqua in laboratorio (notifiche)"
+      },
+      "maint_rodi_filter_replace_notify": {
+        "name": "Sostituire i filtri RO/DI (notifiche)"
+      },
+      "maint_sump_clean_notify": {
+        "name": "Pulire la sump (notifiche)"
+      },
+      "maint_sand_vacuum_notify": {
+        "name": "Sifonare il letto di sabbia (notifiche)"
+      },
       "maint_custom_notify": {
         "name": "{task} (notifiche)"
       }
@@ -285,6 +321,18 @@
       "maint_glass_clean_last_reset": {
         "name": "Pulire i vetri (ultima volta)"
       },
+      "maint_icp_test_last_reset": {
+        "name": "Analisi ICP / test acqua in laboratorio (ultima volta)"
+      },
+      "maint_rodi_filter_replace_last_reset": {
+        "name": "Sostituire i filtri RO/DI (ultima volta)"
+      },
+      "maint_sump_clean_last_reset": {
+        "name": "Pulire la sump (ultima volta)"
+      },
+      "maint_sand_vacuum_last_reset": {
+        "name": "Sifonare il letto di sabbia (ultima volta)"
+      },
       "maint_custom_last_reset": {
         "name": "{task} (ultima volta)"
       }
@@ -309,7 +357,11 @@
         "probe_clean": "Pulire la sonda",
         "uv_lamp_replace": "Sostituire la lampada UV",
         "water_change": "Cambio d'acqua",
-        "glass_clean": "Pulire i vetri"
+        "glass_clean": "Pulire i vetri",
+        "icp_test": "Analisi ICP / test acqua in laboratorio",
+        "rodi_filter_replace": "Sostituire i filtri RO/DI",
+        "sump_clean": "Pulire la sump",
+        "sand_vacuum": "Sifonare il letto di sabbia"
       }
     }
   }

@@ -40,6 +40,10 @@ TASK_UNITS: dict[str, str] = {
     "uv_lamp_replace": "months",
     "water_change": "weeks",
     "glass_clean": "days",
+    "icp_test": "months",
+    "rodi_filter_replace": "months",
+    "sump_clean": "months",
+    "sand_vacuum": "weeks",
 }
 
 ORDER = list(TASK_UNITS)
@@ -64,6 +68,10 @@ NAMES: dict[str, list[str]] = {
         "Replace UV lamp",
         "Water change",
         "Clean the glass",
+        "ICP / water lab test",
+        "Replace RO/DI filters",
+        "Clean the sump",
+        "Vacuum sand bed",
     ],
     "fr": [
         "Nettoyer le rotor et la chambre de pompe",
@@ -83,6 +91,10 @@ NAMES: dict[str, list[str]] = {
         "Remplacer la lampe UV",
         "Changement d'eau",
         "Nettoyer les vitres",
+        "Analyse ICP / test eau labo",
+        "Remplacer les filtres RO/DI",
+        "Nettoyer le bac décanteur",
+        "Siphonner le sable",
     ],
     "de": [
         "Rotor und Pumpenkammer reinigen",
@@ -102,6 +114,10 @@ NAMES: dict[str, list[str]] = {
         "UV-Lampe ersetzen",
         "Wasserwechsel",
         "Scheiben reinigen",
+        "ICP / Wasseranalyse im Labor",
+        "RO/DI-Filter ersetzen",
+        "Technikbecken reinigen",
+        "Sandbett absaugen",
     ],
     "es": [
         "Limpiar el rotor y la cámara de la bomba",
@@ -121,6 +137,10 @@ NAMES: dict[str, list[str]] = {
         "Sustituir la lámpara UV",
         "Cambio de agua",
         "Limpiar los cristales",
+        "Análisis ICP / test de agua en laboratorio",
+        "Sustituir los filtros RO/DI",
+        "Limpiar el sump",
+        "Sifonar el lecho de arena",
     ],
     "it": [
         "Pulire il rotore e la camera della pompa",
@@ -140,6 +160,10 @@ NAMES: dict[str, list[str]] = {
         "Sostituire la lampada UV",
         "Cambio d'acqua",
         "Pulire i vetri",
+        "Analisi ICP / test acqua in laboratorio",
+        "Sostituire i filtri RO/DI",
+        "Pulire la sump",
+        "Sifonare il letto di sabbia",
     ],
     "nl": [
         "Rotor en pompkamer reinigen",
@@ -159,6 +183,10 @@ NAMES: dict[str, list[str]] = {
         "UV-lamp vervangen",
         "Waterwissel",
         "Ruiten reinigen",
+        "ICP / wateranalyse in laboratorium",
+        "RO/DI-filters vervangen",
+        "Sump reinigen",
+        "Zandbed afzuigen",
     ],
     "pl": [
         "Wyczyść wirnik i komorę pompy",
@@ -178,6 +206,10 @@ NAMES: dict[str, list[str]] = {
         "Wymień lampę UV",
         "Podmiana wody",
         "Wyczyść szyby",
+        "Analiza ICP / badanie wody w laboratorium",
+        "Wymień filtry RO/DI",
+        "Wyczyść sump",
+        "Odkurz podłoże piaskowe",
     ],
     "pt": [
         "Limpar o rotor e a câmara da bomba",
@@ -197,6 +229,10 @@ NAMES: dict[str, list[str]] = {
         "Substituir a lâmpada UV",
         "Mudança de água",
         "Limpar os vidros",
+        "Análise ICP / teste de água em laboratório",
+        "Substituir os filtros RO/DI",
+        "Limpar a sump",
+        "Aspirar o leito de areia",
     ],
 }
 

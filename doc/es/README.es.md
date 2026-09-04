@@ -127,11 +127,12 @@ La entidad de fecha importa más de lo que parece: sin ella cada tarea arranca e
 | Genérico | Bomba de movimiento DC | bomba, soporte magnético, descalcificar, piezas de desgaste |
 | Genérico | Bomba de retorno DC | filtro, bomba, descalcificar, piezas de desgaste |
 | Genérico | Skimmer de rotor de agujas | vaso, venturi, rotor de agujas, descalcificar, piezas de desgaste |
+| Genérico | Mantenimiento rutinario del acuario | cambio de agua, cristales, test ICP, filtros RO/DI, sump, arena |
 | Genérico | Equipo personalizado | ninguna — elige de la biblioteca o escribe la tuya |
 
 Los intervalos siguen al fabricante cuando publica una cifra (Tunze Turbelle: bomba y soporte magnético cada 1–2 meses; Tunze Silence: limpieza completa al menos anual; Jebao DCP: rotor mensual; Jebao SLW: mensual a bimestral) y la práctica del arrecife en los demás casos. Todos son puntos de partida modificables por equipo.
 
-Las tareas vienen de una biblioteca común de 17 entradas, traducida a 8 idiomas. Un preajuste solo referencia claves de la biblioteca y puede redefinir los límites del intervalo — por eso añadir una marca no suele costar ninguna cadena de traducción nueva.
+Las tareas vienen de una biblioteca común de 21 entradas, traducida a 8 idiomas. Un preajuste solo referencia claves de la biblioteca y puede redefinir los límites del intervalo — por eso añadir una marca no suele costar ninguna cadena de traducción nueva.
 
 ## Servicio
 

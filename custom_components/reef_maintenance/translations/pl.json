@@ -117,6 +117,18 @@
       "maint_glass_clean": {
         "name": "Wyczyść szyby"
       },
+      "maint_icp_test": {
+        "name": "Analiza ICP / badanie wody w laboratorium"
+      },
+      "maint_rodi_filter_replace": {
+        "name": "Wymień filtry RO/DI"
+      },
+      "maint_sump_clean": {
+        "name": "Wyczyść sump"
+      },
+      "maint_sand_vacuum": {
+        "name": "Odkurz podłoże piaskowe"
+      },
       "maint_custom": {
         "name": "{task}"
       }
@@ -172,6 +184,18 @@
       },
       "maint_glass_clean_interval_days": {
         "name": "Wyczyść szyby (dni)"
+      },
+      "maint_icp_test_interval_months": {
+        "name": "Analiza ICP / badanie wody w laboratorium (miesiące)"
+      },
+      "maint_rodi_filter_replace_interval_months": {
+        "name": "Wymień filtry RO/DI (miesiące)"
+      },
+      "maint_sump_clean_interval_months": {
+        "name": "Wyczyść sump (miesiące)"
+      },
+      "maint_sand_vacuum_interval_weeks": {
+        "name": "Odkurz podłoże piaskowe (tygodnie)"
       },
       "maint_custom_interval_weeks": {
         "name": "{task} (tygodnie)"
@@ -229,6 +253,18 @@
       "maint_glass_clean_notify": {
         "name": "Wyczyść szyby (powiadomienia)"
       },
+      "maint_icp_test_notify": {
+        "name": "Analiza ICP / badanie wody w laboratorium (powiadomienia)"
+      },
+      "maint_rodi_filter_replace_notify": {
+        "name": "Wymień filtry RO/DI (powiadomienia)"
+      },
+      "maint_sump_clean_notify": {
+        "name": "Wyczyść sump (powiadomienia)"
+      },
+      "maint_sand_vacuum_notify": {
+        "name": "Odkurz podłoże piaskowe (powiadomienia)"
+      },
       "maint_custom_notify": {
         "name": "{task} (powiadomienia)"
       }
@@ -285,6 +321,18 @@
       "maint_glass_clean_last_reset": {
         "name": "Wyczyść szyby (ostatnio)"
       },
+      "maint_icp_test_last_reset": {
+        "name": "Analiza ICP / badanie wody w laboratorium (ostatnio)"
+      },
+      "maint_rodi_filter_replace_last_reset": {
+        "name": "Wymień filtry RO/DI (ostatnio)"
+      },
+      "maint_sump_clean_last_reset": {
+        "name": "Wyczyść sump (ostatnio)"
+      },
+      "maint_sand_vacuum_last_reset": {
+        "name": "Odkurz podłoże piaskowe (ostatnio)"
+      },
       "maint_custom_last_reset": {
         "name": "{task} (ostatnio)"
       }
@@ -309,7 +357,11 @@
         "probe_clean": "Wyczyść sondę",
         "uv_lamp_replace": "Wymień lampę UV",
         "water_change": "Podmiana wody",
-        "glass_clean": "Wyczyść szyby"
+        "glass_clean": "Wyczyść szyby",
+        "icp_test": "Analiza ICP / badanie wody w laboratorium",
+        "rodi_filter_replace": "Wymień filtry RO/DI",
+        "sump_clean": "Wyczyść sump",
+        "sand_vacuum": "Odkurz podłoże piaskowe"
       }
     }
   }
