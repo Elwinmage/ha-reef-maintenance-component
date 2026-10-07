@@ -57,9 +57,9 @@ jobs:
           python -m pip install --upgrade pip
           # Pour la beta, on installe la version pre-release du framework de test
           if [[ "${{ matrix.ha-version }}" == "beta" ]]; then
-            pip install --pre "pytest-homeassistant-custom-component>=0.13.360"
+            pip install --pre "pytest-homeassistant-custom-component>=0.13.368"
           else
-            pip install "pytest-homeassistant-custom-component>=0.13.360"
+            pip install "pytest-homeassistant-custom-component>=0.13.368"
           fi
           # Installation des dépendances du manifest
           python -c "import json; print('\n'.join(json.load(open('custom_components/reef_maintenance/manifest.json'))['requirements']))" > requirements_manifest.txt

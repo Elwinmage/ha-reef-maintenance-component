@@ -1,9 +1,7 @@
 {
   "domain": "reef_maintenance",
   "name": "Reef maintenance",
-  "codeowners": [
-    "@Elwinmage"
-  ],
+  "codeowners": ["@Elwinmage"],
   "config_flow": true,
   "documentation": "https://github.com/Elwinmage/ha-reef-maintenance-component",
   "integration_type": "hub",

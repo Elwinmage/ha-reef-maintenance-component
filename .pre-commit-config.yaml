@@ -12,8 +12,8 @@ repos:
         verbose: true
         additional_dependencies:
           - colorama>=0.4.6
-          - pyright>=1.1.390
-          - pytest-homeassistant-custom-component>=0.13.357
+          - pyright>=1.1.414
+          - pytest-homeassistant-custom-component>=0.13.368
           - jsonpath-ng>=1.7.0
           - requests>=2.31.0
           - pytest>=8
@@ -72,9 +72,9 @@ repos:
         #args: [--project, pyrightconfig.precommit.json]
         args: [--project, pyrightconfig.json]
         additional_dependencies:
-          - pyright>=1.1.390
+          - pyright>=1.1.414
           # Provide Home Assistant modules/types in the hook env.
-          - pytest-homeassistant-custom-component>=0.13.357
+          - pytest-homeassistant-custom-component>=0.13.368
           # Runtime dependency declared in manifest.json
           - jsonpath-ng>=1.7.0
           # Used by auto_detect.py
@@ -94,6 +94,6 @@ repos:
           - pytest>=8
           - pytest-asyncio>=1.3.0
           - pytest-cov>=7.0.0
-          - pytest-homeassistant-custom-component>=0.13.357
+          - pytest-homeassistant-custom-component>=0.13.368
           # Runtime dependency declared in manifest.json
           - jsonpath-ng>=1.7.0

@@ -12,9 +12,8 @@ One config entry per brand; each equipment is a device under it.
 from __future__ import annotations
 
 import logging
-from typing import Any
+from typing import TYPE_CHECKING, Any
 
-import voluptuous as vol
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant, ServiceCall
 from homeassistant.helpers import config_validation as cv
@@ -33,6 +32,17 @@ from .const import (
 from .entity import brand_device_id
 from .presets import BRANDS
 from .storage import MaintenanceStore, build_equipments
+
+# Home Assistant validates with probatio, voluptuous being only an alias of it
+# at runtime (2026.9), and types its flow helpers with probatio schemas since
+# 2026.10. Older versions only have voluptuous.
+if TYPE_CHECKING:
+    import probatio as vol
+else:
+    try:
+        import probatio as vol
+    except ImportError:  # pragma: no cover - depends on the installed HA version
+        import voluptuous as vol
 
 _LOGGER = logging.getLogger(__name__)
 

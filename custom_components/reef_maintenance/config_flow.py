@@ -8,9 +8,8 @@ and rebuilds the entity set.
 
 from __future__ import annotations
 
-from typing import Any
+from typing import TYPE_CHECKING, Any
 
-import voluptuous as vol
 from homeassistant.config_entries import (
     ConfigEntry,
     ConfigFlow,
@@ -41,6 +40,17 @@ from .const import (
 from .presets import BRANDS, get_preset, presets_for_brand
 from .storage import next_equipment_id
 from .tasks import LIBRARY
+
+# Home Assistant validates with probatio, voluptuous being only an alias of it
+# at runtime (2026.9), and types its flow helpers with probatio schemas since
+# 2026.10. Older versions only have voluptuous.
+if TYPE_CHECKING:
+    import probatio as vol
+else:
+    try:
+        import probatio as vol
+    except ImportError:  # pragma: no cover - depends on the installed HA version
+        import voluptuous as vol
 
 
 def _brand_selector() -> SelectSelector:
