@@ -26,14 +26,6 @@ jobs:
           REAL_COUNT=$(echo "$DATA" | jq -r '.reef_maintenance.total // 0')
           ESTIMATED_COUNT=$((REAL_COUNT * 4))
 
-          # Analytics only counts instances that opted in, so the reported
-          # number is a floor, not a census. Below MIN_COUNT the figure says
-          # more about analytics participation than about usage, so show
-          # MIN_COUNT instead of a discouraging 0.
-          MIN_COUNT=10
-          if [ "$ESTIMATED_COUNT" -lt "$MIN_COUNT" ]; then
-            ESTIMATED_COUNT=$MIN_COUNT
-          fi
 
           echo "{\"estimated\": $ESTIMATED_COUNT}" > ./badges/stats.json
 
