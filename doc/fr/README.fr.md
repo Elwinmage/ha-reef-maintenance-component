@@ -29,8 +29,6 @@ Elle publie le même contrat d'entités `reef_role` que les deux intégrations d
 
 Les projets ReefTech s'articulent entre eux : les intégrations font entrer votre matériel dans Home Assistant, la carte l'affiche et le pilote, et le secours le maintient en marche pendant une coupure. Chacun fonctionne aussi seul.
 
-<p align="center"><a href="https://elwinmage.github.io/reeftank/"><img src="https://raw.githubusercontent.com/Elwinmage/reeftank/main/assets/flower/ecosystem-flower.png" width="480" alt="ReefTech project ecosystem" /></a></p>
-
 <table>
   <tr>
     <th width="100px"></th>
@@ -59,20 +57,8 @@ Les projets ReefTech s'articulent entre eux : les intégrations font entrer votr
   <tr>
     <td><img src="https://raw.githubusercontent.com/Elwinmage/ha-reef-card/main/icon.png" width="64" alt="ha-reef-card" /></td>
     <td>🪸<br /><a href="https://github.com/Elwinmage/ha-reef-card"><b>ha-reef-card</b></a></td>
-    <td>Vue graphique interactive de chaque appareil sur votre tableau de bord, et seul moyen d'éditer les programmes avancés. Lit les trois intégrations ci-dessus via le contrat <code>reef_role</code> commun, sans configuration côté carte. Dessine aussi les flux d'énergie de reefbeatEnergyBackup. Sa carte aquarium donne vie à votre bac avec ha-reeftank-component.</td>
-    <td>les trois intégrations, et ha-reeftank-component pour l'aquarium</td>
-  </tr>
-  <tr>
-    <td><img src="https://raw.githubusercontent.com/Elwinmage/ha-reeftank-component/main/icon.png" width="64" alt="ha-reeftank-component" /></td>
-    <td>🐟<br /><a href="https://github.com/Elwinmage/ha-reeftank-component"><b>ha-reeftank-component</b></a></td>
-    <td>Une image vivante de votre bac sur le tableau de bord : votre photo, éclairée par vos vraies lampes, avec des poissons et des coraux animés, et vos appareils et entités dessus. Stocke les aquariums et leur population, enregistre les nourrissages.</td>
-    <td>ha-reef-card</td>
-  </tr>
-  <tr>
-    <td><img src="https://raw.githubusercontent.com/Elwinmage/reeftank-catalog/main/icon.png" width="64" alt="reeftank-catalog" /></td>
-    <td>🐡<br /><a href="https://github.com/Elwinmage/reeftank-catalog"><b>reeftank-catalog</b></a></td>
-    <td>Poissons, coraux et textures de la carte aquarium, téléchargés et tenus à jour par ha-reeftank-component.</td>
-    <td>ha-reeftank-component</td>
+    <td>Vue graphique interactive de chaque appareil sur votre tableau de bord, et seul moyen d'éditer les programmes avancés. Lit les trois intégrations ci-dessus via le contrat <code>reef_role</code> commun, sans configuration côté carte. Dessine aussi les flux d'énergie de reefbeatEnergyBackup.</td>
+    <td>les trois intégrations</td>
   </tr>
   <tr>
     <td><img src="https://raw.githubusercontent.com/Elwinmage/ha-reef-blueprints/main/icon.png" width="64" alt="ha-reef-blueprints" /></td>
@@ -141,12 +127,13 @@ L'entité date compte plus qu'il n'y paraît : sans elle, chaque tâche démarre
 | Générique | Pompe de brassage DC | pompe, support magnétique, détartrage, pièces d'usure |
 | Générique | Pompe de remontée DC | crépine, pompe, détartrage, pièces d'usure |
 | Générique | Écumeur à rotor à aiguilles | godet, venturi, rotor à aiguilles, détartrage, pièces d'usure |
+| Générique | Réchauffeur d'aquarium | nettoyage du réchauffeur |
 | Générique | Entretien courant de l'aquarium | changement d'eau, vitres, test ICP, filtres RO/DI, décanteur, sable |
 | Générique | Équipement personnalisé | aucune — choisissez dans la bibliothèque ou saisissez la vôtre |
 
 Les intervalles des préréglages suivent le fabricant lorsqu'il publie un chiffre (Tunze Turbelle : pompe et support magnétique tous les 1 à 2 mois ; Tunze Silence : nettoyage complet au moins annuel ; Jebao DCP : rotor mensuel ; Jebao SLW : mensuel à bimestriel) et la pratique récifale sinon. Ce ne sont que des points de départ, modifiables équipement par équipement.
 
-Les tâches viennent d'une bibliothèque commune de 21 entrées, traduite en 8 langues. Un préréglage ne fait que référencer des clés de la bibliothèque et peut redéfinir les bornes d'intervalle — c'est pourquoi ajouter une marque ne coûte en général aucune nouvelle chaîne de traduction.
+Les tâches viennent d'une bibliothèque commune de 22 entrées, traduite en 8 langues. Un préréglage ne fait que référencer des clés de la bibliothèque et peut redéfinir les bornes d'intervalle — c'est pourquoi ajouter une marque ne coûte en général aucune nouvelle chaîne de traduction.
 
 ## Service
 

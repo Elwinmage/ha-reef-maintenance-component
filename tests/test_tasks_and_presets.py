@@ -67,6 +67,11 @@ class TestLibrary:
         for task in LIBRARY.values():
             assert task.translation_key == f"maint_{task.key}"
 
+    def test_heater_clean_runs_every_3_to_6_months(self) -> None:
+        task = LIBRARY["heater_clean"]
+        assert task.unit == "months"
+        assert (task.min_days, task.max_days) == (90, 180)
+
     def test_get_task_returns_none_for_an_unknown_key(self) -> None:
         assert get_task("pump_clean") is LIBRARY["pump_clean"]
         assert get_task("no_such_task") is None

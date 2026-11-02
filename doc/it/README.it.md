@@ -29,8 +29,6 @@ Pubblica lo stesso contratto di entità `reef_role` delle due integrazioni per d
 
 I progetti ReefTech si incastrano tra loro: le integrazioni portano la tua attrezzatura in Home Assistant, la scheda la mostra e la pilota, e il backup la mantiene in funzione durante un blackout. Ognuno funziona anche da solo.
 
-<p align="center"><a href="https://elwinmage.github.io/reeftank/"><img src="https://raw.githubusercontent.com/Elwinmage/reeftank/main/assets/flower/ecosystem-flower.png" width="480" alt="ReefTech project ecosystem" /></a></p>
-
 <table>
   <tr>
     <th width="100px"></th>
@@ -59,20 +57,8 @@ I progetti ReefTech si incastrano tra loro: le integrazioni portano la tua attre
   <tr>
     <td><img src="https://raw.githubusercontent.com/Elwinmage/ha-reef-card/main/icon.png" width="64" alt="ha-reef-card" /></td>
     <td>🪸<br /><a href="https://github.com/Elwinmage/ha-reef-card"><b>ha-reef-card</b></a></td>
-    <td>Vista grafica interattiva di ogni dispositivo sulla tua dashboard, e unico modo per modificare le programmazioni avanzate. Legge le tre integrazioni tramite il contratto <code>reef_role</code> comune, senza configurazione lato scheda. Disegna anche i flussi di energia di reefbeatEnergyBackup. La sua scheda acquario dà vita alla vostra vasca con ha-reeftank-component.</td>
-    <td>tutte e tre le integrazioni, e ha-reeftank-component per l'acquario</td>
-  </tr>
-  <tr>
-    <td><img src="https://raw.githubusercontent.com/Elwinmage/ha-reeftank-component/main/icon.png" width="64" alt="ha-reeftank-component" /></td>
-    <td>🐟<br /><a href="https://github.com/Elwinmage/ha-reeftank-component"><b>ha-reeftank-component</b></a></td>
-    <td>Un'immagine viva della vostra vasca sulla plancia: la vostra foto, illuminata dalle vostre vere lampade, con pesci e coralli animati, e sopra i vostri dispositivi ed entità. Conserva gli acquari e la loro fauna, registra le alimentazioni.</td>
-    <td>ha-reef-card</td>
-  </tr>
-  <tr>
-    <td><img src="https://raw.githubusercontent.com/Elwinmage/reeftank-catalog/main/icon.png" width="64" alt="reeftank-catalog" /></td>
-    <td>🐡<br /><a href="https://github.com/Elwinmage/reeftank-catalog"><b>reeftank-catalog</b></a></td>
-    <td>Pesci, coralli e texture della scheda acquario, scaricati e tenuti aggiornati da ha-reeftank-component.</td>
-    <td>ha-reeftank-component</td>
+    <td>Vista grafica interattiva di ogni dispositivo sulla tua dashboard, e unico modo per modificare le programmazioni avanzate. Legge le tre integrazioni tramite il contratto <code>reef_role</code> comune, senza configurazione lato scheda. Disegna anche i flussi di energia di reefbeatEnergyBackup.</td>
+    <td>tutte e tre le integrazioni</td>
   </tr>
   <tr>
     <td><img src="https://raw.githubusercontent.com/Elwinmage/ha-reef-blueprints/main/icon.png" width="64" alt="ha-reef-blueprints" /></td>
@@ -141,12 +127,13 @@ L'entità data conta più di quanto sembri: senza di essa ogni attività parte d
 | Generico | Pompa di movimento DC | pompa, supporto magnetico, decalcificazione, parti di usura |
 | Generico | Pompa di risalita DC | filtro, pompa, decalcificazione, parti di usura |
 | Generico | Schiumatoio a girante ad aghi | bicchiere, venturi, girante ad aghi, decalcificazione, parti di usura |
+| Generico | Riscaldatore per acquario | pulizia del riscaldatore |
 | Generico | Manutenzione ordinaria dell'acquario | cambio acqua, vetri, test ICP, filtri RO/DI, sump, sabbia |
 | Generico | Attrezzatura personalizzata | nessuna — scegli dalla libreria o scrivi la tua |
 
 Gli intervalli seguono il produttore quando pubblica un dato (Tunze Turbelle: pompa e supporto magnetico ogni 1–2 mesi; Tunze Silence: pulizia completa almeno annuale; Jebao DCP: girante mensile; Jebao SLW: mensile o bimestrale) e la pratica di acquariofilia altrimenti. Sono tutti punti di partenza, modificabili per singola attrezzatura.
 
-Le attività provengono da una libreria comune di 21 voci, tradotta in 8 lingue. Un preset si limita a referenziare chiavi della libreria e può ridefinire i limiti dell'intervallo — per questo aggiungere una marca di solito non costa alcuna nuova stringa di traduzione.
+Le attività provengono da una libreria comune di 22 voci, tradotta in 8 lingue. Un preset si limita a referenziare chiavi della libreria e può ridefinire i limiti dell'intervallo — per questo aggiungere una marca di solito non costa alcuna nuova stringa di traduzione.
 
 ## Servizio
 

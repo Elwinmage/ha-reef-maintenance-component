@@ -166,11 +166,13 @@ T: dict[str, dict[str, str]] = {
         "m_flow": "DC flow pump",
         "m_return": "DC return pump",
         "m_skimmer": "Needle wheel skimmer",
+        "m_heater": "Aquarium heater",
         "m_routine": "Routine aquarium maintenance",
         "m_custom": "Custom equipment",
         "t_pump": "pump, magnet holder, descale, wear parts",
         "t_strainer": "strainer, pump, descale, wear parts",
         "t_skimmer": "cup, venturi, needle wheel, descale, wear parts",
+        "t_heater": "heater cleaning",
         "t_routine": "water change, glass, ICP test, RO/DI filters, sump, sand",
         "t_none": "none — pick from the library or type your own",
         "presets_note": (
@@ -182,7 +184,7 @@ T: dict[str, dict[str, str]] = {
             "change per equipment."
         ),
         "presets_lib": (
-            "Tasks come from a shared library of 21 entries, translated in 8 "
+            "Tasks come from a shared library of 22 entries, translated in 8 "
             "languages. A preset only references library keys and may override "
             "the interval bounds — which is why adding a brand usually costs no "
             "new translation string."
@@ -303,11 +305,13 @@ T: dict[str, dict[str, str]] = {
         "m_flow": "Pompe de brassage DC",
         "m_return": "Pompe de remontée DC",
         "m_skimmer": "Écumeur à rotor à aiguilles",
+        "m_heater": "Réchauffeur d'aquarium",
         "m_routine": "Entretien courant de l'aquarium",
         "m_custom": "Équipement personnalisé",
         "t_pump": "pompe, support magnétique, détartrage, pièces d'usure",
         "t_strainer": "crépine, pompe, détartrage, pièces d'usure",
         "t_skimmer": "godet, venturi, rotor à aiguilles, détartrage, pièces d'usure",
+        "t_heater": "nettoyage du réchauffeur",
         "t_routine": "changement d'eau, vitres, test ICP, filtres RO/DI, décanteur, sable",
         "t_none": "aucune — choisissez dans la bibliothèque ou saisissez la vôtre",
         "presets_note": (
@@ -319,7 +323,7 @@ T: dict[str, dict[str, str]] = {
             "points de départ, modifiables équipement par équipement."
         ),
         "presets_lib": (
-            "Les tâches viennent d'une bibliothèque commune de 21 entrées, "
+            "Les tâches viennent d'une bibliothèque commune de 22 entrées, "
             "traduite en 8 langues. Un préréglage ne fait que référencer des "
             "clés de la bibliothèque et peut redéfinir les bornes d'intervalle — "
             "c'est pourquoi ajouter une marque ne coûte en général aucune "
@@ -445,11 +449,13 @@ T: dict[str, dict[str, str]] = {
         "m_flow": "DC-Strömungspumpe",
         "m_return": "DC-Rückförderpumpe",
         "m_skimmer": "Nadelrad-Abschäumer",
+        "m_heater": "Aquarienheizer",
         "m_routine": "Routinemäßige Aquarienpflege",
         "m_custom": "Eigene Ausrüstung",
         "t_pump": "Pumpe, Magnethalter, Entkalken, Verschleißteile",
         "t_strainer": "Ansaugkorb, Pumpe, Entkalken, Verschleißteile",
         "t_skimmer": "Topf, Venturi, Nadelrad, Entkalken, Verschleißteile",
+        "t_heater": "Heizstab reinigen",
         "t_routine": "Wasserwechsel, Scheiben, ICP-Test, RO/DI-Filter, Technikbecken, Sand",
         "t_none": "keine — aus der Bibliothek wählen oder eigene eintragen",
         "presets_note": (
@@ -461,7 +467,7 @@ T: dict[str, dict[str, str]] = {
             "je Ausrüstung änderbar."
         ),
         "presets_lib": (
-            "Die Aufgaben stammen aus einer gemeinsamen Bibliothek mit 21 "
+            "Die Aufgaben stammen aus einer gemeinsamen Bibliothek mit 22 "
             "Einträgen, übersetzt in 8 Sprachen. Eine Voreinstellung verweist "
             "nur auf Bibliotheksschlüssel und darf die Intervallgrenzen "
             "überschreiben — deshalb kostet eine neue Marke meist keine neue "
@@ -585,6 +591,7 @@ T: dict[str, dict[str, str]] = {
         "m_flow": "Bomba de movimiento DC",
         "m_return": "Bomba de retorno DC",
         "m_skimmer": "Skimmer de rotor de agujas",
+        "m_heater": "Calentador de acuario",
         "m_routine": "Mantenimiento rutinario del acuario",
         "m_custom": "Equipo personalizado",
         "t_pump": "bomba, soporte magnético, descalcificar, piezas de desgaste",
@@ -592,6 +599,7 @@ T: dict[str, dict[str, str]] = {
         "t_skimmer": (
             "vaso, venturi, rotor de agujas, descalcificar, piezas de desgaste"
         ),
+        "t_heater": "limpieza del calentador",
         "t_routine": "cambio de agua, cristales, test ICP, filtros RO/DI, sump, arena",
         "t_none": "ninguna — elige de la biblioteca o escribe la tuya",
         "presets_note": (
@@ -603,7 +611,7 @@ T: dict[str, dict[str, str]] = {
             "equipo."
         ),
         "presets_lib": (
-            "Las tareas vienen de una biblioteca común de 21 entradas, traducida "
+            "Las tareas vienen de una biblioteca común de 22 entradas, traducida "
             "a 8 idiomas. Un preajuste solo referencia claves de la biblioteca y "
             "puede redefinir los límites del intervalo — por eso añadir una "
             "marca no suele costar ninguna cadena de traducción nueva."
@@ -725,6 +733,7 @@ T: dict[str, dict[str, str]] = {
         "m_flow": "Pompa di movimento DC",
         "m_return": "Pompa di risalita DC",
         "m_skimmer": "Schiumatoio a girante ad aghi",
+        "m_heater": "Riscaldatore per acquario",
         "m_routine": "Manutenzione ordinaria dell'acquario",
         "m_custom": "Attrezzatura personalizzata",
         "t_pump": "pompa, supporto magnetico, decalcificazione, parti di usura",
@@ -732,6 +741,7 @@ T: dict[str, dict[str, str]] = {
         "t_skimmer": (
             "bicchiere, venturi, girante ad aghi, decalcificazione, parti di usura"
         ),
+        "t_heater": "pulizia del riscaldatore",
         "t_routine": "cambio acqua, vetri, test ICP, filtri RO/DI, sump, sabbia",
         "t_none": "nessuna — scegli dalla libreria o scrivi la tua",
         "presets_note": (
@@ -743,7 +753,7 @@ T: dict[str, dict[str, str]] = {
             "modificabili per singola attrezzatura."
         ),
         "presets_lib": (
-            "Le attività provengono da una libreria comune di 21 voci, tradotta "
+            "Le attività provengono da una libreria comune di 22 voci, tradotta "
             "in 8 lingue. Un preset si limita a referenziare chiavi della "
             "libreria e può ridefinire i limiti dell'intervallo — per questo "
             "aggiungere una marca di solito non costa alcuna nuova stringa di "
@@ -869,11 +879,13 @@ T: dict[str, dict[str, str]] = {
         "m_flow": "DC-stromingspomp",
         "m_return": "DC-opvoerpomp",
         "m_skimmer": "Naaldrad-eiwitafschuimer",
+        "m_heater": "Aquariumverwarmer",
         "m_routine": "Routineonderhoud aquarium",
         "m_custom": "Eigen apparatuur",
         "t_pump": "pomp, magneethouder, ontkalken, slijtdelen",
         "t_strainer": "aanzuigkorf, pomp, ontkalken, slijtdelen",
         "t_skimmer": "beker, venturi, naaldrad, ontkalken, slijtdelen",
+        "t_heater": "verwarmer reinigen",
         "t_routine": "waterwissel, ruiten, ICP-test, RO/DI-filters, sump, zand",
         "t_none": "geen — kies uit de bibliotheek of typ uw eigen taak",
         "presets_note": (
@@ -885,7 +897,7 @@ T: dict[str, dict[str, str]] = {
             "apparatuur aanpasbaar."
         ),
         "presets_lib": (
-            "De taken komen uit een gedeelde bibliotheek van 21 items, vertaald "
+            "De taken komen uit een gedeelde bibliotheek van 22 items, vertaald "
             "in 8 talen. Een voorinstelling verwijst alleen naar "
             "bibliotheeksleutels en mag de intervalgrenzen overschrijven — "
             "daarom kost een nieuw merk meestal geen enkele nieuwe vertaalregel."
@@ -1008,6 +1020,7 @@ T: dict[str, dict[str, str]] = {
         "m_flow": "Pompa cyrkulacyjna DC",
         "m_return": "Pompa obiegowa DC",
         "m_skimmer": "Odpieniacz z wirnikiem igiełkowym",
+        "m_heater": "Grzałka akwariowa",
         "m_routine": "Rutynowa konserwacja akwarium",
         "m_custom": "Sprzęt własny",
         "t_pump": "pompa, uchwyt magnetyczny, odkamienianie, części zużywalne",
@@ -1015,6 +1028,7 @@ T: dict[str, dict[str, str]] = {
         "t_skimmer": (
             "kubek, venturi, wirnik igiełkowy, odkamienianie, części zużywalne"
         ),
+        "t_heater": "czyszczenie grzałki",
         "t_routine": "podmiana wody, szyby, test ICP, filtry RO/DI, sump, piasek",
         "t_none": "brak — wybierz z biblioteki lub wpisz własne",
         "presets_note": (
@@ -1026,7 +1040,7 @@ T: dict[str, dict[str, str]] = {
             "zmiennymi dla każdego sprzętu."
         ),
         "presets_lib": (
-            "Zadania pochodzą ze wspólnej biblioteki 21 pozycji, przetłumaczonej "
+            "Zadania pochodzą ze wspólnej biblioteki 22 pozycji, przetłumaczonej "
             "na 8 języków. Ustawienie wstępne tylko odwołuje się do kluczy "
             "biblioteki i może nadpisać granice interwału — dlatego dodanie "
             "marki zwykle nie kosztuje żadnego nowego ciągu tłumaczenia."
@@ -1146,6 +1160,7 @@ T: dict[str, dict[str, str]] = {
         "m_flow": "Bomba de circulação DC",
         "m_return": "Bomba de retorno DC",
         "m_skimmer": "Escumador de rotor de agulhas",
+        "m_heater": "Aquecedor de aquário",
         "m_routine": "Manutenção de rotina do aquário",
         "m_custom": "Equipamento personalizado",
         "t_pump": "bomba, suporte magnético, descalcificar, peças de desgaste",
@@ -1153,6 +1168,7 @@ T: dict[str, dict[str, str]] = {
         "t_skimmer": (
             "copo, venturi, rotor de agulhas, descalcificar, peças de desgaste"
         ),
+        "t_heater": "limpeza do aquecedor",
         "t_routine": "mudança de água, vidros, teste ICP, filtros RO/DI, sump, areia",
         "t_none": "nenhuma — escolha da biblioteca ou escreva a sua",
         "presets_note": (
@@ -1164,7 +1180,7 @@ T: dict[str, dict[str, str]] = {
             "equipamento."
         ),
         "presets_lib": (
-            "As tarefas vêm de uma biblioteca comum de 21 entradas, traduzida em "
+            "As tarefas vêm de uma biblioteca comum de 22 entradas, traduzida em "
             "8 idiomas. Uma predefinição apenas referencia chaves da biblioteca "
             "e pode redefinir os limites do intervalo — daí que acrescentar uma "
             "marca não costume custar qualquer nova cadeia de tradução."
@@ -1246,6 +1262,7 @@ def presets_table(t: dict[str, str]) -> str:
         (t["generic"], t["m_flow"], t["t_pump"]),
         (t["generic"], t["m_return"], t["t_strainer"]),
         (t["generic"], t["m_skimmer"], t["t_skimmer"]),
+        (t["generic"], t["m_heater"], t["t_heater"]),
         (t["generic"], t["m_routine"], t["t_routine"]),
         (t["generic"], t["m_custom"], t["t_none"]),
     ]

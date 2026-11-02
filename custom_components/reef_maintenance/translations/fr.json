@@ -111,6 +111,9 @@
       "maint_uv_lamp_replace": {
         "name": "Remplacer la lampe UV"
       },
+      "maint_heater_clean": {
+        "name": "Nettoyer le réchauffeur"
+      },
       "maint_water_change": {
         "name": "Changement d'eau"
       },
@@ -178,6 +181,9 @@
       },
       "maint_uv_lamp_replace_interval_months": {
         "name": "Remplacer la lampe UV (mois)"
+      },
+      "maint_heater_clean_interval_months": {
+        "name": "Nettoyer le réchauffeur (mois)"
       },
       "maint_water_change_interval_weeks": {
         "name": "Changement d'eau (semaines)"
@@ -247,6 +253,9 @@
       "maint_uv_lamp_replace_notify": {
         "name": "Remplacer la lampe UV (notifications)"
       },
+      "maint_heater_clean_notify": {
+        "name": "Nettoyer le réchauffeur (notifications)"
+      },
       "maint_water_change_notify": {
         "name": "Changement d'eau (notifications)"
       },
@@ -315,6 +324,9 @@
       "maint_uv_lamp_replace_last_reset": {
         "name": "Remplacer la lampe UV (dernière fois)"
       },
+      "maint_heater_clean_last_reset": {
+        "name": "Nettoyer le réchauffeur (dernière fois)"
+      },
       "maint_water_change_last_reset": {
         "name": "Changement d'eau (dernière fois)"
       },
@@ -356,6 +368,7 @@
         "probe_calibrate": "Étalonner la sonde",
         "probe_clean": "Nettoyer la sonde",
         "uv_lamp_replace": "Remplacer la lampe UV",
+        "heater_clean": "Nettoyer le réchauffeur",
         "water_change": "Changement d'eau",
         "glass_clean": "Nettoyer les vitres",
         "icp_test": "Analyse ICP / test eau labo",

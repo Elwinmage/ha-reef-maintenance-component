@@ -29,8 +29,6 @@ Publikuje ten sam kontrakt encji `reef_role` co dwie integracje urządzeń podł
 
 Projekty ReefTech uzupełniają się: integracje wprowadzają sprzęt do Home Assistant, karta go wyświetla i steruje nim, a zasilanie awaryjne utrzymuje go w ruchu podczas przerwy w zasilaniu. Każdy działa również samodzielnie.
 
-<p align="center"><a href="https://elwinmage.github.io/reeftank/"><img src="https://raw.githubusercontent.com/Elwinmage/reeftank/main/assets/flower/ecosystem-flower.png" width="480" alt="ReefTech project ecosystem" /></a></p>
-
 <table>
   <tr>
     <th width="100px"></th>
@@ -59,20 +57,8 @@ Projekty ReefTech uzupełniają się: integracje wprowadzają sprzęt do Home As
   <tr>
     <td><img src="https://raw.githubusercontent.com/Elwinmage/ha-reef-card/main/icon.png" width="64" alt="ha-reef-card" /></td>
     <td>🪸<br /><a href="https://github.com/Elwinmage/ha-reef-card"><b>ha-reef-card</b></a></td>
-    <td>Interaktywny widok graficzny każdego urządzenia na pulpicie i jedyny sposób edycji zaawansowanych harmonogramów. Odczytuje trzy integracje przez wspólny kontrakt <code>reef_role</code>, bez konfiguracji po stronie karty. Rysuje też przepływy energii z reefbeatEnergyBackup. Jej karta akwarium ożywia Twój zbiornik dzięki ha-reeftank-component.</td>
-    <td>wszystkie trzy integracje oraz ha-reeftank-component dla akwarium</td>
-  </tr>
-  <tr>
-    <td><img src="https://raw.githubusercontent.com/Elwinmage/ha-reeftank-component/main/icon.png" width="64" alt="ha-reeftank-component" /></td>
-    <td>🐟<br /><a href="https://github.com/Elwinmage/ha-reeftank-component"><b>ha-reeftank-component</b></a></td>
-    <td>Żywy obraz Twojego zbiornika na pulpicie: Twoje zdjęcie, oświetlone prawdziwymi lampami, z animowanymi rybami i koralowcami oraz Twoimi urządzeniami i encjami. Przechowuje akwaria i ich obsadę, rejestruje karmienia.</td>
-    <td>ha-reef-card</td>
-  </tr>
-  <tr>
-    <td><img src="https://raw.githubusercontent.com/Elwinmage/reeftank-catalog/main/icon.png" width="64" alt="reeftank-catalog" /></td>
-    <td>🐡<br /><a href="https://github.com/Elwinmage/reeftank-catalog"><b>reeftank-catalog</b></a></td>
-    <td>Ryby, koralowce i tekstury karty akwarium, pobierane i aktualizowane przez ha-reeftank-component.</td>
-    <td>ha-reeftank-component</td>
+    <td>Interaktywny widok graficzny każdego urządzenia na pulpicie i jedyny sposób edycji zaawansowanych harmonogramów. Odczytuje trzy integracje przez wspólny kontrakt <code>reef_role</code>, bez konfiguracji po stronie karty. Rysuje też przepływy energii z reefbeatEnergyBackup.</td>
+    <td>wszystkie trzy integracje</td>
   </tr>
   <tr>
     <td><img src="https://raw.githubusercontent.com/Elwinmage/ha-reef-blueprints/main/icon.png" width="64" alt="ha-reef-blueprints" /></td>
@@ -141,12 +127,13 @@ Encja daty znaczy więcej, niż się wydaje: bez niej każde zadanie startuje od
 | Generyczne | Pompa cyrkulacyjna DC | pompa, uchwyt magnetyczny, odkamienianie, części zużywalne |
 | Generyczne | Pompa obiegowa DC | sitko, pompa, odkamienianie, części zużywalne |
 | Generyczne | Odpieniacz z wirnikiem igiełkowym | kubek, venturi, wirnik igiełkowy, odkamienianie, części zużywalne |
+| Generyczne | Grzałka akwariowa | czyszczenie grzałki |
 | Generyczne | Rutynowa konserwacja akwarium | podmiana wody, szyby, test ICP, filtry RO/DI, sump, piasek |
 | Generyczne | Sprzęt własny | brak — wybierz z biblioteki lub wpisz własne |
 
 Interwały idą za producentem tam, gdzie podaje liczbę (Tunze Turbelle: pompa i uchwyt magnetyczny co 1–2 miesiące; Tunze Silence: pełne czyszczenie co najmniej raz w roku; Jebao DCP: wirnik co miesiąc; Jebao SLW: co miesiąc do co dwa miesiące), a poza tym za praktyką rafową. Wszystkie są punktami wyjścia, zmiennymi dla każdego sprzętu.
 
-Zadania pochodzą ze wspólnej biblioteki 21 pozycji, przetłumaczonej na 8 języków. Ustawienie wstępne tylko odwołuje się do kluczy biblioteki i może nadpisać granice interwału — dlatego dodanie marki zwykle nie kosztuje żadnego nowego ciągu tłumaczenia.
+Zadania pochodzą ze wspólnej biblioteki 22 pozycji, przetłumaczonej na 8 języków. Ustawienie wstępne tylko odwołuje się do kluczy biblioteki i może nadpisać granice interwału — dlatego dodanie marki zwykle nie kosztuje żadnego nowego ciągu tłumaczenia.
 
 ## Usługa
 

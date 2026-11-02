@@ -29,8 +29,6 @@ Ze publiceert hetzelfde `reef_role`-entiteitencontract als de twee integraties v
 
 De ReefTech-projecten grijpen in elkaar: de integraties brengen uw apparatuur in Home Assistant, de kaart toont en bedient ze, en de back-up houdt alles draaiend tijdens een stroomuitval. Elk werkt ook op zichzelf.
 
-<p align="center"><a href="https://elwinmage.github.io/reeftank/"><img src="https://raw.githubusercontent.com/Elwinmage/reeftank/main/assets/flower/ecosystem-flower.png" width="480" alt="ReefTech project ecosystem" /></a></p>
-
 <table>
   <tr>
     <th width="100px"></th>
@@ -59,20 +57,8 @@ De ReefTech-projecten grijpen in elkaar: de integraties brengen uw apparatuur in
   <tr>
     <td><img src="https://raw.githubusercontent.com/Elwinmage/ha-reef-card/main/icon.png" width="64" alt="ha-reef-card" /></td>
     <td>🪸<br /><a href="https://github.com/Elwinmage/ha-reef-card"><b>ha-reef-card</b></a></td>
-    <td>Interactieve grafische weergave van elk apparaat op uw dashboard, en de enige manier om geavanceerde schema's te bewerken. Leest de drie integraties via het gedeelde <code>reef_role</code>-contract, zonder configuratie aan de kaartzijde. Tekent ook de energiestromen van reefbeatEnergyBackup. De aquariumkaart brengt uw bak tot leven met ha-reeftank-component.</td>
-    <td>alle drie de integraties, en ha-reeftank-component voor het aquarium</td>
-  </tr>
-  <tr>
-    <td><img src="https://raw.githubusercontent.com/Elwinmage/ha-reeftank-component/main/icon.png" width="64" alt="ha-reeftank-component" /></td>
-    <td>🐟<br /><a href="https://github.com/Elwinmage/ha-reeftank-component"><b>ha-reeftank-component</b></a></td>
-    <td>Een levend beeld van uw bak op het dashboard: uw foto, verlicht door uw echte lampen, met geanimeerde vissen en koralen, en uw apparaten en entiteiten erop. Bewaart de aquaria en hun bezetting, legt de voederingen vast.</td>
-    <td>ha-reef-card</td>
-  </tr>
-  <tr>
-    <td><img src="https://raw.githubusercontent.com/Elwinmage/reeftank-catalog/main/icon.png" width="64" alt="reeftank-catalog" /></td>
-    <td>🐡<br /><a href="https://github.com/Elwinmage/reeftank-catalog"><b>reeftank-catalog</b></a></td>
-    <td>Vissen, koralen en texturen van de aquariumkaart, gedownload en bijgehouden door ha-reeftank-component.</td>
-    <td>ha-reeftank-component</td>
+    <td>Interactieve grafische weergave van elk apparaat op uw dashboard, en de enige manier om geavanceerde schema's te bewerken. Leest de drie integraties via het gedeelde <code>reef_role</code>-contract, zonder configuratie aan de kaartzijde. Tekent ook de energiestromen van reefbeatEnergyBackup.</td>
+    <td>alle drie de integraties</td>
   </tr>
   <tr>
     <td><img src="https://raw.githubusercontent.com/Elwinmage/ha-reef-blueprints/main/icon.png" width="64" alt="ha-reef-blueprints" /></td>
@@ -141,12 +127,13 @@ De datumentiteit telt zwaarder dan ze lijkt: zonder haar begint elke taak op „
 | Generiek | DC-stromingspomp | pomp, magneethouder, ontkalken, slijtdelen |
 | Generiek | DC-opvoerpomp | aanzuigkorf, pomp, ontkalken, slijtdelen |
 | Generiek | Naaldrad-eiwitafschuimer | beker, venturi, naaldrad, ontkalken, slijtdelen |
+| Generiek | Aquariumverwarmer | verwarmer reinigen |
 | Generiek | Routineonderhoud aquarium | waterwissel, ruiten, ICP-test, RO/DI-filters, sump, zand |
 | Generiek | Eigen apparatuur | geen — kies uit de bibliotheek of typ uw eigen taak |
 
 De intervallen volgen de fabrikant waar die een getal publiceert (Tunze Turbelle: pomp en magneethouder elke 1–2 maanden; Tunze Silence: volledige reiniging minstens jaarlijks; Jebao DCP: maandelijks de rotor; Jebao SLW: maandelijks tot tweemaandelijks) en anders de rifpraktijk. Het zijn allemaal startpunten, per apparatuur aanpasbaar.
 
-De taken komen uit een gedeelde bibliotheek van 21 items, vertaald in 8 talen. Een voorinstelling verwijst alleen naar bibliotheeksleutels en mag de intervalgrenzen overschrijven — daarom kost een nieuw merk meestal geen enkele nieuwe vertaalregel.
+De taken komen uit een gedeelde bibliotheek van 22 items, vertaald in 8 talen. Een voorinstelling verwijst alleen naar bibliotheeksleutels en mag de intervalgrenzen overschrijven — daarom kost een nieuw merk meestal geen enkele nieuwe vertaalregel.
 
 ## Service
 
