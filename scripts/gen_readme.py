@@ -61,7 +61,7 @@ CLONE_BADGE = (
     else ""
 )
 
-BADGES = f"""[![HACS Badge](https://img.shields.io/badge/HACS-Custom-41BDF5.svg?style=flat-square)](https://github.com/hacs/hacs)
+BADGES = f"""[![Marketplace Badge](https://img.shields.io/badge/Marketplace-Default-41BDF5.svg?style=flat-square)](https://github.com/hacs/default)
 [![IoT Class](https://img.shields.io/badge/IoT%20Class-Local%20Push-green?style=flat-square)](https://developers.home-assistant.io/docs/architecture_index/#branding)
 [![GH-release](https://img.shields.io/github/v/release/Elwinmage/ha-reef-maintenance-component.svg?style=flat-square)]({REPO}/releases)
 ![Installations](https://img.shields.io/badge/dynamic/json?label=Active%20Installs&query=estimated&cacheSeconds=3600&url=https%3A%2F%2Fraw.githubusercontent.com%2FElwinmage%2Fha-reef-maintenance-component%2Fmain%2Fbadges%2Fstats.json&color=CE1126&logo=home-assistant)
@@ -127,9 +127,9 @@ T: dict[str, dict[str, str]] = {
         ),
         "install_title": "Installation",
         "install_direct_title": "Direct installation",
-        "install_direct_body": 'Click here to open the repository directly in HACS and click "Download":',
-        "install_search_title": "Search in HACS",
-        "install_search_body": 'Or search for "reef-maintenance" in HACS.',
+        "install_direct_body": 'Click here to open the repository directly in the Marketplace and click "Install":',
+        "install_search_title": "Search in the Marketplace",
+        "install_search_body": 'Or search for "reef-maintenance" in *Settings > Marketplace*. On a Home Assistant older than 2026.11, the same steps work in HACS.',
         "how_title": "How it works",
         "how_body": (
             "One config entry per **brand**, one device per **equipment**, four "
@@ -263,9 +263,9 @@ T: dict[str, dict[str, str]] = {
         ),
         "install_title": "Installation",
         "install_direct_title": "Installation directe",
-        "install_direct_body": "Cliquez ici pour ouvrir directement le dépôt dans HACS et cliquez sur \u00ab Télécharger \u00bb :",
-        "install_search_title": "Recherche dans HACS",
-        "install_search_body": "Ou cherchez \u00ab reef-maintenance \u00bb dans HACS.",
+        "install_direct_body": "Cliquez ici pour ouvrir directement le dépôt dans la Marketplace et cliquez sur « Installer » :",
+        "install_search_title": "Recherche dans la Marketplace",
+        "install_search_body": "Ou cherchez « reef-maintenance » dans *Paramètres > Marketplace*. Sur un Home Assistant antérieur à 2026.11, les mêmes étapes fonctionnent dans HACS.",
         "how_title": "Fonctionnement",
         "how_body": (
             "Une entrée de configuration par **marque**, un appareil par "
@@ -407,9 +407,9 @@ T: dict[str, dict[str, str]] = {
         ),
         "install_title": "Installation",
         "install_direct_title": "Direkte Installation",
-        "install_direct_body": "Klicken Sie hier, um das Repository direkt in HACS zu öffnen, und klicken Sie auf \u00abHerunterladen\u00bb:",
-        "install_search_title": "Suche in HACS",
-        "install_search_body": "Oder suchen Sie nach \u00abreef-maintenance\u00bb in HACS.",
+        "install_direct_body": "Klicken Sie hier, um das Repository direkt im Marketplace zu öffnen, und klicken Sie auf „Installieren“:",
+        "install_search_title": "Suche im Marketplace",
+        "install_search_body": "Oder suchen Sie in *Einstellungen > Marketplace* nach „reef-maintenance“. Bei einem Home Assistant vor 2026.11 funktionieren dieselben Schritte in HACS.",
         "how_title": "Funktionsweise",
         "how_body": (
             "Ein Konfigurationseintrag je **Marke**, ein Gerät je "
@@ -550,9 +550,9 @@ T: dict[str, dict[str, str]] = {
         ),
         "install_title": "Instalación",
         "install_direct_title": "Instalación directa",
-        "install_direct_body": "Haga clic aquí para abrir el repositorio directamente en HACS y pulse \u00abDescargar\u00bb:",
-        "install_search_title": "Buscar en HACS",
-        "install_search_body": "O busque \u00abreef-maintenance\u00bb en HACS.",
+        "install_direct_body": "Haga clic aquí para abrir el repositorio directamente en el Marketplace y pulse «Instalar»:",
+        "install_search_title": "Búsqueda en el Marketplace",
+        "install_search_body": "O busque «reef-maintenance» en *Ajustes > Marketplace*. En un Home Assistant anterior a 2026.11, los mismos pasos funcionan en HACS.",
         "how_title": "Cómo funciona",
         "how_body": (
             "Una entrada de configuración por **marca**, un dispositivo por "
@@ -692,9 +692,9 @@ T: dict[str, dict[str, str]] = {
         ),
         "install_title": "Installazione",
         "install_direct_title": "Installazione diretta",
-        "install_direct_body": "Cliccate qui per aprire il repository direttamente in HACS e premete \u00abDownload\u00bb:",
-        "install_search_title": "Cercare in HACS",
-        "install_search_body": "Oppure cercate \u00abreef-maintenance\u00bb in HACS.",
+        "install_direct_body": "Fate clic qui per aprire il repository direttamente nel Marketplace, poi su «Installa»:",
+        "install_search_title": "Ricerca nel Marketplace",
+        "install_search_body": "Oppure cercate «reef-maintenance» in *Impostazioni > Marketplace*. Su un Home Assistant precedente a 2026.11, gli stessi passaggi funzionano in HACS.",
         "how_title": "Come funziona",
         "how_body": (
             "Una voce di configurazione per **marca**, un dispositivo per "
@@ -837,9 +837,9 @@ T: dict[str, dict[str, str]] = {
         ),
         "install_title": "Installatie",
         "install_direct_title": "Directe installatie",
-        "install_direct_body": 'Klik hier om de repository rechtstreeks in HACS te openen en klik op "Downloaden":',
-        "install_search_title": "Zoeken in HACS",
-        "install_search_body": 'Of zoek naar "reef-maintenance" in HACS.',
+        "install_direct_body": 'Klik hier om de repository direct in de Marketplace te openen en klik op "Installeren":',
+        "install_search_title": "Zoeken in de Marketplace",
+        "install_search_body": 'Of zoek naar "reef-maintenance" in *Instellingen > Marketplace*. Op een Home Assistant ouder dan 2026.11 werken dezelfde stappen in HACS.',
         "how_title": "Hoe het werkt",
         "how_body": (
             "Eén configuratie-item per **merk**, één apparaat per "
@@ -978,9 +978,9 @@ T: dict[str, dict[str, str]] = {
         ),
         "install_title": "Instalacja",
         "install_direct_title": "Bezpośrednia instalacja",
-        "install_direct_body": "Kliknij tutaj, aby otworzyć repozytorium bezpośrednio w HACS i kliknij \u00abPobierz\u00bb:",
-        "install_search_title": "Szukaj w HACS",
-        "install_search_body": "Lub wyszukaj \u00abreef-maintenance\u00bb w HACS.",
+        "install_direct_body": "Kliknij tutaj, aby otworzyć repozytorium bezpośrednio w Marketplace, i kliknij „Zainstaluj”:",
+        "install_search_title": "Wyszukiwanie w Marketplace",
+        "install_search_body": "Lub wyszukaj „reef-maintenance” w *Ustawienia > Marketplace*. W Home Assistant starszym niż 2026.11 te same kroki działają w HACS.",
         "how_title": "Jak to działa",
         "how_body": (
             "Jeden wpis konfiguracji na **markę**, jedno urządzenie na "
@@ -1119,9 +1119,9 @@ T: dict[str, dict[str, str]] = {
         ),
         "install_title": "Instalação",
         "install_direct_title": "Instalação direta",
-        "install_direct_body": "Clique aqui para abrir o repositório diretamente no HACS e clique em \u00abDownload\u00bb:",
-        "install_search_title": "Procurar no HACS",
-        "install_search_body": "Ou procure \u00abreef-maintenance\u00bb no HACS.",
+        "install_direct_body": "Clique aqui para abrir o repositório diretamente no Marketplace e clique em «Instalar»:",
+        "install_search_title": "Pesquisa no Marketplace",
+        "install_search_body": "Ou pesquise «reef-maintenance» em *Definições > Marketplace*. Num Home Assistant anterior a 2026.11, os mesmos passos funcionam no HACS.",
         "how_title": "Como funciona",
         "how_body": (
             "Uma entrada de configuração por **marca**, um aparelho por "
