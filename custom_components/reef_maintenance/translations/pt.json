@@ -111,6 +111,9 @@
       "maint_uv_lamp_replace": {
         "name": "Substituir a lâmpada UV"
       },
+      "maint_heater_clean": {
+        "name": "Limpar o aquecedor"
+      },
       "maint_water_change": {
         "name": "Mudança de água"
       },
@@ -178,6 +181,9 @@
       },
       "maint_uv_lamp_replace_interval_months": {
         "name": "Substituir a lâmpada UV (meses)"
+      },
+      "maint_heater_clean_interval_months": {
+        "name": "Limpar o aquecedor (meses)"
       },
       "maint_water_change_interval_weeks": {
         "name": "Mudança de água (semanas)"
@@ -247,6 +253,9 @@
       "maint_uv_lamp_replace_notify": {
         "name": "Substituir a lâmpada UV (notificações)"
       },
+      "maint_heater_clean_notify": {
+        "name": "Limpar o aquecedor (notificações)"
+      },
       "maint_water_change_notify": {
         "name": "Mudança de água (notificações)"
       },
@@ -315,6 +324,9 @@
       "maint_uv_lamp_replace_last_reset": {
         "name": "Substituir a lâmpada UV (última vez)"
       },
+      "maint_heater_clean_last_reset": {
+        "name": "Limpar o aquecedor (última vez)"
+      },
       "maint_water_change_last_reset": {
         "name": "Mudança de água (última vez)"
       },
@@ -356,6 +368,7 @@
         "probe_calibrate": "Calibrar a sonda",
         "probe_clean": "Limpar a sonda",
         "uv_lamp_replace": "Substituir a lâmpada UV",
+        "heater_clean": "Limpar o aquecedor",
         "water_change": "Mudança de água",
         "glass_clean": "Limpar os vidros",
         "icp_test": "Análise ICP / teste de água em laboratório",

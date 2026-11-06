@@ -111,6 +111,9 @@
       "maint_uv_lamp_replace": {
         "name": "UV-Lampe ersetzen"
       },
+      "maint_heater_clean": {
+        "name": "Heizstab reinigen"
+      },
       "maint_water_change": {
         "name": "Wasserwechsel"
       },
@@ -178,6 +181,9 @@
       },
       "maint_uv_lamp_replace_interval_months": {
         "name": "UV-Lampe ersetzen (Monate)"
+      },
+      "maint_heater_clean_interval_months": {
+        "name": "Heizstab reinigen (Monate)"
       },
       "maint_water_change_interval_weeks": {
         "name": "Wasserwechsel (Wochen)"
@@ -247,6 +253,9 @@
       "maint_uv_lamp_replace_notify": {
         "name": "UV-Lampe ersetzen (Benachrichtigungen)"
       },
+      "maint_heater_clean_notify": {
+        "name": "Heizstab reinigen (Benachrichtigungen)"
+      },
       "maint_water_change_notify": {
         "name": "Wasserwechsel (Benachrichtigungen)"
       },
@@ -315,6 +324,9 @@
       "maint_uv_lamp_replace_last_reset": {
         "name": "UV-Lampe ersetzen (zuletzt erledigt)"
       },
+      "maint_heater_clean_last_reset": {
+        "name": "Heizstab reinigen (zuletzt erledigt)"
+      },
       "maint_water_change_last_reset": {
         "name": "Wasserwechsel (zuletzt erledigt)"
       },
@@ -356,6 +368,7 @@
         "probe_calibrate": "Sonde kalibrieren",
         "probe_clean": "Sonde reinigen",
         "uv_lamp_replace": "UV-Lampe ersetzen",
+        "heater_clean": "Heizstab reinigen",
         "water_change": "Wasserwechsel",
         "glass_clean": "Scheiben reinigen",
         "icp_test": "ICP / Wasseranalyse im Labor",

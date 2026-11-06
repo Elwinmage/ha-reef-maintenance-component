@@ -111,6 +111,9 @@
       "maint_uv_lamp_replace": {
         "name": "Sostituire la lampada UV"
       },
+      "maint_heater_clean": {
+        "name": "Pulire il riscaldatore"
+      },
       "maint_water_change": {
         "name": "Cambio d'acqua"
       },
@@ -178,6 +181,9 @@
       },
       "maint_uv_lamp_replace_interval_months": {
         "name": "Sostituire la lampada UV (mesi)"
+      },
+      "maint_heater_clean_interval_months": {
+        "name": "Pulire il riscaldatore (mesi)"
       },
       "maint_water_change_interval_weeks": {
         "name": "Cambio d'acqua (settimane)"
@@ -247,6 +253,9 @@
       "maint_uv_lamp_replace_notify": {
         "name": "Sostituire la lampada UV (notifiche)"
       },
+      "maint_heater_clean_notify": {
+        "name": "Pulire il riscaldatore (notifiche)"
+      },
       "maint_water_change_notify": {
         "name": "Cambio d'acqua (notifiche)"
       },
@@ -315,6 +324,9 @@
       "maint_uv_lamp_replace_last_reset": {
         "name": "Sostituire la lampada UV (ultima volta)"
       },
+      "maint_heater_clean_last_reset": {
+        "name": "Pulire il riscaldatore (ultima volta)"
+      },
       "maint_water_change_last_reset": {
         "name": "Cambio d'acqua (ultima volta)"
       },
@@ -356,6 +368,7 @@
         "probe_calibrate": "Calibrare la sonda",
         "probe_clean": "Pulire la sonda",
         "uv_lamp_replace": "Sostituire la lampada UV",
+        "heater_clean": "Pulire il riscaldatore",
         "water_change": "Cambio d'acqua",
         "glass_clean": "Pulire i vetri",
         "icp_test": "Analisi ICP / test acqua in laboratorio",
