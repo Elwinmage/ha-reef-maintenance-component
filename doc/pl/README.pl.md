@@ -4,7 +4,7 @@
   <img src="https://github.com/Elwinmage/ha-reef-maintenance-component/raw/main/icon.png"  width="50%"/>
 </p>
 
-[![HACS Badge](https://img.shields.io/badge/HACS-Custom-41BDF5.svg?style=flat-square)](https://github.com/hacs/hacs)
+[![Marketplace Badge](https://img.shields.io/badge/Marketplace-Default-41BDF5.svg?style=flat-square)](https://github.com/hacs/default)
 [![IoT Class](https://img.shields.io/badge/IoT%20Class-Local%20Push-green?style=flat-square)](https://developers.home-assistant.io/docs/architecture_index/#branding)
 [![GH-release](https://img.shields.io/github/v/release/Elwinmage/ha-reef-maintenance-component.svg?style=flat-square)](https://github.com/Elwinmage/ha-reef-maintenance-component/releases)
 ![Installations](https://img.shields.io/badge/dynamic/json?label=Active%20Installs&query=estimated&cacheSeconds=3600&url=https%3A%2F%2Fraw.githubusercontent.com%2FElwinmage%2Fha-reef-maintenance-component%2Fmain%2Fbadges%2Fstats.json&color=CE1126&logo=home-assistant)
@@ -28,6 +28,8 @@ Publikuje ten sam kontrakt encji `reef_role` co dwie integracje urządzeń podł
 ## Powiązane projekty
 
 Projekty ReefTech uzupełniają się: integracje wprowadzają sprzęt do Home Assistant, karta go wyświetla i steruje nim, a zasilanie awaryjne utrzymuje go w ruchu podczas przerwy w zasilaniu. Każdy działa również samodzielnie.
+
+<p align="center"><a href="https://elwinmage.github.io/reeftank/"><img src="https://raw.githubusercontent.com/Elwinmage/reeftank/main/assets/flower/ecosystem-flower.png" width="480" alt="ReefTech project ecosystem" /></a></p>
 
 <table>
   <tr>
@@ -57,13 +59,25 @@ Projekty ReefTech uzupełniają się: integracje wprowadzają sprzęt do Home As
   <tr>
     <td><img src="https://raw.githubusercontent.com/Elwinmage/ha-reef-card/main/icon.png" width="64" alt="ha-reef-card" /></td>
     <td>🪸<br /><a href="https://github.com/Elwinmage/ha-reef-card"><b>ha-reef-card</b></a></td>
-    <td>Interaktywny widok graficzny każdego urządzenia na pulpicie i jedyny sposób edycji zaawansowanych harmonogramów. Odczytuje trzy integracje przez wspólny kontrakt <code>reef_role</code>, bez konfiguracji po stronie karty. Rysuje też przepływy energii z reefbeatEnergyBackup.</td>
-    <td>wszystkie trzy integracje</td>
+    <td>Interaktywny widok graficzny każdego urządzenia na pulpicie i jedyny sposób edycji zaawansowanych harmonogramów. Odczytuje trzy integracje przez wspólny kontrakt <code>reef_role</code>, bez konfiguracji po stronie karty. Rysuje też przepływy energii z reefbeatEnergyBackup. Jej karta akwarium ożywia Twój zbiornik dzięki ha-reeftank-component.</td>
+    <td>wszystkie trzy integracje oraz ha-reeftank-component dla akwarium</td>
+  </tr>
+  <tr>
+    <td><img src="https://raw.githubusercontent.com/Elwinmage/ha-reeftank-component/main/icon.png" width="64" alt="ha-reeftank-component" /></td>
+    <td>🐟<br /><a href="https://github.com/Elwinmage/ha-reeftank-component"><b>ha-reeftank-component</b></a></td>
+    <td>Żywy obraz Twojego zbiornika na pulpicie: Twoje zdjęcie, oświetlone prawdziwymi lampami, z animowanymi rybami i koralowcami oraz Twoimi urządzeniami i encjami. Przechowuje akwaria i ich obsadę, rejestruje karmienia.</td>
+    <td>ha-reef-card</td>
+  </tr>
+  <tr>
+    <td><img src="https://raw.githubusercontent.com/Elwinmage/reeftank-catalog/main/icon.png" width="64" alt="reeftank-catalog" /></td>
+    <td>🐡<br /><a href="https://github.com/Elwinmage/reeftank-catalog"><b>reeftank-catalog</b></a></td>
+    <td>Ryby, koralowce i tekstury karty akwarium, pobierane i aktualizowane przez ha-reeftank-component.</td>
+    <td>ha-reeftank-component</td>
   </tr>
   <tr>
     <td><img src="https://raw.githubusercontent.com/Elwinmage/ha-reef-blueprints/main/icon.png" width="64" alt="ha-reef-blueprints" /></td>
     <td>🐬<br /><a href="https://github.com/Elwinmage/ha-reef-blueprints"><b>ha-reef-blueprints</b></a></td>
-    <td>Blueprinty powiadomień wspólne dla całego ekosystemu: zaległe konserwacje znajdowane przez kontrakt <code>reef_role</code> oraz urządzenia, które przestały odpowiadać. Osiem języków.</td>
+    <td>Blueprinty automatyzacji wspólne dla całego ekosystemu: zaległe konserwacje znajdowane przez kontrakt <code>reef_role</code>, urządzenia, które przestały odpowiadać, okresowy test grzałek i nadzór przekaźników. Osiem języków.</td>
     <td>wszystkie trzy integracje</td>
   </tr>
   <tr>
@@ -96,11 +110,11 @@ Zaległe zadania mogą też trafić na telefon: blueprint [Reef maintenance watc
 
 ### Bezpośrednia instalacja
 
-Kliknij tutaj, aby otworzyć repozytorium bezpośrednio w HACS i kliknij «Pobierz»: [![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=Elwinmage&repository=ha-reef-maintenance-component&category=integration)
+Kliknij tutaj, aby otworzyć repozytorium bezpośrednio w Marketplace, i kliknij „Zainstaluj”: [![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=Elwinmage&repository=ha-reef-maintenance-component&category=integration)
 
-### Szukaj w HACS
+### Wyszukiwanie w Marketplace
 
-Lub wyszukaj «reef-maintenance» w HACS.
+Lub wyszukaj „reef-maintenance” w *Ustawienia > Marketplace*. W Home Assistant starszym niż 2026.11 te same kroki działają w HACS.
 
 ## Jak to działa
 
@@ -127,12 +141,13 @@ Encja daty znaczy więcej, niż się wydaje: bez niej każde zadanie startuje od
 | Generyczne | Pompa cyrkulacyjna DC | pompa, uchwyt magnetyczny, odkamienianie, części zużywalne |
 | Generyczne | Pompa obiegowa DC | sitko, pompa, odkamienianie, części zużywalne |
 | Generyczne | Odpieniacz z wirnikiem igiełkowym | kubek, venturi, wirnik igiełkowy, odkamienianie, części zużywalne |
+| Generyczne | Grzałka akwariowa | czyszczenie grzałki |
 | Generyczne | Rutynowa konserwacja akwarium | podmiana wody, szyby, test ICP, filtry RO/DI, sump, piasek |
 | Generyczne | Sprzęt własny | brak — wybierz z biblioteki lub wpisz własne |
 
 Interwały idą za producentem tam, gdzie podaje liczbę (Tunze Turbelle: pompa i uchwyt magnetyczny co 1–2 miesiące; Tunze Silence: pełne czyszczenie co najmniej raz w roku; Jebao DCP: wirnik co miesiąc; Jebao SLW: co miesiąc do co dwa miesiące), a poza tym za praktyką rafową. Wszystkie są punktami wyjścia, zmiennymi dla każdego sprzętu.
 
-Zadania pochodzą ze wspólnej biblioteki 21 pozycji, przetłumaczonej na 8 języków. Ustawienie wstępne tylko odwołuje się do kluczy biblioteki i może nadpisać granice interwału — dlatego dodanie marki zwykle nie kosztuje żadnego nowego ciągu tłumaczenia.
+Zadania pochodzą ze wspólnej biblioteki 22 pozycji, przetłumaczonej na 8 języków. Ustawienie wstępne tylko odwołuje się do kluczy biblioteki i może nadpisać granice interwału — dlatego dodanie marki zwykle nie kosztuje żadnego nowego ciągu tłumaczenia.
 
 ## Usługa
 

@@ -91,6 +91,8 @@ LIBRARY: Final[dict[str, MaintenanceTask]] = {
         _task("probe_calibrate", 90, 30, 180, "mdi:tune-variant", "months"),
         _task("probe_clean", 60, 30, 120, "mdi:test-tube", "months"),
         _task("uv_lamp_replace", 365, 180, 540, "mdi:lightbulb-alert", "months"),
+        # ── Heating ──────────────────────────────────────────────────────
+        _task("heater_clean", 120, 90, 180, "mdi:heating-coil", "months"),
         # ── Routine ──────────────────────────────────────────────────────
         _task("water_change", 14, 7, 364, "mdi:water-sync", "weeks"),
         _task("glass_clean", 7, 3, 21, "mdi:square-opacity", "days"),

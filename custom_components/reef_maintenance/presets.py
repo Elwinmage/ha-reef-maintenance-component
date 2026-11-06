@@ -161,6 +161,12 @@ PRESETS: Final[dict[str, Preset]] = {
             ),
         ),
         Preset(
+            id="generic_heater",
+            brand=GENERIC_BRAND,
+            model="Aquarium heater",
+            tasks=(TaskSpec("heater_clean"),),
+        ),
+        Preset(
             id="generic_routine",
             brand=GENERIC_BRAND,
             model="Routine aquarium maintenance",

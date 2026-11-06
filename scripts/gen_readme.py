@@ -61,7 +61,7 @@ CLONE_BADGE = (
     else ""
 )
 
-BADGES = f"""[![HACS Badge](https://img.shields.io/badge/HACS-Custom-41BDF5.svg?style=flat-square)](https://github.com/hacs/hacs)
+BADGES = f"""[![Marketplace Badge](https://img.shields.io/badge/Marketplace-Default-41BDF5.svg?style=flat-square)](https://github.com/hacs/default)
 [![IoT Class](https://img.shields.io/badge/IoT%20Class-Local%20Push-green?style=flat-square)](https://developers.home-assistant.io/docs/architecture_index/#branding)
 [![GH-release](https://img.shields.io/github/v/release/Elwinmage/ha-reef-maintenance-component.svg?style=flat-square)]({REPO}/releases)
 ![Installations](https://img.shields.io/badge/dynamic/json?label=Active%20Installs&query=estimated&cacheSeconds=3600&url=https%3A%2F%2Fraw.githubusercontent.com%2FElwinmage%2Fha-reef-maintenance-component%2Fmain%2Fbadges%2Fstats.json&color=CE1126&logo=home-assistant)
@@ -127,9 +127,9 @@ T: dict[str, dict[str, str]] = {
         ),
         "install_title": "Installation",
         "install_direct_title": "Direct installation",
-        "install_direct_body": 'Click here to open the repository directly in HACS and click "Download":',
-        "install_search_title": "Search in HACS",
-        "install_search_body": 'Or search for "reef-maintenance" in HACS.',
+        "install_direct_body": 'Click here to open the repository directly in the Marketplace and click "Install":',
+        "install_search_title": "Search in the Marketplace",
+        "install_search_body": 'Or search for "reef-maintenance" in *Settings > Marketplace*. On a Home Assistant older than 2026.11, the same steps work in HACS.',
         "how_title": "How it works",
         "how_body": (
             "One config entry per **brand**, one device per **equipment**, four "
@@ -166,11 +166,13 @@ T: dict[str, dict[str, str]] = {
         "m_flow": "DC flow pump",
         "m_return": "DC return pump",
         "m_skimmer": "Needle wheel skimmer",
+        "m_heater": "Aquarium heater",
         "m_routine": "Routine aquarium maintenance",
         "m_custom": "Custom equipment",
         "t_pump": "pump, magnet holder, descale, wear parts",
         "t_strainer": "strainer, pump, descale, wear parts",
         "t_skimmer": "cup, venturi, needle wheel, descale, wear parts",
+        "t_heater": "heater cleaning",
         "t_routine": "water change, glass, ICP test, RO/DI filters, sump, sand",
         "t_none": "none — pick from the library or type your own",
         "presets_note": (
@@ -182,7 +184,7 @@ T: dict[str, dict[str, str]] = {
             "change per equipment."
         ),
         "presets_lib": (
-            "Tasks come from a shared library of 21 entries, translated in 8 "
+            "Tasks come from a shared library of 22 entries, translated in 8 "
             "languages. A preset only references library keys and may override "
             "the interval bounds — which is why adding a brand usually costs no "
             "new translation string."
@@ -261,9 +263,9 @@ T: dict[str, dict[str, str]] = {
         ),
         "install_title": "Installation",
         "install_direct_title": "Installation directe",
-        "install_direct_body": "Cliquez ici pour ouvrir directement le dépôt dans HACS et cliquez sur \u00ab Télécharger \u00bb :",
-        "install_search_title": "Recherche dans HACS",
-        "install_search_body": "Ou cherchez \u00ab reef-maintenance \u00bb dans HACS.",
+        "install_direct_body": "Cliquez ici pour ouvrir directement le dépôt dans la Marketplace et cliquez sur « Installer » :",
+        "install_search_title": "Recherche dans la Marketplace",
+        "install_search_body": "Ou cherchez « reef-maintenance » dans *Paramètres > Marketplace*. Sur un Home Assistant antérieur à 2026.11, les mêmes étapes fonctionnent dans HACS.",
         "how_title": "Fonctionnement",
         "how_body": (
             "Une entrée de configuration par **marque**, un appareil par "
@@ -303,11 +305,13 @@ T: dict[str, dict[str, str]] = {
         "m_flow": "Pompe de brassage DC",
         "m_return": "Pompe de remontée DC",
         "m_skimmer": "Écumeur à rotor à aiguilles",
+        "m_heater": "Réchauffeur d'aquarium",
         "m_routine": "Entretien courant de l'aquarium",
         "m_custom": "Équipement personnalisé",
         "t_pump": "pompe, support magnétique, détartrage, pièces d'usure",
         "t_strainer": "crépine, pompe, détartrage, pièces d'usure",
         "t_skimmer": "godet, venturi, rotor à aiguilles, détartrage, pièces d'usure",
+        "t_heater": "nettoyage du réchauffeur",
         "t_routine": "changement d'eau, vitres, test ICP, filtres RO/DI, décanteur, sable",
         "t_none": "aucune — choisissez dans la bibliothèque ou saisissez la vôtre",
         "presets_note": (
@@ -319,7 +323,7 @@ T: dict[str, dict[str, str]] = {
             "points de départ, modifiables équipement par équipement."
         ),
         "presets_lib": (
-            "Les tâches viennent d'une bibliothèque commune de 21 entrées, "
+            "Les tâches viennent d'une bibliothèque commune de 22 entrées, "
             "traduite en 8 langues. Un préréglage ne fait que référencer des "
             "clés de la bibliothèque et peut redéfinir les bornes d'intervalle — "
             "c'est pourquoi ajouter une marque ne coûte en général aucune "
@@ -403,9 +407,9 @@ T: dict[str, dict[str, str]] = {
         ),
         "install_title": "Installation",
         "install_direct_title": "Direkte Installation",
-        "install_direct_body": "Klicken Sie hier, um das Repository direkt in HACS zu öffnen, und klicken Sie auf \u00abHerunterladen\u00bb:",
-        "install_search_title": "Suche in HACS",
-        "install_search_body": "Oder suchen Sie nach \u00abreef-maintenance\u00bb in HACS.",
+        "install_direct_body": "Klicken Sie hier, um das Repository direkt im Marketplace zu öffnen, und klicken Sie auf „Installieren“:",
+        "install_search_title": "Suche im Marketplace",
+        "install_search_body": "Oder suchen Sie in *Einstellungen > Marketplace* nach „reef-maintenance“. Bei einem Home Assistant vor 2026.11 funktionieren dieselben Schritte in HACS.",
         "how_title": "Funktionsweise",
         "how_body": (
             "Ein Konfigurationseintrag je **Marke**, ein Gerät je "
@@ -445,11 +449,13 @@ T: dict[str, dict[str, str]] = {
         "m_flow": "DC-Strömungspumpe",
         "m_return": "DC-Rückförderpumpe",
         "m_skimmer": "Nadelrad-Abschäumer",
+        "m_heater": "Aquarienheizer",
         "m_routine": "Routinemäßige Aquarienpflege",
         "m_custom": "Eigene Ausrüstung",
         "t_pump": "Pumpe, Magnethalter, Entkalken, Verschleißteile",
         "t_strainer": "Ansaugkorb, Pumpe, Entkalken, Verschleißteile",
         "t_skimmer": "Topf, Venturi, Nadelrad, Entkalken, Verschleißteile",
+        "t_heater": "Heizstab reinigen",
         "t_routine": "Wasserwechsel, Scheiben, ICP-Test, RO/DI-Filter, Technikbecken, Sand",
         "t_none": "keine — aus der Bibliothek wählen oder eigene eintragen",
         "presets_note": (
@@ -461,7 +467,7 @@ T: dict[str, dict[str, str]] = {
             "je Ausrüstung änderbar."
         ),
         "presets_lib": (
-            "Die Aufgaben stammen aus einer gemeinsamen Bibliothek mit 21 "
+            "Die Aufgaben stammen aus einer gemeinsamen Bibliothek mit 22 "
             "Einträgen, übersetzt in 8 Sprachen. Eine Voreinstellung verweist "
             "nur auf Bibliotheksschlüssel und darf die Intervallgrenzen "
             "überschreiben — deshalb kostet eine neue Marke meist keine neue "
@@ -544,9 +550,9 @@ T: dict[str, dict[str, str]] = {
         ),
         "install_title": "Instalación",
         "install_direct_title": "Instalación directa",
-        "install_direct_body": "Haga clic aquí para abrir el repositorio directamente en HACS y pulse \u00abDescargar\u00bb:",
-        "install_search_title": "Buscar en HACS",
-        "install_search_body": "O busque \u00abreef-maintenance\u00bb en HACS.",
+        "install_direct_body": "Haga clic aquí para abrir el repositorio directamente en el Marketplace y pulse «Instalar»:",
+        "install_search_title": "Búsqueda en el Marketplace",
+        "install_search_body": "O busque «reef-maintenance» en *Ajustes > Marketplace*. En un Home Assistant anterior a 2026.11, los mismos pasos funcionan en HACS.",
         "how_title": "Cómo funciona",
         "how_body": (
             "Una entrada de configuración por **marca**, un dispositivo por "
@@ -585,6 +591,7 @@ T: dict[str, dict[str, str]] = {
         "m_flow": "Bomba de movimiento DC",
         "m_return": "Bomba de retorno DC",
         "m_skimmer": "Skimmer de rotor de agujas",
+        "m_heater": "Calentador de acuario",
         "m_routine": "Mantenimiento rutinario del acuario",
         "m_custom": "Equipo personalizado",
         "t_pump": "bomba, soporte magnético, descalcificar, piezas de desgaste",
@@ -592,6 +599,7 @@ T: dict[str, dict[str, str]] = {
         "t_skimmer": (
             "vaso, venturi, rotor de agujas, descalcificar, piezas de desgaste"
         ),
+        "t_heater": "limpieza del calentador",
         "t_routine": "cambio de agua, cristales, test ICP, filtros RO/DI, sump, arena",
         "t_none": "ninguna — elige de la biblioteca o escribe la tuya",
         "presets_note": (
@@ -603,7 +611,7 @@ T: dict[str, dict[str, str]] = {
             "equipo."
         ),
         "presets_lib": (
-            "Las tareas vienen de una biblioteca común de 21 entradas, traducida "
+            "Las tareas vienen de una biblioteca común de 22 entradas, traducida "
             "a 8 idiomas. Un preajuste solo referencia claves de la biblioteca y "
             "puede redefinir los límites del intervalo — por eso añadir una "
             "marca no suele costar ninguna cadena de traducción nueva."
@@ -684,9 +692,9 @@ T: dict[str, dict[str, str]] = {
         ),
         "install_title": "Installazione",
         "install_direct_title": "Installazione diretta",
-        "install_direct_body": "Cliccate qui per aprire il repository direttamente in HACS e premete \u00abDownload\u00bb:",
-        "install_search_title": "Cercare in HACS",
-        "install_search_body": "Oppure cercate \u00abreef-maintenance\u00bb in HACS.",
+        "install_direct_body": "Fate clic qui per aprire il repository direttamente nel Marketplace, poi su «Installa»:",
+        "install_search_title": "Ricerca nel Marketplace",
+        "install_search_body": "Oppure cercate «reef-maintenance» in *Impostazioni > Marketplace*. Su un Home Assistant precedente a 2026.11, gli stessi passaggi funzionano in HACS.",
         "how_title": "Come funziona",
         "how_body": (
             "Una voce di configurazione per **marca**, un dispositivo per "
@@ -725,6 +733,7 @@ T: dict[str, dict[str, str]] = {
         "m_flow": "Pompa di movimento DC",
         "m_return": "Pompa di risalita DC",
         "m_skimmer": "Schiumatoio a girante ad aghi",
+        "m_heater": "Riscaldatore per acquario",
         "m_routine": "Manutenzione ordinaria dell'acquario",
         "m_custom": "Attrezzatura personalizzata",
         "t_pump": "pompa, supporto magnetico, decalcificazione, parti di usura",
@@ -732,6 +741,7 @@ T: dict[str, dict[str, str]] = {
         "t_skimmer": (
             "bicchiere, venturi, girante ad aghi, decalcificazione, parti di usura"
         ),
+        "t_heater": "pulizia del riscaldatore",
         "t_routine": "cambio acqua, vetri, test ICP, filtri RO/DI, sump, sabbia",
         "t_none": "nessuna — scegli dalla libreria o scrivi la tua",
         "presets_note": (
@@ -743,7 +753,7 @@ T: dict[str, dict[str, str]] = {
             "modificabili per singola attrezzatura."
         ),
         "presets_lib": (
-            "Le attività provengono da una libreria comune di 21 voci, tradotta "
+            "Le attività provengono da una libreria comune di 22 voci, tradotta "
             "in 8 lingue. Un preset si limita a referenziare chiavi della "
             "libreria e può ridefinire i limiti dell'intervallo — per questo "
             "aggiungere una marca di solito non costa alcuna nuova stringa di "
@@ -827,9 +837,9 @@ T: dict[str, dict[str, str]] = {
         ),
         "install_title": "Installatie",
         "install_direct_title": "Directe installatie",
-        "install_direct_body": 'Klik hier om de repository rechtstreeks in HACS te openen en klik op "Downloaden":',
-        "install_search_title": "Zoeken in HACS",
-        "install_search_body": 'Of zoek naar "reef-maintenance" in HACS.',
+        "install_direct_body": 'Klik hier om de repository direct in de Marketplace te openen en klik op "Installeren":',
+        "install_search_title": "Zoeken in de Marketplace",
+        "install_search_body": 'Of zoek naar "reef-maintenance" in *Instellingen > Marketplace*. Op een Home Assistant ouder dan 2026.11 werken dezelfde stappen in HACS.',
         "how_title": "Hoe het werkt",
         "how_body": (
             "Eén configuratie-item per **merk**, één apparaat per "
@@ -869,11 +879,13 @@ T: dict[str, dict[str, str]] = {
         "m_flow": "DC-stromingspomp",
         "m_return": "DC-opvoerpomp",
         "m_skimmer": "Naaldrad-eiwitafschuimer",
+        "m_heater": "Aquariumverwarmer",
         "m_routine": "Routineonderhoud aquarium",
         "m_custom": "Eigen apparatuur",
         "t_pump": "pomp, magneethouder, ontkalken, slijtdelen",
         "t_strainer": "aanzuigkorf, pomp, ontkalken, slijtdelen",
         "t_skimmer": "beker, venturi, naaldrad, ontkalken, slijtdelen",
+        "t_heater": "verwarmer reinigen",
         "t_routine": "waterwissel, ruiten, ICP-test, RO/DI-filters, sump, zand",
         "t_none": "geen — kies uit de bibliotheek of typ uw eigen taak",
         "presets_note": (
@@ -885,7 +897,7 @@ T: dict[str, dict[str, str]] = {
             "apparatuur aanpasbaar."
         ),
         "presets_lib": (
-            "De taken komen uit een gedeelde bibliotheek van 21 items, vertaald "
+            "De taken komen uit een gedeelde bibliotheek van 22 items, vertaald "
             "in 8 talen. Een voorinstelling verwijst alleen naar "
             "bibliotheeksleutels en mag de intervalgrenzen overschrijven — "
             "daarom kost een nieuw merk meestal geen enkele nieuwe vertaalregel."
@@ -966,9 +978,9 @@ T: dict[str, dict[str, str]] = {
         ),
         "install_title": "Instalacja",
         "install_direct_title": "Bezpośrednia instalacja",
-        "install_direct_body": "Kliknij tutaj, aby otworzyć repozytorium bezpośrednio w HACS i kliknij \u00abPobierz\u00bb:",
-        "install_search_title": "Szukaj w HACS",
-        "install_search_body": "Lub wyszukaj \u00abreef-maintenance\u00bb w HACS.",
+        "install_direct_body": "Kliknij tutaj, aby otworzyć repozytorium bezpośrednio w Marketplace, i kliknij „Zainstaluj”:",
+        "install_search_title": "Wyszukiwanie w Marketplace",
+        "install_search_body": "Lub wyszukaj „reef-maintenance” w *Ustawienia > Marketplace*. W Home Assistant starszym niż 2026.11 te same kroki działają w HACS.",
         "how_title": "Jak to działa",
         "how_body": (
             "Jeden wpis konfiguracji na **markę**, jedno urządzenie na "
@@ -1008,6 +1020,7 @@ T: dict[str, dict[str, str]] = {
         "m_flow": "Pompa cyrkulacyjna DC",
         "m_return": "Pompa obiegowa DC",
         "m_skimmer": "Odpieniacz z wirnikiem igiełkowym",
+        "m_heater": "Grzałka akwariowa",
         "m_routine": "Rutynowa konserwacja akwarium",
         "m_custom": "Sprzęt własny",
         "t_pump": "pompa, uchwyt magnetyczny, odkamienianie, części zużywalne",
@@ -1015,6 +1028,7 @@ T: dict[str, dict[str, str]] = {
         "t_skimmer": (
             "kubek, venturi, wirnik igiełkowy, odkamienianie, części zużywalne"
         ),
+        "t_heater": "czyszczenie grzałki",
         "t_routine": "podmiana wody, szyby, test ICP, filtry RO/DI, sump, piasek",
         "t_none": "brak — wybierz z biblioteki lub wpisz własne",
         "presets_note": (
@@ -1026,7 +1040,7 @@ T: dict[str, dict[str, str]] = {
             "zmiennymi dla każdego sprzętu."
         ),
         "presets_lib": (
-            "Zadania pochodzą ze wspólnej biblioteki 21 pozycji, przetłumaczonej "
+            "Zadania pochodzą ze wspólnej biblioteki 22 pozycji, przetłumaczonej "
             "na 8 języków. Ustawienie wstępne tylko odwołuje się do kluczy "
             "biblioteki i może nadpisać granice interwału — dlatego dodanie "
             "marki zwykle nie kosztuje żadnego nowego ciągu tłumaczenia."
@@ -1105,9 +1119,9 @@ T: dict[str, dict[str, str]] = {
         ),
         "install_title": "Instalação",
         "install_direct_title": "Instalação direta",
-        "install_direct_body": "Clique aqui para abrir o repositório diretamente no HACS e clique em \u00abDownload\u00bb:",
-        "install_search_title": "Procurar no HACS",
-        "install_search_body": "Ou procure \u00abreef-maintenance\u00bb no HACS.",
+        "install_direct_body": "Clique aqui para abrir o repositório diretamente no Marketplace e clique em «Instalar»:",
+        "install_search_title": "Pesquisa no Marketplace",
+        "install_search_body": "Ou pesquise «reef-maintenance» em *Definições > Marketplace*. Num Home Assistant anterior a 2026.11, os mesmos passos funcionam no HACS.",
         "how_title": "Como funciona",
         "how_body": (
             "Uma entrada de configuração por **marca**, um aparelho por "
@@ -1146,6 +1160,7 @@ T: dict[str, dict[str, str]] = {
         "m_flow": "Bomba de circulação DC",
         "m_return": "Bomba de retorno DC",
         "m_skimmer": "Escumador de rotor de agulhas",
+        "m_heater": "Aquecedor de aquário",
         "m_routine": "Manutenção de rotina do aquário",
         "m_custom": "Equipamento personalizado",
         "t_pump": "bomba, suporte magnético, descalcificar, peças de desgaste",
@@ -1153,6 +1168,7 @@ T: dict[str, dict[str, str]] = {
         "t_skimmer": (
             "copo, venturi, rotor de agulhas, descalcificar, peças de desgaste"
         ),
+        "t_heater": "limpeza do aquecedor",
         "t_routine": "mudança de água, vidros, teste ICP, filtros RO/DI, sump, areia",
         "t_none": "nenhuma — escolha da biblioteca ou escreva a sua",
         "presets_note": (
@@ -1164,7 +1180,7 @@ T: dict[str, dict[str, str]] = {
             "equipamento."
         ),
         "presets_lib": (
-            "As tarefas vêm de uma biblioteca comum de 21 entradas, traduzida em "
+            "As tarefas vêm de uma biblioteca comum de 22 entradas, traduzida em "
             "8 idiomas. Uma predefinição apenas referencia chaves da biblioteca "
             "e pode redefinir os limites do intervalo — daí que acrescentar uma "
             "marca não costume custar qualquer nova cadeia de tradução."
@@ -1246,6 +1262,7 @@ def presets_table(t: dict[str, str]) -> str:
         (t["generic"], t["m_flow"], t["t_pump"]),
         (t["generic"], t["m_return"], t["t_strainer"]),
         (t["generic"], t["m_skimmer"], t["t_skimmer"]),
+        (t["generic"], t["m_heater"], t["t_heater"]),
         (t["generic"], t["m_routine"], t["t_routine"]),
         (t["generic"], t["m_custom"], t["t_none"]),
     ]

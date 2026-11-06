@@ -111,6 +111,9 @@
       "maint_uv_lamp_replace": {
         "name": "Wymień lampę UV"
       },
+      "maint_heater_clean": {
+        "name": "Wyczyść grzałkę"
+      },
       "maint_water_change": {
         "name": "Podmiana wody"
       },
@@ -178,6 +181,9 @@
       },
       "maint_uv_lamp_replace_interval_months": {
         "name": "Wymień lampę UV (miesiące)"
+      },
+      "maint_heater_clean_interval_months": {
+        "name": "Wyczyść grzałkę (miesiące)"
       },
       "maint_water_change_interval_weeks": {
         "name": "Podmiana wody (tygodnie)"
@@ -247,6 +253,9 @@
       "maint_uv_lamp_replace_notify": {
         "name": "Wymień lampę UV (powiadomienia)"
       },
+      "maint_heater_clean_notify": {
+        "name": "Wyczyść grzałkę (powiadomienia)"
+      },
       "maint_water_change_notify": {
         "name": "Podmiana wody (powiadomienia)"
       },
@@ -315,6 +324,9 @@
       "maint_uv_lamp_replace_last_reset": {
         "name": "Wymień lampę UV (ostatnio)"
       },
+      "maint_heater_clean_last_reset": {
+        "name": "Wyczyść grzałkę (ostatnio)"
+      },
       "maint_water_change_last_reset": {
         "name": "Podmiana wody (ostatnio)"
       },
@@ -356,6 +368,7 @@
         "probe_calibrate": "Skalibruj sondę",
         "probe_clean": "Wyczyść sondę",
         "uv_lamp_replace": "Wymień lampę UV",
+        "heater_clean": "Wyczyść grzałkę",
         "water_change": "Podmiana wody",
         "glass_clean": "Wyczyść szyby",
         "icp_test": "Analiza ICP / badanie wody w laboratorium",

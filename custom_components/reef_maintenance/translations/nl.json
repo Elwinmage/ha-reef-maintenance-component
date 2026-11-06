@@ -111,6 +111,9 @@
       "maint_uv_lamp_replace": {
         "name": "UV-lamp vervangen"
       },
+      "maint_heater_clean": {
+        "name": "Verwarmer reinigen"
+      },
       "maint_water_change": {
         "name": "Waterwissel"
       },
@@ -178,6 +181,9 @@
       },
       "maint_uv_lamp_replace_interval_months": {
         "name": "UV-lamp vervangen (maanden)"
+      },
+      "maint_heater_clean_interval_months": {
+        "name": "Verwarmer reinigen (maanden)"
       },
       "maint_water_change_interval_weeks": {
         "name": "Waterwissel (weken)"
@@ -247,6 +253,9 @@
       "maint_uv_lamp_replace_notify": {
         "name": "UV-lamp vervangen (meldingen)"
       },
+      "maint_heater_clean_notify": {
+        "name": "Verwarmer reinigen (meldingen)"
+      },
       "maint_water_change_notify": {
         "name": "Waterwissel (meldingen)"
       },
@@ -315,6 +324,9 @@
       "maint_uv_lamp_replace_last_reset": {
         "name": "UV-lamp vervangen (laatst gedaan)"
       },
+      "maint_heater_clean_last_reset": {
+        "name": "Verwarmer reinigen (laatst gedaan)"
+      },
       "maint_water_change_last_reset": {
         "name": "Waterwissel (laatst gedaan)"
       },
@@ -356,6 +368,7 @@
         "probe_calibrate": "Sonde kalibreren",
         "probe_clean": "Sonde reinigen",
         "uv_lamp_replace": "UV-lamp vervangen",
+        "heater_clean": "Verwarmer reinigen",
         "water_change": "Waterwissel",
         "glass_clean": "Ruiten reinigen",
         "icp_test": "ICP / wateranalyse in laboratorium",
