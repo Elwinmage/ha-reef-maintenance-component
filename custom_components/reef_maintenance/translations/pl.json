@@ -28,7 +28,7 @@
         "description": "Nazwij go tak, jak mówisz o nim przy zbiorniku, i wybierz najbliższy model.",
         "data": {
           "name": "Nazwa",
-          "preset": "Model"
+          "source": "Model"
         }
       },
       "tasks": {
@@ -66,315 +66,32 @@
   },
   "entity": {
     "button": {
-      "maint_pump_clean": {
-        "name": "Wyczyść wirnik i komorę pompy"
-      },
-      "maint_magnet_holder_clean": {
-        "name": "Wyczyść uchwyt magnetyczny i mocowanie"
-      },
-      "maint_strainer_clean": {
-        "name": "Wyczyść kosz ssawny"
-      },
-      "maint_pump_descale": {
-        "name": "Odkamień pompę"
-      },
-      "maint_wear_parts_replace": {
-        "name": "Wymień zestaw części zużywalnych"
-      },
-      "maint_skimmer_cup_clean": {
-        "name": "Wyczyść kubek odpieniacza"
-      },
-      "maint_venturi_clean": {
-        "name": "Wyczyść venturi i wężyk powietrza"
-      },
-      "maint_needle_wheel_clean": {
-        "name": "Wyczyść wirnik igiełkowy"
-      },
-      "maint_skimmer_body_descale": {
-        "name": "Odkamień korpus odpieniacza"
-      },
-      "maint_sock_replace": {
-        "name": "Wymień skarpetę filtracyjną"
-      },
-      "maint_carbon_replace": {
-        "name": "Wymień węgiel aktywny"
-      },
-      "maint_resin_replace": {
-        "name": "Wymień żywice"
-      },
-      "maint_probe_calibrate": {
-        "name": "Skalibruj sondę"
-      },
-      "maint_probe_clean": {
-        "name": "Wyczyść sondę"
-      },
-      "maint_uv_lamp_replace": {
-        "name": "Wymień lampę UV"
-      },
-      "maint_heater_clean": {
-        "name": "Wyczyść grzałkę"
-      },
-      "maint_water_change": {
-        "name": "Podmiana wody"
-      },
-      "maint_glass_clean": {
-        "name": "Wyczyść szyby"
-      },
-      "maint_icp_test": {
-        "name": "Analiza ICP / badanie wody w laboratorium"
-      },
-      "maint_rodi_filter_replace": {
-        "name": "Wymień filtry RO/DI"
-      },
-      "maint_sump_clean": {
-        "name": "Wyczyść sump"
-      },
-      "maint_sand_vacuum": {
-        "name": "Odkurz podłoże piaskowe"
-      },
       "maint_custom": {
         "name": "{task}"
       }
     },
     "number": {
-      "maint_pump_clean_interval_weeks": {
-        "name": "Wyczyść wirnik i komorę pompy (tygodnie)"
-      },
-      "maint_magnet_holder_clean_interval_weeks": {
-        "name": "Wyczyść uchwyt magnetyczny i mocowanie (tygodnie)"
-      },
-      "maint_strainer_clean_interval_weeks": {
-        "name": "Wyczyść kosz ssawny (tygodnie)"
-      },
-      "maint_pump_descale_interval_months": {
-        "name": "Odkamień pompę (miesiące)"
-      },
-      "maint_wear_parts_replace_interval_months": {
-        "name": "Wymień zestaw części zużywalnych (miesiące)"
-      },
-      "maint_skimmer_cup_clean_interval_weeks": {
-        "name": "Wyczyść kubek odpieniacza (tygodnie)"
-      },
-      "maint_venturi_clean_interval_weeks": {
-        "name": "Wyczyść venturi i wężyk powietrza (tygodnie)"
-      },
-      "maint_needle_wheel_clean_interval_months": {
-        "name": "Wyczyść wirnik igiełkowy (miesiące)"
-      },
-      "maint_skimmer_body_descale_interval_months": {
-        "name": "Odkamień korpus odpieniacza (miesiące)"
-      },
-      "maint_sock_replace_interval_days": {
-        "name": "Wymień skarpetę filtracyjną (dni)"
-      },
-      "maint_carbon_replace_interval_weeks": {
-        "name": "Wymień węgiel aktywny (tygodnie)"
-      },
-      "maint_resin_replace_interval_months": {
-        "name": "Wymień żywice (miesiące)"
-      },
-      "maint_probe_calibrate_interval_months": {
-        "name": "Skalibruj sondę (miesiące)"
-      },
-      "maint_probe_clean_interval_months": {
-        "name": "Wyczyść sondę (miesiące)"
-      },
-      "maint_uv_lamp_replace_interval_months": {
-        "name": "Wymień lampę UV (miesiące)"
-      },
-      "maint_heater_clean_interval_months": {
-        "name": "Wyczyść grzałkę (miesiące)"
-      },
-      "maint_water_change_interval_weeks": {
-        "name": "Podmiana wody (tygodnie)"
-      },
-      "maint_glass_clean_interval_days": {
-        "name": "Wyczyść szyby (dni)"
-      },
-      "maint_icp_test_interval_months": {
-        "name": "Analiza ICP / badanie wody w laboratorium (miesiące)"
-      },
-      "maint_rodi_filter_replace_interval_months": {
-        "name": "Wymień filtry RO/DI (miesiące)"
-      },
-      "maint_sump_clean_interval_months": {
-        "name": "Wyczyść sump (miesiące)"
-      },
-      "maint_sand_vacuum_interval_weeks": {
-        "name": "Odkurz podłoże piaskowe (tygodnie)"
+      "maint_custom_interval_days": {
+        "name": "{task} (dni)"
       },
       "maint_custom_interval_weeks": {
         "name": "{task} (tygodnie)"
+      },
+      "maint_custom_interval_months": {
+        "name": "{task} (miesiące)"
       }
     },
     "switch": {
-      "maint_pump_clean_notify": {
-        "name": "Wyczyść wirnik i komorę pompy (powiadomienia)"
-      },
-      "maint_magnet_holder_clean_notify": {
-        "name": "Wyczyść uchwyt magnetyczny i mocowanie (powiadomienia)"
-      },
-      "maint_strainer_clean_notify": {
-        "name": "Wyczyść kosz ssawny (powiadomienia)"
-      },
-      "maint_pump_descale_notify": {
-        "name": "Odkamień pompę (powiadomienia)"
-      },
-      "maint_wear_parts_replace_notify": {
-        "name": "Wymień zestaw części zużywalnych (powiadomienia)"
-      },
-      "maint_skimmer_cup_clean_notify": {
-        "name": "Wyczyść kubek odpieniacza (powiadomienia)"
-      },
-      "maint_venturi_clean_notify": {
-        "name": "Wyczyść venturi i wężyk powietrza (powiadomienia)"
-      },
-      "maint_needle_wheel_clean_notify": {
-        "name": "Wyczyść wirnik igiełkowy (powiadomienia)"
-      },
-      "maint_skimmer_body_descale_notify": {
-        "name": "Odkamień korpus odpieniacza (powiadomienia)"
-      },
-      "maint_sock_replace_notify": {
-        "name": "Wymień skarpetę filtracyjną (powiadomienia)"
-      },
-      "maint_carbon_replace_notify": {
-        "name": "Wymień węgiel aktywny (powiadomienia)"
-      },
-      "maint_resin_replace_notify": {
-        "name": "Wymień żywice (powiadomienia)"
-      },
-      "maint_probe_calibrate_notify": {
-        "name": "Skalibruj sondę (powiadomienia)"
-      },
-      "maint_probe_clean_notify": {
-        "name": "Wyczyść sondę (powiadomienia)"
-      },
-      "maint_uv_lamp_replace_notify": {
-        "name": "Wymień lampę UV (powiadomienia)"
-      },
-      "maint_heater_clean_notify": {
-        "name": "Wyczyść grzałkę (powiadomienia)"
-      },
-      "maint_water_change_notify": {
-        "name": "Podmiana wody (powiadomienia)"
-      },
-      "maint_glass_clean_notify": {
-        "name": "Wyczyść szyby (powiadomienia)"
-      },
-      "maint_icp_test_notify": {
-        "name": "Analiza ICP / badanie wody w laboratorium (powiadomienia)"
-      },
-      "maint_rodi_filter_replace_notify": {
-        "name": "Wymień filtry RO/DI (powiadomienia)"
-      },
-      "maint_sump_clean_notify": {
-        "name": "Wyczyść sump (powiadomienia)"
-      },
-      "maint_sand_vacuum_notify": {
-        "name": "Odkurz podłoże piaskowe (powiadomienia)"
-      },
       "maint_custom_notify": {
         "name": "{task} (powiadomienia)"
+      },
+      "catalog_auto_update": {
+        "name": "Automatyczne aktualizacje katalogu"
       }
     },
     "date": {
-      "maint_pump_clean_last_reset": {
-        "name": "Wyczyść wirnik i komorę pompy (ostatnio)"
-      },
-      "maint_magnet_holder_clean_last_reset": {
-        "name": "Wyczyść uchwyt magnetyczny i mocowanie (ostatnio)"
-      },
-      "maint_strainer_clean_last_reset": {
-        "name": "Wyczyść kosz ssawny (ostatnio)"
-      },
-      "maint_pump_descale_last_reset": {
-        "name": "Odkamień pompę (ostatnio)"
-      },
-      "maint_wear_parts_replace_last_reset": {
-        "name": "Wymień zestaw części zużywalnych (ostatnio)"
-      },
-      "maint_skimmer_cup_clean_last_reset": {
-        "name": "Wyczyść kubek odpieniacza (ostatnio)"
-      },
-      "maint_venturi_clean_last_reset": {
-        "name": "Wyczyść venturi i wężyk powietrza (ostatnio)"
-      },
-      "maint_needle_wheel_clean_last_reset": {
-        "name": "Wyczyść wirnik igiełkowy (ostatnio)"
-      },
-      "maint_skimmer_body_descale_last_reset": {
-        "name": "Odkamień korpus odpieniacza (ostatnio)"
-      },
-      "maint_sock_replace_last_reset": {
-        "name": "Wymień skarpetę filtracyjną (ostatnio)"
-      },
-      "maint_carbon_replace_last_reset": {
-        "name": "Wymień węgiel aktywny (ostatnio)"
-      },
-      "maint_resin_replace_last_reset": {
-        "name": "Wymień żywice (ostatnio)"
-      },
-      "maint_probe_calibrate_last_reset": {
-        "name": "Skalibruj sondę (ostatnio)"
-      },
-      "maint_probe_clean_last_reset": {
-        "name": "Wyczyść sondę (ostatnio)"
-      },
-      "maint_uv_lamp_replace_last_reset": {
-        "name": "Wymień lampę UV (ostatnio)"
-      },
-      "maint_heater_clean_last_reset": {
-        "name": "Wyczyść grzałkę (ostatnio)"
-      },
-      "maint_water_change_last_reset": {
-        "name": "Podmiana wody (ostatnio)"
-      },
-      "maint_glass_clean_last_reset": {
-        "name": "Wyczyść szyby (ostatnio)"
-      },
-      "maint_icp_test_last_reset": {
-        "name": "Analiza ICP / badanie wody w laboratorium (ostatnio)"
-      },
-      "maint_rodi_filter_replace_last_reset": {
-        "name": "Wymień filtry RO/DI (ostatnio)"
-      },
-      "maint_sump_clean_last_reset": {
-        "name": "Wyczyść sump (ostatnio)"
-      },
-      "maint_sand_vacuum_last_reset": {
-        "name": "Odkurz podłoże piaskowe (ostatnio)"
-      },
       "maint_custom_last_reset": {
         "name": "{task} (ostatnio)"
-      }
-    }
-  },
-  "selector": {
-    "library_task": {
-      "options": {
-        "pump_clean": "Wyczyść wirnik i komorę pompy",
-        "magnet_holder_clean": "Wyczyść uchwyt magnetyczny i mocowanie",
-        "strainer_clean": "Wyczyść kosz ssawny",
-        "pump_descale": "Odkamień pompę",
-        "wear_parts_replace": "Wymień zestaw części zużywalnych",
-        "skimmer_cup_clean": "Wyczyść kubek odpieniacza",
-        "venturi_clean": "Wyczyść venturi i wężyk powietrza",
-        "needle_wheel_clean": "Wyczyść wirnik igiełkowy",
-        "skimmer_body_descale": "Odkamień korpus odpieniacza",
-        "sock_replace": "Wymień skarpetę filtracyjną",
-        "carbon_replace": "Wymień węgiel aktywny",
-        "resin_replace": "Wymień żywice",
-        "probe_calibrate": "Skalibruj sondę",
-        "probe_clean": "Wyczyść sondę",
-        "uv_lamp_replace": "Wymień lampę UV",
-        "heater_clean": "Wyczyść grzałkę",
-        "water_change": "Podmiana wody",
-        "glass_clean": "Wyczyść szyby",
-        "icp_test": "Analiza ICP / badanie wody w laboratorium",
-        "rodi_filter_replace": "Wymień filtry RO/DI",
-        "sump_clean": "Wyczyść sump",
-        "sand_vacuum": "Odkurz podłoże piaskowe"
       }
     }
   }

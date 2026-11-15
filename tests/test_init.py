@@ -33,6 +33,19 @@ def device_of(hass: HomeAssistant, identifier: str) -> dr.DeviceEntry:
     raise AssertionError(f"no device registered for {identifier}")
 
 
+def task_entities(hass: HomeAssistant, entry) -> list:
+    """Entities of an entry, minus the shared catalog device's own entities.
+
+    The entry that owns the catalog carries the catalog update/auto-update
+    entities too; the task-count assertions here are about the equipments.
+    """
+    return [
+        e
+        for e in er.async_entries_for_config_entry(er.async_get(hass), entry.entry_id)
+        if not e.unique_id.startswith("catalog_")
+    ]
+
+
 class TestSetup:
     async def test_entry_loads_and_registers_the_brand_device(
         self, hass: HomeAssistant, loaded_entry
@@ -57,9 +70,7 @@ class TestSetup:
     async def test_four_entities_per_task(
         self, hass: HomeAssistant, loaded_entry
     ) -> None:
-        entities = er.async_entries_for_config_entry(
-            er.async_get(hass), loaded_entry.entry_id
-        )
+        entities = task_entities(hass, loaded_entry)
         # Two tasks x (button, number, switch, date).
         assert len(entities) == 8
         domains = sorted({e.domain for e in entities})
@@ -70,10 +81,7 @@ class TestSetup:
     ) -> None:
         # The shared contract: ha-reef-card scans for this attribute.
         states = [
-            hass.states.get(e.entity_id)
-            for e in er.async_entries_for_config_entry(
-                er.async_get(hass), loaded_entry.entry_id
-            )
+            hass.states.get(e.entity_id) for e in task_entities(hass, loaded_entry)
         ]
         roles = [s.attributes.get("reef_role") for s in states if s]
         assert all(r and r.startswith("maint_") for r in roles), roles
@@ -93,9 +101,7 @@ class TestSetup:
         # first equipment is created.
         entry = await setup(hass, entry_factory(equipments=[]))
         assert entry.state is ConfigEntryState.LOADED
-        assert (
-            er.async_entries_for_config_entry(er.async_get(hass), entry.entry_id) == []
-        )
+        assert task_entities(hass, entry) == []
 
     async def test_changing_the_options_reloads_the_entry(
         self, hass: HomeAssistant, loaded_entry, make_equipment
@@ -108,16 +114,18 @@ class TestSetup:
                 CONF_EQUIPMENTS: [
                     make_equipment(),
                     make_equipment(
-                        "tunze_2", "Nanostream", "tunze_nanostream", ["pump_clean"]
+                        "tunze_2",
+                        "Nanostream",
+                        "item:tunze-nanostream",
+                        "Turbelle nanostream",
+                        ["pump_clean"],
                     ),
                 ]
             },
         )
         await hass.async_block_till_done()
-        entities = er.async_entries_for_config_entry(
-            er.async_get(hass), loaded_entry.entry_id
-        )
-        assert len(entities) == 12
+        # 2 tasks + 1 task, x 4 entities each.
+        assert len(task_entities(hass, loaded_entry)) == 12
 
 
 class TestRemoveDevice:

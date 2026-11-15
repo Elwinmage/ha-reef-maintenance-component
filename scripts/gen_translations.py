@@ -475,34 +475,40 @@ FLOW: dict[str, dict[str, str]] = {
     },
 }
 
-# Unit of a user-defined task (see CUSTOM_TASK in tasks.py).
-CUSTOM_UNIT = "weeks"
+# Automatic-catalog-update switch, carried by the entry that owns the catalog.
+CATALOG_AUTO_UPDATE = {
+    "en": "Automatic catalog updates",
+    "fr": "Mises à jour automatiques du catalogue",
+    "de": "Automatische Katalog-Updates",
+    "es": "Actualizaciones automáticas del catálogo",
+    "it": "Aggiornamenti automatici del catalogo",
+    "nl": "Automatische catalogusupdates",
+    "pl": "Automatyczne aktualizacje katalogu",
+    "pt": "Atualizações automáticas do catálogo",
+}
 
 
 def build(lang: str) -> dict:
-    """Compose the whole translation tree for one language."""
-    names = dict(zip(ORDER, NAMES[lang]))
+    """Compose the whole translation tree for one language.
+
+    Tasks come from the catalog, so there is no per-task wording here: every
+    maintenance task reuses the generic ``maint_custom`` keys and gets its name
+    from the catalog through a placeholder. Only the fixed suffix per display
+    unit is translated, for the three units a catalog task may use.
+    """
     unit_word = UNITS[lang]
     flow = FLOW[lang]
 
-    buttons, numbers, switches, dates = {}, {}, {}, {}
-    for key, name in names.items():
-        unit = TASK_UNITS[key]
-        buttons[f"maint_{key}"] = {"name": name}
-        numbers[f"maint_{key}_interval_{unit}"] = {
-            "name": f"{name} ({unit_word[unit]})"
-        }
-        switches[f"maint_{key}_notify"] = {"name": f"{name} ({NOTIFY[lang]})"}
-        dates[f"maint_{key}_last_reset"] = {"name": f"{name} ({LAST_DONE[lang]})"}
-
-    # User-defined tasks: the label arrives as a placeholder, only the fixed
-    # part is translated.
-    buttons["maint_custom"] = {"name": "{task}"}
-    numbers[f"maint_custom_interval_{CUSTOM_UNIT}"] = {
-        "name": "{task} (" + unit_word[CUSTOM_UNIT] + ")"
+    buttons = {"maint_custom": {"name": "{task}"}}
+    numbers = {
+        f"maint_custom_interval_{unit}": {"name": "{task} (" + unit_word[unit] + ")"}
+        for unit in ("days", "weeks", "months")
     }
-    switches["maint_custom_notify"] = {"name": "{task} (" + NOTIFY[lang] + ")"}
-    dates["maint_custom_last_reset"] = {"name": "{task} (" + LAST_DONE[lang] + ")"}
+    switches = {
+        "maint_custom_notify": {"name": "{task} (" + NOTIFY[lang] + ")"},
+        "catalog_auto_update": {"name": CATALOG_AUTO_UPDATE[lang]},
+    }
+    dates = {"maint_custom_last_reset": {"name": "{task} (" + LAST_DONE[lang] + ")"}}
 
     return {
         "config": {
@@ -528,7 +534,7 @@ def build(lang: str) -> dict:
                 "add": {
                     "title": flow["add_title"],
                     "description": flow["add_desc"],
-                    "data": {"name": flow["name"], "preset": flow["preset"]},
+                    "data": {"name": flow["name"], "source": flow["preset"]},
                 },
                 "tasks": {
                     "title": flow["tasks_title"],
@@ -565,9 +571,6 @@ def build(lang: str) -> dict:
             "switch": switches,
             "date": dates,
         },
-        # Same wording as the buttons: the task picker and the entity it
-        # creates must read identically, or the user cannot match them.
-        "selector": {"library_task": {"options": dict(names)}},
     }
 
 

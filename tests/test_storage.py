@@ -17,8 +17,9 @@ from custom_components.reef_maintenance.const import (
     CONF_CUSTOM_TASKS,
     CONF_EQUIPMENTS,
     CONF_ID,
+    CONF_MODEL,
     CONF_NAME,
-    CONF_PRESET,
+    CONF_SOURCE,
     CONF_TASKS,
 )
 from custom_components.reef_maintenance.storage import (
@@ -35,6 +36,66 @@ from custom_components.reef_maintenance.storage import (
 NOW = datetime(2026, 6, 1, 12, 0, tzinfo=timezone.utc)
 
 
+def _sched(unit: str, default: int, low: int, high: int) -> dict:
+    return {
+        "type": "interval",
+        "unit": unit,
+        "every": {"default": default, "min": low, "max": high},
+    }
+
+
+# A small catalog view: one circulation-pump item (Tunze), its category, and
+# three tasks. The item shortens wear_parts_replace to 18 months (540 days).
+VIEW: dict = {
+    "tasks": {
+        "pump_clean": {
+            "name": {"en": "Pump cleaning"},
+            "icon": "mdi:fan",
+            "schedule": _sched("weeks", 6, 4, 13),
+        },
+        "pump_descale": {
+            "name": {"en": "Descale pump"},
+            "icon": "mdi:spray-bottle",
+            "schedule": _sched("months", 6, 3, 12),
+        },
+        "wear_parts_replace": {
+            "name": {"en": "Replace wear parts kit"},
+            "icon": "mdi:cog-refresh",
+            "schedule": _sched("months", 24, 12, 36),
+        },
+    },
+    "categories": {
+        "circulation_pump": {
+            "name": {"en": "Circulation pump"},
+            "scopes": ["aquarium"],
+            "icon": "mdi:fan",
+            "maintenance": [
+                {"task": "pump_clean"},
+                {"task": "pump_descale"},
+                {"task": "wear_parts_replace"},
+            ],
+        },
+    },
+    "items": {
+        "tunze-turbelle-stream": {
+            "category": "circulation_pump",
+            "brand": "Tunze",
+            "model": "Turbelle stream / stream 3",
+            "inherit_maintenance": False,
+            "maintenance": [
+                {"task": "pump_clean"},
+                {"task": "pump_descale"},
+                {
+                    "task": "wear_parts_replace",
+                    "schedule": _sched("months", 18, 12, 36),
+                },
+            ],
+        },
+    },
+}
+TURBELLE = "item:tunze-turbelle-stream"
+
+
 # ---------------------------------------------------------------------------
 # Equipment model
 # ---------------------------------------------------------------------------
@@ -46,59 +107,99 @@ class TestBuildEquipment:
             {
                 CONF_ID: "tunze_1",
                 CONF_NAME: "Turbelle",
-                CONF_PRESET: "tunze_turbelle_stream",
+                CONF_SOURCE: TURBELLE,
                 CONF_TASKS: ["pump_clean", "pump_descale"],
-            }
+            },
+            VIEW,
+            "en",
         )
         assert [i.task.key for i in eq.tasks] == ["pump_clean", "pump_descale"]
+        assert [i.label for i in eq.tasks] == ["Pump cleaning", "Descale pump"]
         assert eq.model == "Turbelle stream / stream 3"
 
-    def test_preset_override_beats_the_library_default(self) -> None:
-        # generic_needle_skimmer shortens wear_parts_replace from 730 to 540.
+    def test_item_schedule_override_beats_the_task_default(self) -> None:
+        # The Tunze item shortens wear_parts_replace to 18 months (540 days).
         eq = build_equipment(
             {
-                CONF_ID: "generic_1",
-                CONF_NAME: "Skimmer",
-                CONF_PRESET: "generic_needle_skimmer",
+                CONF_ID: "tunze_1",
+                CONF_NAME: "Turbelle",
+                CONF_SOURCE: TURBELLE,
                 CONF_TASKS: ["wear_parts_replace"],
-            }
+            },
+            VIEW,
+            "en",
         )
         assert eq.tasks[0].task.default_days == 540
 
     def test_unknown_task_is_skipped_not_fatal(self) -> None:
-        # A task dropped from the library, or a downgrade, must not prevent
+        # A task dropped from the catalog, or a downgrade, must not prevent
         # the entry from loading.
         eq = build_equipment(
             {
                 CONF_ID: "tunze_1",
                 CONF_NAME: "Turbelle",
-                CONF_PRESET: "tunze_turbelle_stream",
+                CONF_SOURCE: TURBELLE,
                 CONF_TASKS: ["pump_clean", "task_from_the_future"],
-            }
+            },
+            VIEW,
+            "en",
         )
         assert [i.task.key for i in eq.tasks] == ["pump_clean"]
 
-    def test_unknown_preset_falls_back_to_its_id_as_model(self) -> None:
+    def test_all_tasks_when_the_selection_is_absent(self) -> None:
+        # No CONF_TASKS stored: every task of the source applies.
+        eq = build_equipment(
+            {CONF_ID: "tunze_1", CONF_NAME: "Turbelle", CONF_SOURCE: TURBELLE},
+            VIEW,
+            "en",
+        )
+        assert [i.task.key for i in eq.tasks] == [
+            "pump_clean",
+            "pump_descale",
+            "wear_parts_replace",
+        ]
+
+    def test_unknown_source_keeps_the_stored_model_and_no_tasks(self) -> None:
         eq = build_equipment(
             {
                 CONF_ID: "x_1",
                 CONF_NAME: "Thing",
-                CONF_PRESET: "gone_in_a_downgrade",
+                CONF_SOURCE: "item:gone-in-a-downgrade",
+                CONF_MODEL: "Some model",
                 CONF_TASKS: [],
-            }
+            },
+            VIEW,
+            "en",
         )
-        assert eq.model == "gone_in_a_downgrade"
-        assert eq.part_number is None
+        assert eq.model == "Some model"
+        assert eq.tasks == ()
+
+    def test_legacy_preset_is_mapped_onto_a_catalog_source(self) -> None:
+        # A pre-catalog entry stored a preset id; it still loads.
+        eq = build_equipment(
+            {
+                CONF_ID: "tunze_1",
+                CONF_NAME: "Turbelle",
+                "preset": "tunze_turbelle_stream",
+                CONF_TASKS: ["pump_clean"],
+            },
+            VIEW,
+            "en",
+        )
+        assert eq.source == TURBELLE
+        assert [i.task.key for i in eq.tasks] == ["pump_clean"]
 
     def test_custom_tasks_carry_their_label(self) -> None:
         eq = build_equipment(
             {
                 CONF_ID: "generic_1",
                 CONF_NAME: "Reactor",
-                CONF_PRESET: "custom",
+                CONF_SOURCE: "category:circulation_pump",
                 CONF_TASKS: [],
                 CONF_CUSTOM_TASKS: ["Rincer le média"],
-            }
+            },
+            VIEW,
+            "en",
         )
         assert len(eq.tasks) == 1
         assert eq.tasks[0].label == "Rincer le média"
@@ -112,10 +213,12 @@ class TestBuildEquipment:
             {
                 CONF_ID: "generic_1",
                 CONF_NAME: "Reactor",
-                CONF_PRESET: "custom",
+                CONF_SOURCE: "category:circulation_pump",
                 CONF_TASKS: [],
                 CONF_CUSTOM_TASKS: ["Rincer!", "Rincer?"],
-            }
+            },
+            VIEW,
+            "en",
         )
         keys = [i.task.key for i in eq.tasks]
         assert keys == ["custom_rincer", "custom_rincer_2"]
@@ -129,10 +232,12 @@ class TestBuildEquipment:
             {
                 CONF_ID: "generic_1",
                 CONF_NAME: "Reactor",
-                CONF_PRESET: "custom",
+                CONF_SOURCE: "category:circulation_pump",
                 CONF_TASKS: [],
                 CONF_CUSTOM_TASKS: ["!!!", "???"],
-            }
+            },
+            VIEW,
+            "en",
         )
         assert len({i.task.key for i in eq.tasks}) == 2
 
@@ -143,10 +248,12 @@ class TestBuildEquipment:
             {
                 CONF_ID: "generic_1",
                 CONF_NAME: "Reactor",
-                CONF_PRESET: "custom",
+                CONF_SOURCE: "category:circulation_pump",
                 CONF_TASKS: [],
                 CONF_CUSTOM_TASKS: ["Rincer le média", "Autre"],
-            }
+            },
+            VIEW,
+            "en",
         )
         assert eq.tasks[0].task.key == "custom_rincer_le_media"
 
@@ -156,21 +263,24 @@ class TestBuildEquipment:
                 {
                     CONF_ID: "tunze_1",
                     CONF_NAME: "A",
-                    CONF_PRESET: "tunze_turbelle_stream",
+                    CONF_SOURCE: TURBELLE,
                     CONF_TASKS: ["pump_clean"],
                 },
                 {
                     CONF_ID: "tunze_2",
                     CONF_NAME: "B",
-                    CONF_PRESET: "tunze_nanostream",
+                    CONF_SOURCE: "category:circulation_pump",
                     CONF_TASKS: [],
                 },
             ]
         }
-        assert [e.id for e in build_equipments(options)] == ["tunze_1", "tunze_2"]
+        assert [e.id for e in build_equipments(options, VIEW, "en")] == [
+            "tunze_1",
+            "tunze_2",
+        ]
 
     def test_build_equipments_on_an_empty_entry(self) -> None:
-        assert build_equipments({}) == []
+        assert build_equipments({}, VIEW, "en") == []
 
 
 class TestNextEquipmentId:
@@ -377,5 +487,6 @@ class TestMaintenanceStore:
 
 
 class TestEquipmentDataclass:
-    def test_model_of_an_equipment_built_by_hand(self) -> None:
-        assert Equipment("x", "X", "tunze_nanostream").model == "Turbelle nanostream"
+    def test_model_is_the_stored_field(self) -> None:
+        eq = Equipment("x", "X", "item:tunze-nanostream", "Turbelle nanostream")
+        assert eq.model == "Turbelle nanostream"

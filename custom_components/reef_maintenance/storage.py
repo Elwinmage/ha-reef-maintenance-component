@@ -17,23 +17,25 @@ from __future__ import annotations
 import logging
 from collections.abc import Callable
 from dataclasses import dataclass, field
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from typing import Any, Final
 
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers.storage import Store
 from homeassistant.util import slugify
 
+from .catalog import LEGACY_PRESETS, model_label, resolve_equipment_tasks
 from .const import (
     CONF_CUSTOM_TASKS,
     CONF_EQUIPMENTS,
     CONF_ID,
+    CONF_MODEL,
     CONF_NAME,
     CONF_PRESET,
+    CONF_SOURCE,
     CONF_TASKS,
 )
-from .presets import get_preset
-from .tasks import MaintenanceTask, custom_task, get_task
+from .tasks import MaintenanceTask, custom_task
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -62,34 +64,42 @@ class Equipment:
 
     id: str
     name: str
-    preset_id: str
+    # Catalog reference ("item:<id>" | "category:<id>"), or "" for a legacy
+    # equipment whose preset has no catalog equivalent.
+    source: str
+    # Model label, resolved from the catalog when added and stored since.
+    model: str
     tasks: tuple[TaskInstance, ...] = field(default_factory=tuple)
-    part_number: str | None = None
-
-    @property
-    def model(self) -> str:
-        """Return the model label shown on the HA device."""
-        preset = get_preset(self.preset_id)
-        return preset.model if preset else self.preset_id
 
 
-def build_equipment(payload: dict[str, Any]) -> Equipment:
+def build_equipment(
+    payload: dict[str, Any], view: dict[str, Any], lang: str
+) -> Equipment:
     """Turn one stored equipment definition into its runtime model.
 
-    Unknown task keys are skipped rather than fatal: a downgrade, or a task
-    dropped from the library, must not prevent the entry from loading.
+    Tasks are resolved from the catalog view (category tasks overridden by the
+    item's). Unknown task ids are skipped rather than fatal: a catalog update
+    that drops a task must not prevent the entry from loading. A pre-catalog
+    entry (no ``source``) is mapped through its retired preset id.
     """
-    preset = get_preset(payload.get(CONF_PRESET, ""))
-    overrides = {spec.key: spec.resolve() for spec in (preset.tasks if preset else ())}
+    source = payload.get(CONF_SOURCE) or LEGACY_PRESETS.get(
+        payload.get(CONF_PRESET, ""), ""
+    )
+    resolved = resolve_equipment_tasks(view, source, lang) if source else {}
+    model = payload.get(CONF_MODEL) or (
+        model_label(view, source, lang) if source else payload.get(CONF_NAME, "")
+    )
 
     instances: list[TaskInstance] = []
-    for key in payload.get(CONF_TASKS, []):
-        # A preset override wins over the library defaults.
-        task = overrides.get(key) or get_task(key)
-        if task is None:
-            _LOGGER.warning("Unknown maintenance task %r, ignored", key)
+    selected = payload.get(CONF_TASKS)
+    task_ids = selected if selected is not None else list(resolved)
+    for task_id in task_ids:
+        entry = resolved.get(task_id)
+        if entry is None:
+            _LOGGER.warning("Unknown maintenance task %r, ignored", task_id)
             continue
-        instances.append(TaskInstance(task))
+        task, label = entry
+        instances.append(TaskInstance(task, label=label))
 
     # Slugs must stay unique within an equipment: the slug lands in the task
     # key, hence in the unique_id of the four entities. Two labels can collide
@@ -110,15 +120,19 @@ def build_equipment(payload: dict[str, Any]) -> Equipment:
     return Equipment(
         id=payload[CONF_ID],
         name=payload[CONF_NAME],
-        preset_id=payload.get(CONF_PRESET, ""),
+        source=source,
+        model=model,
         tasks=tuple(instances),
-        part_number=preset.part_number if preset else None,
     )
 
 
-def build_equipments(options: dict[str, Any]) -> list[Equipment]:
+def build_equipments(
+    options: dict[str, Any], view: dict[str, Any], lang: str
+) -> list[Equipment]:
     """Turn the whole options payload into runtime equipments."""
-    return [build_equipment(item) for item in options.get(CONF_EQUIPMENTS, [])]
+    return [
+        build_equipment(item, view, lang) for item in options.get(CONF_EQUIPMENTS, [])
+    ]
 
 
 def next_equipment_id(options: dict[str, Any], brand: str) -> str:
@@ -229,7 +243,7 @@ class MaintenanceStore:
         self, equipment_id: str, task_key: str, when: datetime | None = None
     ) -> datetime:
         """Record a maintenance event, defaulting to now."""
-        stamp = when or datetime.now(timezone.utc)
+        stamp = when or datetime.now(UTC)
         self.get_state(equipment_id, task_key).last_reset = stamp
         await self._async_save()
         self._notify(_instance_id(equipment_id, task_key))
@@ -289,7 +303,7 @@ def compute_days_left(
     """
     if last_reset is None:
         return None
-    ref = now or datetime.now(timezone.utc)
+    ref = now or datetime.now(UTC)
     remaining = interval_days - (ref - last_reset).total_seconds() / 86400.0
     # Floor away from zero: a partially used day counts, in both directions.
     return int(remaining) if remaining >= 0 else -int(-remaining + 0.999999)
@@ -311,4 +325,4 @@ def parse_dt(value: Any) -> datetime | None:
         parsed = datetime.fromisoformat(value)
     except ValueError:
         return None
-    return parsed if parsed.tzinfo else parsed.replace(tzinfo=timezone.utc)
+    return parsed if parsed.tzinfo else parsed.replace(tzinfo=UTC)

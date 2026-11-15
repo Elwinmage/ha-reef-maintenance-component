@@ -46,7 +46,6 @@ class ReefMaintenanceButton(ReefMaintenanceEntity, ButtonEntity):  # type: ignor
       overdue       : boolean
       last_reset    : ISO-8601 timestamp, or None
       notify        : mirror of the companion notification switch
-      part_number   : spare part reference, when the preset knows one
     """
 
     def __init__(
@@ -77,10 +76,6 @@ class ReefMaintenanceButton(ReefMaintenanceEntity, ButtonEntity):  # type: ignor
             "task_key": key,
             "notify": self._store.get_notify(equipment_id, key),
         }
-        # Only meaningful on the wear parts task, and only when the preset
-        # documents a reference.
-        if self._equipment.part_number and key == "wear_parts_replace":
-            attrs["part_number"] = self._equipment.part_number
         return attrs
 
     @property

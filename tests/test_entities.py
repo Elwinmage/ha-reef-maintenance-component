@@ -39,7 +39,8 @@ class TestButton:
         state = state_of(hass, entity_of(hass, loaded_entry, "button", "pump_clean"))
         assert state.attributes["reef_role"] == "maint_pump_clean"
         assert state.attributes["task_key"] == "pump_clean"
-        assert state.attributes["interval_days"] == 45
+        # The Tunze item runs pump_clean every ~6 weeks (45 days -> 6 weeks).
+        assert state.attributes["interval_days"] == 42
         assert state.attributes["last_reset"] is None
         # Never reset is not overdue: the task awaits a first acknowledgement.
         assert state.attributes["days_left"] is None
@@ -57,9 +58,9 @@ class TestButton:
 
         state = state_of(hass, entity_id)
         assert state.attributes["last_reset"] is not None
-        # 44, not 45: the microseconds elapsed since the press already make
+        # 41, not 42: the microseconds elapsed since the press already make
         # this a partially used day, and a partial day counts.
-        assert state.attributes["days_left"] == 44
+        assert state.attributes["days_left"] == 41
         assert state.attributes["overdue"] is False
 
     async def test_overdue_is_reported(self, hass: HomeAssistant, loaded_entry) -> None:
@@ -70,71 +71,25 @@ class TestButton:
         await hass.async_block_till_done()
 
         state = state_of(hass, entity_of(hass, loaded_entry, "button", "pump_clean"))
-        assert state.attributes["days_left"] == -5
+        assert state.attributes["days_left"] == -8
         assert state.attributes["overdue"] is True
-
-    async def test_part_number_is_surfaced_on_the_wear_parts_task(
-        self, hass: HomeAssistant, entry_factory, make_equipment, setup
-    ) -> None:
-        # tunze_silence is the preset documenting a spare reference; it is
-        # attached to the button so it is at hand when ordering.
-        entry = await setup(
-            hass,
-            equipments_entry := entry_factory(
-                equipments=[
-                    make_equipment(
-                        "tunze_1",
-                        "Silence",
-                        "tunze_silence",
-                        ["wear_parts_replace", "strainer_clean"],
-                    )
-                ],
-            ),
-        )
-        assert equipments_entry is entry
-        wear = state_of(hass, entity_of(hass, entry, "button", "wear_parts_replace"))
-        assert wear.attributes["part_number"] == "1073.027 / 1073.047"
-
-        # Only meaningful where a part is actually replaced: every other task
-        # of the same equipment omits it.
-        strainer = state_of(hass, entity_of(hass, entry, "button", "strainer_clean"))
-        assert "part_number" not in strainer.attributes
-
-    async def test_no_part_number_when_the_preset_documents_none(
-        self, hass: HomeAssistant, entry_factory, make_equipment, setup
-    ) -> None:
-        entry = await setup(
-            hass,
-            entry_factory(
-                equipments=[
-                    make_equipment(
-                        "tunze_1",
-                        "Turbelle",
-                        "tunze_turbelle_stream",
-                        ["wear_parts_replace"],
-                    )
-                ],
-            ),
-        )
-        wear = state_of(hass, entity_of(hass, entry, "button", "wear_parts_replace"))
-        assert "part_number" not in wear.attributes
 
     async def test_icon_comes_from_the_task(
         self, hass: HomeAssistant, loaded_entry
     ) -> None:
         state = state_of(hass, entity_of(hass, loaded_entry, "button", "pump_clean"))
-        assert state.attributes["icon"] == "mdi:fan"
+        assert state.attributes["icon"] == "mdi:pump"
 
 
 class TestIntervalNumber:
     async def test_value_is_shown_in_the_task_unit(
         self, hass: HomeAssistant, loaded_entry
     ) -> None:
-        # pump_clean defaults to 45 days and is declared in weeks: 45 // 7.
+        # The Tunze item runs pump_clean every 6 weeks (4-13).
         state = state_of(hass, entity_of(hass, loaded_entry, "number", "pump_clean"))
         assert float(state.state) == 6.0
         assert state.attributes["min"] == 4.0
-        assert state.attributes["max"] == 12.0
+        assert state.attributes["max"] == 13.0
 
     async def test_unit_travels_in_the_role(
         self, hass: HomeAssistant, loaded_entry
@@ -161,24 +116,31 @@ class TestIntervalNumber:
         self, hass: HomeAssistant, entry_factory, make_equipment, setup
     ) -> None:
         # "days" has to be listed in DAYS_PER_UNIT, otherwise the fallback
-        # factor of 7 would silently turn 7 days into 1.
+        # factor of 7 would silently turn 7 days into 1. The aquarium category
+        # runs glass_clean every 7 days.
         entry = await setup(
             hass,
             entry_factory(
                 brand="generic",
                 equipments=[
-                    make_equipment("generic_1", "Sump", "custom", ["sock_replace"])
+                    make_equipment(
+                        "generic_1",
+                        "Tank",
+                        "category:aquarium",
+                        "Aquarium (routine)",
+                        ["glass_clean"],
+                    )
                 ],
             ),
         )
-        state = state_of(hass, entity_of(hass, entry, "number", "sock_replace"))
+        state = state_of(hass, entity_of(hass, entry, "number", "glass_clean"))
         assert float(state.state) == 7.0
-        assert state.attributes["reef_role"] == "maint_sock_replace_interval_days"
+        assert state.attributes["reef_role"] == "maint_glass_clean_interval_days"
 
     async def test_a_task_declared_in_months(
         self, hass: HomeAssistant, loaded_entry
     ) -> None:
-        # wear_parts_replace: 730 days // 30.
+        # wear_parts_replace on the Tunze item: ~24 months.
         state = state_of(
             hass, entity_of(hass, loaded_entry, "number", "wear_parts_replace")
         )
@@ -306,14 +268,20 @@ class TestCustomTaskEntities:
                 ],
             ),
         )
-        entities = er.async_entries_for_config_entry(er.async_get(hass), entry.entry_id)
+        entities = [
+            e
+            for e in er.async_entries_for_config_entry(
+                er.async_get(hass), entry.entry_id
+            )
+            if not e.unique_id.startswith("catalog_")
+        ]
         assert len(entities) == 4
 
-    async def test_custom_tasks_share_the_generic_role(
+    async def test_custom_tasks_keep_a_task_specific_role(
         self, hass: HomeAssistant, entry_factory, make_equipment, setup
     ) -> None:
-        # The label is a translation placeholder, not a translation key, so
-        # every custom task reports the same role.
+        # The label is a translation placeholder (not a translation key), but
+        # the role stays task-specific so ha-reef-card can tell tasks apart.
         entry = await setup(
             hass,
             entry_factory(
@@ -337,7 +305,7 @@ class TestCustomTaskEntities:
             if e.domain == "button"
         )
         state = state_of(hass, button.entity_id)
-        assert state.attributes["reef_role"] == "maint_custom"
+        assert state.attributes["reef_role"] == "maint_custom_rincer_le_media"
         assert state.attributes["task_key"] == "custom_rincer_le_media"
 
 

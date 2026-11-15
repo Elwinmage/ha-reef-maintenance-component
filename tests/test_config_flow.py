@@ -1,4 +1,9 @@
-"""Config flow (one entry per brand) and options flow (the equipments)."""
+"""Config flow (one entry per brand) and options flow (the equipments).
+
+Brands, models and tasks all come from the catalog. The download is disabled in
+tests (see conftest), so the built-in snapshot shipped with the integration is
+what the flow reads — Tunze, Jebao, the generic categories, and their tasks.
+"""
 
 from __future__ import annotations
 
@@ -13,11 +18,21 @@ from custom_components.reef_maintenance.const import (
     CONF_CUSTOM_TASKS,
     CONF_EQUIPMENTS,
     CONF_ID,
+    CONF_MODEL,
     CONF_NAME,
-    CONF_PRESET,
+    CONF_SOURCE,
     CONF_TASKS,
     DOMAIN,
 )
+
+TURBELLE = "item:tunze-turbelle-stream"
+# The Tunze item lists these four tasks, in this order (see reeftech-catalog).
+TURBELLE_TASKS = [
+    "pump_clean",
+    "magnet_holder_clean",
+    "pump_descale",
+    "wear_parts_replace",
+]
 
 
 def schema_default(result: Any, key: str) -> Any:
@@ -95,7 +110,7 @@ class TestOptionsFlowAdd:
         result = await hass.config_entries.options.async_init(loaded_entry.entry_id)
         assert result["menu_options"] == ["add", "edit", "remove"]
 
-    async def test_adding_preselects_the_preset_tasks(
+    async def test_adding_preselects_the_model_tasks(
         self, hass: HomeAssistant, entry_factory, setup
     ) -> None:
         entry = await setup(hass, entry_factory(equipments=[]))
@@ -105,17 +120,11 @@ class TestOptionsFlowAdd:
         )
         result = await hass.config_entries.options.async_configure(
             result["flow_id"],
-            {CONF_NAME: "Turbelle", CONF_PRESET: "tunze_turbelle_stream"},
+            {CONF_NAME: "Turbelle", CONF_SOURCE: TURBELLE},
         )
         assert result["step_id"] == "tasks"
-
         # Preselected, not imposed: the user may untick any of them.
-        assert schema_default(result, CONF_TASKS) == [
-            "pump_clean",
-            "magnet_holder_clean",
-            "pump_descale",
-            "wear_parts_replace",
-        ]
+        assert schema_default(result, CONF_TASKS) == TURBELLE_TASKS
 
     async def test_adding_writes_the_equipment_with_a_fresh_id(
         self, hass: HomeAssistant, entry_factory, setup
@@ -127,7 +136,7 @@ class TestOptionsFlowAdd:
         )
         result = await hass.config_entries.options.async_configure(
             result["flow_id"],
-            {CONF_NAME: "Turbelle", CONF_PRESET: "tunze_turbelle_stream"},
+            {CONF_NAME: "Turbelle", CONF_SOURCE: TURBELLE},
         )
         result = await hass.config_entries.options.async_configure(
             result["flow_id"],
@@ -140,6 +149,8 @@ class TestOptionsFlowAdd:
         assert len(equipments) == 1
         assert equipments[0][CONF_ID] == "tunze_1"
         assert equipments[0][CONF_NAME] == "Turbelle"
+        assert equipments[0][CONF_SOURCE] == TURBELLE
+        assert equipments[0][CONF_MODEL] == "Turbelle stream / stream 3"
         assert equipments[0][CONF_TASKS] == ["pump_clean"]
         assert equipments[0][CONF_CUSTOM_TASKS] == ["Graisser"]
 
@@ -152,7 +163,7 @@ class TestOptionsFlowAdd:
         )
         result = await hass.config_entries.options.async_configure(
             result["flow_id"],
-            {CONF_NAME: "Nanostream", CONF_PRESET: "tunze_nanostream"},
+            {CONF_NAME: "Nanostream", CONF_SOURCE: "item:tunze-nanostream"},
         )
         await hass.config_entries.options.async_configure(
             result["flow_id"], {CONF_TASKS: ["pump_clean"]}
@@ -163,7 +174,7 @@ class TestOptionsFlowAdd:
             "tunze_2",
         ]
 
-    async def test_the_custom_preset_preselects_nothing(
+    async def test_a_generic_category_preselects_its_tasks(
         self, hass: HomeAssistant, entry_factory, setup
     ) -> None:
         entry = await setup(hass, entry_factory(brand="generic", equipments=[]))
@@ -172,9 +183,11 @@ class TestOptionsFlowAdd:
             result["flow_id"], {"next_step_id": "add"}
         )
         result = await hass.config_entries.options.async_configure(
-            result["flow_id"], {CONF_NAME: "Reactor", CONF_PRESET: "custom"}
+            result["flow_id"],
+            {CONF_NAME: "Heater", CONF_SOURCE: "category:heater"},
         )
-        assert schema_default(result, CONF_TASKS) == []
+        # The heater category carries its own maintenance tasks.
+        assert schema_default(result, CONF_TASKS)
 
 
 class TestOptionsFlowEdit:
@@ -244,7 +257,11 @@ class TestOptionsFlowRemove:
                 equipments=[
                     make_equipment(),
                     make_equipment(
-                        "tunze_2", "Nano", "tunze_nanostream", ["pump_clean"]
+                        "tunze_2",
+                        "Nano",
+                        "item:tunze-nanostream",
+                        "Turbelle nanostream",
+                        ["pump_clean"],
                     ),
                 ]
             ),

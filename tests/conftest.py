@@ -8,6 +8,7 @@ here only build config entries and load the integration.
 from __future__ import annotations
 
 from typing import Any
+from unittest.mock import AsyncMock
 
 import pytest
 from homeassistant.core import HomeAssistant
@@ -18,8 +19,9 @@ from custom_components.reef_maintenance.const import (
     CONF_CUSTOM_TASKS,
     CONF_EQUIPMENTS,
     CONF_ID,
+    CONF_MODEL,
     CONF_NAME,
-    CONF_PRESET,
+    CONF_SOURCE,
     CONF_TASKS,
     DOMAIN,
 )
@@ -35,10 +37,35 @@ def auto_enable_custom_integrations(enable_custom_integrations):
     yield
 
 
+@pytest.fixture
+def expected_lingering_timers() -> bool:
+    """Tolerate the debounced-write and periodic-check timers left at teardown.
+
+    HA's Store schedules a delayed-write timer, and the shared catalog updater
+    an hourly check timer. Both are cancelled on a real HA shutdown, but the
+    unit-test event loop stops before that runs. Returning True tells
+    pytest-homeassistant-custom-component to tolerate them instead of failing
+    with "Lingering timer after test".
+    """
+    return True
+
+
+@pytest.fixture(autouse=True)
+def _no_catalog_download(monkeypatch: pytest.MonkeyPatch) -> None:
+    """The equipment catalog is never downloaded: GitHub is unreachable, so the
+    built-in snapshot is used. Tests that need a release patch it again."""
+    from custom_components.reef_maintenance.catalog_pack import PackClient, PackError
+
+    monkeypatch.setattr(
+        PackClient, "latest", AsyncMock(side_effect=PackError("offline (tests)"))
+    )
+
+
 def equipment(
     equipment_id: str = "tunze_1",
     name: str = "Turbelle 6095",
-    preset: str = "tunze_turbelle_stream",
+    source: str = "item:tunze-turbelle-stream",
+    model: str = "Turbelle stream / stream 3",
     tasks: list[str] | None = None,
     custom_tasks: list[str] | None = None,
 ) -> dict[str, Any]:
@@ -46,7 +73,8 @@ def equipment(
     return {
         CONF_ID: equipment_id,
         CONF_NAME: name,
-        CONF_PRESET: preset,
+        CONF_SOURCE: source,
+        CONF_MODEL: model,
         CONF_TASKS: ["pump_clean", "wear_parts_replace"] if tasks is None else tasks,
         CONF_CUSTOM_TASKS: custom_tasks or [],
     }

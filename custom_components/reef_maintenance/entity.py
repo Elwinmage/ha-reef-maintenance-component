@@ -17,7 +17,7 @@ from homeassistant.helpers.entity import Entity
 
 from .const import DOMAIN
 from .storage import Equipment, MaintenanceStore, TaskInstance
-from .tasks import MaintenanceTask, is_custom, translation_key_for
+from .tasks import CUSTOM_TASK, ROLE_PREFIX, MaintenanceTask
 
 
 def brand_device_id(brand: str) -> str:
@@ -26,7 +26,12 @@ def brand_device_id(brand: str) -> str:
 
 
 class ReefRoleMixin:
-    """Expose `translation_key` as a stable `reef_role` state attribute.
+    """Expose a stable `reef_role` state attribute.
+
+    `reef_role` is built from the task key (`maint_<task>`), not from the
+    display translation_key: catalog tasks are named generically through a
+    placeholder, but their role must stay task-specific — it is the contract
+    ha-reef-card and the alert blueprints read.
 
     Must come FIRST in the MRO so this property wins over the default
     `Entity` one while still picking up `_attr_extra_state_attributes`.
@@ -35,7 +40,9 @@ class ReefRoleMixin:
     @property
     def extra_state_attributes(self) -> dict[str, Any] | None:
         base = getattr(self, "_attr_extra_state_attributes", None) or {}
-        role = getattr(self, "translation_key", None)
+        role = getattr(self, "_reef_role", None) or getattr(
+            self, "translation_key", None
+        )
         if role:
             return {**base, "reef_role": role}
         return dict(base) if base else None
@@ -68,13 +75,19 @@ class ReefMaintenanceEntity(ReefRoleMixin, Entity):  # type: ignore[misc]
         self._task: MaintenanceTask = instance.task
 
         self._attr_unique_id = f"{equipment.id}_{self._task.key}_{unique_suffix}"
-        self._attr_translation_key = (
-            f"{translation_key_for(self._task)}{translation_suffix}"
-        )
-        # A user-defined task reuses the generic `maint_custom` keys, so its
-        # label travels as a placeholder instead of a translation.
-        if is_custom(self._task) and instance.label:
+        # reef_role stays task-specific (maint_<task><suffix>), the shared
+        # contract ha-reef-card and the blueprints read.
+        self._reef_role = f"{ROLE_PREFIX}{self._task.key}{translation_suffix}"
+        # Catalog and user-defined tasks carry a label: they reuse the generic
+        # `maint_custom` keys, and the label travels as a placeholder instead of
+        # a translation. Only the fixed suffix ("(weeks)", "(last done)") stays
+        # translated. Everything else has a label, so this is the normal path.
+        if instance.label is not None:
+            base_key = CUSTOM_TASK.translation_key
             self._attr_translation_placeholders = {"task": instance.label}
+        else:
+            base_key = self._task.translation_key
+        self._attr_translation_key = f"{base_key}{translation_suffix}"
 
         di = DeviceInfo(
             identifiers={(DOMAIN, equipment.id)},
