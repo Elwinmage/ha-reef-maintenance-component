@@ -108,6 +108,8 @@ The maintenance view of [ha-reef-card](https://github.com/Elwinmage/ha-reef-card
 
 Nothing to set up on the card side: it finds the tasks through the `reef_role` attribute, so an equipment added here appears there on the next refresh.
 
+The card can also create an equipment itself: on a ReefControl-Power, once a socket is linked to a piece of equipment of the catalog, **Keep its maintenance** adds it here with the tasks the catalog gives it (and **Stop keeping it** removes it). This goes through three websocket commands, `reef_maintenance/equipment/list`, `/add` (`source`: `item:<id>` or `category:<id>`, optional `name`) and `/remove` (`equipment_id`); adding and removing need an administrator.
+
 Overdue tasks can also reach your phone: the [Reef maintenance watch](https://github.com/Elwinmage/ha-reef-blueprints) blueprint finds them through the same `reef_role` attribute and honours the per-task notification switches.
 
 [![Watch the video](https://img.youtube.com/vi/Ko46fHonOP4/0.jpg)](https://www.youtube.com/watch?v=Ko46fHonOP4)

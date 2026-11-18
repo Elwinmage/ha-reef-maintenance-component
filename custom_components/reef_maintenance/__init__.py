@@ -45,6 +45,7 @@ from .const import (
     SERVICE_RESET,
 )
 from .entity import brand_device_id
+from .equipment_api import async_setup_equipment_api
 from .storage import MaintenanceStore, build_equipments
 
 # Home Assistant validates with probatio, voluptuous being only an alias of it
@@ -66,6 +67,12 @@ SERVICE_RESET_SCHEMA = vol.Schema(
         vol.Optional(ATTR_LAST_RESET): cv.datetime,
     }
 )
+
+
+async def async_setup(hass: HomeAssistant, config: dict[str, Any]) -> bool:
+    """Register the websocket commands the card adds equipment with."""
+    async_setup_equipment_api(hass)
+    return True
 
 
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:

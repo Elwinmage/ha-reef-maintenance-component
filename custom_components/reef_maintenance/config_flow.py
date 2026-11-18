@@ -118,6 +118,18 @@ class ReefMaintenanceConfigFlow(ConfigFlow, domain=DOMAIN):
             data_schema=vol.Schema({vol.Required(CONF_BRAND): _dropdown(options)}),
         )
 
+    async def async_step_import(self, import_data: dict[str, Any]) -> ConfigFlowResult:
+        """Create a brand entry with its equipments (see equipment_api.py)."""
+        view = await async_catalog_view(self.hass)
+        brand: str = import_data[CONF_BRAND]
+        await self.async_set_unique_id(brand)
+        self._abort_if_unique_id_configured()
+        return self.async_create_entry(
+            title=brands(view).get(brand) or brand.capitalize(),
+            data={CONF_BRAND: brand},
+            options={CONF_EQUIPMENTS: list(import_data.get(CONF_EQUIPMENTS, []))},
+        )
+
     async def async_step_catalog(
         self, user_input: dict[str, Any] | None = None
     ) -> ConfigFlowResult:
