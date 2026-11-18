@@ -68,6 +68,9 @@
     "button": {
       "maint_custom": {
         "name": "{task}"
+      },
+      "catalog_update_now": {
+        "name": "Katalog jetzt aktualisieren"
       }
     },
     "number": {
@@ -93,6 +96,20 @@
       "maint_custom_last_reset": {
         "name": "{task} (zuletzt erledigt)"
       }
+    }
+  },
+  "exceptions": {
+    "catalog_unknown": {
+      "message": "Der Gerätekatalog wurde noch nicht geprüft."
+    },
+    "catalog_incompatible": {
+      "message": "Gerätekatalog {version} benötigt Version {minimum} der Integration oder neuer."
+    },
+    "catalog_install_failed": {
+      "message": "Aktualisierung des Gerätekatalogs fehlgeschlagen: {error}"
+    },
+    "catalog_check_failed": {
+      "message": "Prüfung des Gerätekatalogs fehlgeschlagen: {error}"
     }
   }
 }

@@ -68,6 +68,9 @@
     "button": {
       "maint_custom": {
         "name": "{task}"
+      },
+      "catalog_update_now": {
+        "name": "Atualizar o catálogo agora"
       }
     },
     "number": {
@@ -93,6 +96,20 @@
       "maint_custom_last_reset": {
         "name": "{task} (última vez)"
       }
+    }
+  },
+  "exceptions": {
+    "catalog_unknown": {
+      "message": "O catálogo de equipamentos ainda não foi verificado."
+    },
+    "catalog_incompatible": {
+      "message": "O catálogo de equipamentos {version} requer a versão {minimum} da integração ou mais recente."
+    },
+    "catalog_install_failed": {
+      "message": "Falha ao atualizar o catálogo de equipamentos: {error}"
+    },
+    "catalog_check_failed": {
+      "message": "Falha ao verificar o catálogo de equipamentos: {error}"
     }
   }
 }

@@ -68,6 +68,9 @@
     "button": {
       "maint_custom": {
         "name": "{task}"
+      },
+      "catalog_update_now": {
+        "name": "Aggiorna il catalogo ora"
       }
     },
     "number": {
@@ -93,6 +96,20 @@
       "maint_custom_last_reset": {
         "name": "{task} (ultima volta)"
       }
+    }
+  },
+  "exceptions": {
+    "catalog_unknown": {
+      "message": "Il catalogo delle attrezzature non è ancora stato verificato."
+    },
+    "catalog_incompatible": {
+      "message": "Il catalogo delle attrezzature {version} richiede la versione {minimum} dell'integrazione o successiva."
+    },
+    "catalog_install_failed": {
+      "message": "Aggiornamento del catalogo delle attrezzature non riuscito: {error}"
+    },
+    "catalog_check_failed": {
+      "message": "Verifica del catalogo delle attrezzature non riuscita: {error}"
     }
   }
 }

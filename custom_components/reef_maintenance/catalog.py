@@ -38,7 +38,11 @@ CATALOG_SPEC: Final = CatalogSpec(DOMAIN, SECTION, "ReefTech equipment catalog",
 CONF_CATALOG: Final = "equipment_catalog"
 CATALOG_UNIQUE_ID: Final = "catalog_equipment"
 SOURCE_CATALOG: Final = "catalog"
-CATALOG_PLATFORMS: Final[list[Platform]] = [Platform.SWITCH, Platform.UPDATE]
+CATALOG_PLATFORMS: Final[list[Platform]] = [
+    Platform.BUTTON,
+    Platform.SWITCH,
+    Platform.UPDATE,
+]
 
 
 def is_catalog_entry(entry: ConfigEntry) -> bool:

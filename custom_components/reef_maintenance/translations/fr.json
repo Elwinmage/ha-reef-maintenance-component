@@ -68,6 +68,9 @@
     "button": {
       "maint_custom": {
         "name": "{task}"
+      },
+      "catalog_update_now": {
+        "name": "Mettre à jour le catalogue maintenant"
       }
     },
     "number": {
@@ -93,6 +96,20 @@
       "maint_custom_last_reset": {
         "name": "{task} (dernière fois)"
       }
+    }
+  },
+  "exceptions": {
+    "catalog_unknown": {
+      "message": "Le catalogue d'équipements n'a pas encore été vérifié."
+    },
+    "catalog_incompatible": {
+      "message": "Le catalogue d'équipements {version} nécessite la version {minimum} de l'intégration ou plus récente."
+    },
+    "catalog_install_failed": {
+      "message": "Échec de la mise à jour du catalogue d'équipements : {error}"
+    },
+    "catalog_check_failed": {
+      "message": "Échec de la vérification du catalogue d'équipements : {error}"
     }
   }
 }

@@ -68,6 +68,9 @@
     "button": {
       "maint_custom": {
         "name": "{task}"
+      },
+      "catalog_update_now": {
+        "name": "Actualizar el catálogo ahora"
       }
     },
     "number": {
@@ -93,6 +96,20 @@
       "maint_custom_last_reset": {
         "name": "{task} (última vez)"
       }
+    }
+  },
+  "exceptions": {
+    "catalog_unknown": {
+      "message": "El catálogo de equipos aún no se ha comprobado."
+    },
+    "catalog_incompatible": {
+      "message": "El catálogo de equipos {version} requiere la versión {minimum} de la integración o posterior."
+    },
+    "catalog_install_failed": {
+      "message": "Error al actualizar el catálogo de equipos: {error}"
+    },
+    "catalog_check_failed": {
+      "message": "Error al comprobar el catálogo de equipos: {error}"
     }
   }
 }

@@ -7,6 +7,8 @@ from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 
+from .catalog import is_catalog_entry
+from .catalog_runtime import catalog_entities
 from .const import CONF_BRAND, DOMAIN
 from .entity import ReefMaintenanceEntity
 from .storage import Equipment, MaintenanceStore, TaskInstance, compute_days_left
@@ -17,6 +19,12 @@ async def async_setup_entry(
     entry: ConfigEntry,
     async_add_entities: AddEntitiesCallback,
 ) -> None:
+    # The dedicated catalog entry carries the "update now" button; a brand
+    # entry carries one "done" button per task.
+    if is_catalog_entry(entry):
+        async_add_entities(catalog_entities(hass, entry, DOMAIN, "button"))
+        return
+
     data = hass.data[DOMAIN][entry.entry_id]
     store: MaintenanceStore = data["store"]
     brand: str = entry.data[CONF_BRAND]

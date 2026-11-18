@@ -68,6 +68,9 @@
     "button": {
       "maint_custom": {
         "name": "{task}"
+      },
+      "catalog_update_now": {
+        "name": "Catalogus nu bijwerken"
       }
     },
     "number": {
@@ -93,6 +96,20 @@
       "maint_custom_last_reset": {
         "name": "{task} (laatst gedaan)"
       }
+    }
+  },
+  "exceptions": {
+    "catalog_unknown": {
+      "message": "De apparatuurcatalogus is nog niet gecontroleerd."
+    },
+    "catalog_incompatible": {
+      "message": "Apparatuurcatalogus {version} vereist versie {minimum} van de integratie of nieuwer."
+    },
+    "catalog_install_failed": {
+      "message": "Bijwerken van de apparatuurcatalogus mislukt: {error}"
+    },
+    "catalog_check_failed": {
+      "message": "Controle van de apparatuurcatalogus mislukt: {error}"
     }
   }
 }

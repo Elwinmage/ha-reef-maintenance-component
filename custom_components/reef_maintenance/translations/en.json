@@ -68,6 +68,9 @@
     "button": {
       "maint_custom": {
         "name": "{task}"
+      },
+      "catalog_update_now": {
+        "name": "Update catalog now"
       }
     },
     "number": {
@@ -93,6 +96,20 @@
       "maint_custom_last_reset": {
         "name": "{task} (last done)"
       }
+    }
+  },
+  "exceptions": {
+    "catalog_unknown": {
+      "message": "The equipment catalog has not been checked yet."
+    },
+    "catalog_incompatible": {
+      "message": "Equipment catalog {version} needs version {minimum} of the integration or newer."
+    },
+    "catalog_install_failed": {
+      "message": "Equipment catalog update failed: {error}"
+    },
+    "catalog_check_failed": {
+      "message": "Equipment catalog check failed: {error}"
     }
   }
 }

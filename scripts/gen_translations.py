@@ -487,6 +487,71 @@ CATALOG_AUTO_UPDATE = {
     "pt": "Atualizações automáticas do catálogo",
 }
 
+# Button of the catalog device: check and install now, whatever the switch says
+CATALOG_UPDATE_NOW = {
+    "en": "Update catalog now",
+    "fr": "Mettre à jour le catalogue maintenant",
+    "de": "Katalog jetzt aktualisieren",
+    "es": "Actualizar el catálogo ahora",
+    "it": "Aggiorna il catalogo ora",
+    "nl": "Catalogus nu bijwerken",
+    "pl": "Zaktualizuj katalog teraz",
+    "pt": "Atualizar o catálogo agora",
+}
+
+# Errors raised by the shared catalog client (catalog_runtime), per language:
+# not checked yet, release too new, install failed, check failed
+CATALOG_ERRORS = {
+    "en": (
+        "The equipment catalog has not been checked yet.",
+        "Equipment catalog {version} needs version {minimum} of the integration or newer.",
+        "Equipment catalog update failed: {error}",
+        "Equipment catalog check failed: {error}",
+    ),
+    "fr": (
+        "Le catalogue d'équipements n'a pas encore été vérifié.",
+        "Le catalogue d'équipements {version} nécessite la version {minimum} de l'intégration ou plus récente.",
+        "Échec de la mise à jour du catalogue d'équipements : {error}",
+        "Échec de la vérification du catalogue d'équipements : {error}",
+    ),
+    "de": (
+        "Der Gerätekatalog wurde noch nicht geprüft.",
+        "Gerätekatalog {version} benötigt Version {minimum} der Integration oder neuer.",
+        "Aktualisierung des Gerätekatalogs fehlgeschlagen: {error}",
+        "Prüfung des Gerätekatalogs fehlgeschlagen: {error}",
+    ),
+    "es": (
+        "El catálogo de equipos aún no se ha comprobado.",
+        "El catálogo de equipos {version} requiere la versión {minimum} de la integración o posterior.",
+        "Error al actualizar el catálogo de equipos: {error}",
+        "Error al comprobar el catálogo de equipos: {error}",
+    ),
+    "it": (
+        "Il catalogo delle attrezzature non è ancora stato verificato.",
+        "Il catalogo delle attrezzature {version} richiede la versione {minimum} dell'integrazione o successiva.",
+        "Aggiornamento del catalogo delle attrezzature non riuscito: {error}",
+        "Verifica del catalogo delle attrezzature non riuscita: {error}",
+    ),
+    "nl": (
+        "De apparatuurcatalogus is nog niet gecontroleerd.",
+        "Apparatuurcatalogus {version} vereist versie {minimum} van de integratie of nieuwer.",
+        "Bijwerken van de apparatuurcatalogus mislukt: {error}",
+        "Controle van de apparatuurcatalogus mislukt: {error}",
+    ),
+    "pl": (
+        "Katalog sprzętu nie został jeszcze sprawdzony.",
+        "Katalog sprzętu {version} wymaga wersji {minimum} integracji lub nowszej.",
+        "Aktualizacja katalogu sprzętu nie powiodła się: {error}",
+        "Sprawdzenie katalogu sprzętu nie powiodło się: {error}",
+    ),
+    "pt": (
+        "O catálogo de equipamentos ainda não foi verificado.",
+        "O catálogo de equipamentos {version} requer a versão {minimum} da integração ou mais recente.",
+        "Falha ao atualizar o catálogo de equipamentos: {error}",
+        "Falha ao verificar o catálogo de equipamentos: {error}",
+    ),
+}
+
 
 def build(lang: str) -> dict:
     """Compose the whole translation tree for one language.
@@ -499,7 +564,11 @@ def build(lang: str) -> dict:
     unit_word = UNITS[lang]
     flow = FLOW[lang]
 
-    buttons = {"maint_custom": {"name": "{task}"}}
+    buttons = {
+        "maint_custom": {"name": "{task}"},
+        "catalog_update_now": {"name": CATALOG_UPDATE_NOW[lang]},
+    }
+    unknown, incompatible, install_failed, check_failed = CATALOG_ERRORS[lang]
     numbers = {
         f"maint_custom_interval_{unit}": {"name": "{task} (" + unit_word[unit] + ")"}
         for unit in ("days", "weeks", "months")
@@ -570,6 +639,12 @@ def build(lang: str) -> dict:
             "number": numbers,
             "switch": switches,
             "date": dates,
+        },
+        "exceptions": {
+            "catalog_unknown": {"message": unknown},
+            "catalog_incompatible": {"message": incompatible},
+            "catalog_install_failed": {"message": install_failed},
+            "catalog_check_failed": {"message": check_failed},
         },
     }
 

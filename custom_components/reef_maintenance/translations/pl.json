@@ -68,6 +68,9 @@
     "button": {
       "maint_custom": {
         "name": "{task}"
+      },
+      "catalog_update_now": {
+        "name": "Zaktualizuj katalog teraz"
       }
     },
     "number": {
@@ -93,6 +96,20 @@
       "maint_custom_last_reset": {
         "name": "{task} (ostatnio)"
       }
+    }
+  },
+  "exceptions": {
+    "catalog_unknown": {
+      "message": "Katalog sprzętu nie został jeszcze sprawdzony."
+    },
+    "catalog_incompatible": {
+      "message": "Katalog sprzętu {version} wymaga wersji {minimum} integracji lub nowszej."
+    },
+    "catalog_install_failed": {
+      "message": "Aktualizacja katalogu sprzętu nie powiodła się: {error}"
+    },
+    "catalog_check_failed": {
+      "message": "Sprawdzenie katalogu sprzętu nie powiodło się: {error}"
     }
   }
 }
