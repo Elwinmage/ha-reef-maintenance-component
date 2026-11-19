@@ -275,3 +275,16 @@ class TestOptionsFlowRemove:
         )
         await hass.async_block_till_done()
         assert [e[CONF_ID] for e in entry.options[CONF_EQUIPMENTS]] == ["tunze_2"]
+
+
+def test_options_flow_is_not_offered_for_the_catalog_entry() -> None:
+    """The catalog entry has no equipments to manage; brand entries do."""
+    from pytest_homeassistant_custom_component.common import MockConfigEntry
+
+    from custom_components.reef_maintenance.catalog import CONF_CATALOG
+    from custom_components.reef_maintenance.config_flow import ReefMaintenanceConfigFlow
+
+    catalog = MockConfigEntry(domain=DOMAIN, data={CONF_CATALOG: True})
+    brand = MockConfigEntry(domain=DOMAIN, data={CONF_BRAND: "tunze"})
+    assert not ReefMaintenanceConfigFlow.async_supports_options_flow(catalog)
+    assert ReefMaintenanceConfigFlow.async_supports_options_flow(brand)

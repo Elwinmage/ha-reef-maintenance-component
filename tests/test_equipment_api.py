@@ -140,3 +140,23 @@ async def test_websocket_commands(
 async def test_websocket_registration_is_idempotent(hass: HomeAssistant) -> None:
     api.async_setup_equipment_api(hass)
     api.async_setup_equipment_api(hass)
+
+
+async def test_catalog_entry_is_requested_once(
+    hass: HomeAssistant, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """No second catalog entry is requested while its flow is already running."""
+    from unittest.mock import AsyncMock, MagicMock
+
+    from custom_components.reef_maintenance.catalog import async_request_catalog_entry
+
+    init = AsyncMock()
+    monkeypatch.setattr(hass.config_entries.flow, "async_init", init)
+    monkeypatch.setattr(
+        hass.config_entries.flow,
+        "async_progress_by_handler",
+        MagicMock(return_value=[{"flow_id": "running"}]),
+    )
+    async_request_catalog_entry(hass)
+    await hass.async_block_till_done()
+    init.assert_not_called()

@@ -175,3 +175,14 @@ class TestLegacyPresets:
         # Every mapping points at an item or a category.
         for target in LEGACY_PRESETS.values():
             assert target.startswith((ITEM, CATEGORY))
+
+
+def test_unknown_catalog_unit_falls_back_to_weeks() -> None:
+    """A schedule unit the integration does not know is read as weeks."""
+    from custom_components.reef_maintenance.catalog import _task_from_catalog
+
+    task = _task_from_catalog(
+        {"task": "x", "schedule": {"unit": "decades", "every": {"default": 2}}}
+    )
+    assert task.unit == "weeks"
+    assert task.default_days == 14

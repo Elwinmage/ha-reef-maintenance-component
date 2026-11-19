@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 import pytest
 from homeassistant.config_entries import ConfigEntryState
@@ -200,7 +200,7 @@ class TestResetService:
         self, hass: HomeAssistant, loaded_entry
     ) -> None:
         entity_id = await self._button_of(hass, loaded_entry)
-        when = datetime(2026, 1, 15, 8, 0, tzinfo=timezone.utc)
+        when = datetime(2026, 1, 15, 8, 0, tzinfo=UTC)
         await hass.services.async_call(
             DOMAIN,
             SERVICE_RESET,
@@ -291,3 +291,47 @@ class TestResolveInstanceEdgeCases:
             DOMAIN, SERVICE_RESET, {"entity_id": orphan.entity_id}, blocking=True
         )
         assert "not a reef_maintenance task entity" in caplog.text
+
+
+async def test_catalog_change_reloads_only_a_live_entry(
+    hass: HomeAssistant, loaded_entry, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """A catalog change reloads the brand entry, unless the catalog is going away."""
+    from types import SimpleNamespace
+    from unittest.mock import MagicMock
+
+    from homeassistant.core import CoreState
+    from homeassistant.helpers.dispatcher import async_dispatcher_send
+
+    from custom_components.reef_maintenance.catalog_runtime import (
+        signal_catalog_changed,
+    )
+
+    reload = MagicMock()
+    monkeypatch.setattr(hass.config_entries, "async_schedule_reload", reload)
+
+    def catalog_is(value):
+        monkeypatch.setattr(
+            hass.config_entries,
+            "async_entry_for_domain_unique_id",
+            lambda *args: value,
+        )
+
+    for gone in (None, SimpleNamespace(state=ConfigEntryState.UNLOAD_IN_PROGRESS)):
+        catalog_is(gone)
+        async_dispatcher_send(hass, signal_catalog_changed(DOMAIN))
+        await hass.async_block_till_done()
+        reload.assert_not_called()
+
+    catalog_is(SimpleNamespace(state=ConfigEntryState.LOADED))
+
+    # Home Assistant is stopping: ignored
+    hass.set_state(CoreState.stopping)
+    async_dispatcher_send(hass, signal_catalog_changed(DOMAIN))
+    await hass.async_block_till_done()
+    reload.assert_not_called()
+    hass.set_state(CoreState.running)
+
+    async_dispatcher_send(hass, signal_catalog_changed(DOMAIN))
+    await hass.async_block_till_done()
+    reload.assert_called_once_with(loaded_entry.entry_id)

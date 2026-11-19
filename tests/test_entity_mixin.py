@@ -53,3 +53,22 @@ def test_nothing_at_all_yields_none() -> None:
 def test_brand_device_id_is_prefixed() -> None:
     # It must never collide with an equipment id such as "tunze_1".
     assert brand_device_id("tunze") == "brand_tunze"
+
+
+def test_library_task_translates_through_its_own_key() -> None:
+    """A task without label is translated by HA under its own `maint_<task>` key."""
+    from unittest.mock import MagicMock
+
+    from custom_components.reef_maintenance.entity import ReefMaintenanceEntity
+    from custom_components.reef_maintenance.storage import Equipment, TaskInstance
+    from custom_components.reef_maintenance.tasks import MaintenanceTask
+
+    task = MaintenanceTask("pump_clean", 14, 7, 90)
+    equipment = Equipment("tunze_1", "Pump", "item:x", "Model")
+    entity = ReefMaintenanceEntity(
+        MagicMock(), "tunze", equipment, TaskInstance(task), "button", "_x"
+    )
+    assert entity._attr_translation_key == "maint_pump_clean_x"
+    assert not hasattr(entity, "_attr_translation_placeholders") or (
+        entity._attr_translation_placeholders in (None, {})
+    )
